@@ -35,24 +35,24 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'Home', 'url' => ['/web/site/index']],
                     ['label' => 'Empresas',
 						'items' => [
-							['label' => 'Empresas', 'url' => '/empresa'],
-							['label' => 'Locales', 'url' => '/local'],
-							['label' => 'Productos', 'url' => '/producto'],
+							['label' => 'Empresas', 'url' => '/web/empresa'],
+							['label' => 'Locales', 'url' => '/web/local'],
+							['label' => 'Productos', 'url' => '/web/producto'],
             			]	 
 					],
 					['label' => 'Configuración',
 						'items' => [
-							['label' => 'Categoria', 'url' => '/categoria'],
-							['label' => 'Rubro', 'url' => '/rubro'],
+							['label' => 'Categoria', 'url' => '/web/categoria'],
+							['label' => 'Rubro', 'url' => '/web/rubro'],
 						]
 					],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
+                        ['label' => 'Login', 'url' => ['/web/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
+                            'url' => ['/web/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);

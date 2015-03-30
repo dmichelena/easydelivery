@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__).'/web',
+    'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
     	'urlManager' => [

@@ -18,8 +18,12 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'only' => ['logout'],
                 'rules' => [
+                	[
+                		'actions' => ['login', 'error'],
+                		'allow' => true,
+                	],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],

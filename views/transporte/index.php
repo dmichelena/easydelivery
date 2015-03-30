@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id_turno',
             // 'id_local',
             // 'status',
+            // 'id_user',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

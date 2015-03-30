@@ -18,7 +18,7 @@ class LocalSearch extends Local
     public function rules()
     {
         return [
-            [['id_local', 'zona_reparto_km', 'id_empresa', 'id_turno'], 'integer'],
+            [['id_local', 'zona_reparto_km', 'id_empresa', 'id_turno', 'id_user'], 'integer'],
             [['nombre', 'direccion', 'latitud', 'longitud', 'telefono', 'status'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class LocalSearch extends Local
             'zona_reparto_km' => $this->zona_reparto_km,
             'id_empresa' => $this->id_empresa,
             'id_turno' => $this->id_turno,
+            'id_user' => $this->id_user,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])

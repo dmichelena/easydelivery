@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id_empresa',
             // 'id_turno',
             // 'status',
+            // 'id_user',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

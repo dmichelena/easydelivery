@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=mysql.ultimatefreehost.com;dbname=u901873443_easy',
-    'username' => 'u901873443_easy',
-    'password' => 'easydelivery',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=easydelivery',
+    'username' => 'root',
+    'password' => '',
     'charset' => 'utf8',
 ];

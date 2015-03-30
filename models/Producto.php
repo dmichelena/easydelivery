@@ -9,18 +9,20 @@ use Yii;
  *
  * @property integer $id_producto
  * @property string $nombre
+ * @property string $foto
  * @property string $descipcion
  * @property integer $stock
  * @property double $precio_unitario
- * @property string $foto
  * @property double $precio_envio
  * @property integer $id_categoria
  * @property integer $id_local
  * @property string $status
+ * @property integer $id_user
  *
  * @property Pedido[] $pedidos
  * @property Categoria $idCategoria
  * @property Local $idLocal
+ * @property User $idUser
  */
 class Producto extends \yii\db\ActiveRecord
 {
@@ -39,9 +41,9 @@ class Producto extends \yii\db\ActiveRecord
     {
         return [
             [['descipcion', 'status'], 'string'],
-            [['stock', 'id_categoria', 'id_local'], 'integer'],
+            [['stock', 'id_categoria', 'id_local', 'id_user'], 'integer'],
             [['precio_unitario', 'precio_envio'], 'number'],
-            [['id_categoria', 'id_local'], 'required'],
+            [['id_categoria', 'id_local', 'id_user'], 'required'],
             [['nombre'], 'string', 'max' => 50],
             [['foto'], 'string', 'max' => 100]
         ];
@@ -55,14 +57,15 @@ class Producto extends \yii\db\ActiveRecord
         return [
             'id_producto' => 'Id Producto',
             'nombre' => 'Nombre',
+            'foto' => 'Foto',
             'descipcion' => 'Descipcion',
             'stock' => 'Stock',
             'precio_unitario' => 'Precio Unitario',
-            'foto' => 'Foto',
             'precio_envio' => 'Precio Envio',
             'id_categoria' => 'Id Categoria',
             'id_local' => 'Id Local',
             'status' => 'Status',
+            'id_user' => 'Id User',
         ];
     }
 
@@ -88,5 +91,13 @@ class Producto extends \yii\db\ActiveRecord
     public function getIdLocal()
     {
         return $this->hasOne(Local::className(), ['id_local' => 'id_local']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(User::className(), ['id_user' => 'id_user']);
     }
 }

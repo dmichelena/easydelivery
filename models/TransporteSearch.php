@@ -18,7 +18,7 @@ class TransporteSearch extends Transporte
     public function rules()
     {
         return [
-            [['id_transporte', 'id_turno', 'id_local'], 'integer'],
+            [['id_transporte', 'id_turno', 'id_local', 'id_user'], 'integer'],
             [['nombre', 'apellido', 'dni', 'domicilio', 'telefono', 'licencia_conducir', 'placa_vehiculo', 'status'], 'safe'],
         ];
     }
@@ -59,6 +59,7 @@ class TransporteSearch extends Transporte
             'id_transporte' => $this->id_transporte,
             'id_turno' => $this->id_turno,
             'id_local' => $this->id_local,
+            'id_user' => $this->id_user,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])

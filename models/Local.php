@@ -17,10 +17,12 @@ use Yii;
  * @property integer $id_empresa
  * @property integer $id_turno
  * @property string $status
+ * @property integer $id_user
  *
  * @property Delivery[] $deliveries
  * @property Empresa $idEmpresa
  * @property Turno $idTurno
+ * @property User $idUser
  * @property Producto[] $productos
  * @property Transporte[] $transportes
  */
@@ -40,8 +42,8 @@ class Local extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['zona_reparto_km', 'id_empresa', 'id_turno'], 'integer'],
-            [['id_empresa', 'id_turno'], 'required'],
+            [['zona_reparto_km', 'id_empresa', 'id_turno', 'id_user'], 'integer'],
+            [['id_empresa', 'id_turno', 'id_user'], 'required'],
             [['status'], 'string'],
             [['nombre', 'direccion'], 'string', 'max' => 100],
             [['latitud', 'longitud'], 'string', 'max' => 45],
@@ -65,6 +67,7 @@ class Local extends \yii\db\ActiveRecord
             'id_empresa' => 'Id Empresa',
             'id_turno' => 'Id Turno',
             'status' => 'Status',
+            'id_user' => 'Id User',
         ];
     }
 
@@ -90,6 +93,14 @@ class Local extends \yii\db\ActiveRecord
     public function getIdTurno()
     {
         return $this->hasOne(Turno::className(), ['id_turno' => 'id_turno']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(User::className(), ['id_user' => 'id_user']);
     }
 
     /**

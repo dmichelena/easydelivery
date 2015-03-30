@@ -27,14 +27,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_producto',
             'nombre',
+            'foto',
             'descipcion:ntext',
             'stock',
-            'precio_unitario',
-            // 'foto',
+            // 'precio_unitario',
             // 'precio_envio',
             // 'id_categoria',
             // 'id_local',
             // 'status',
+            // 'id_user',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

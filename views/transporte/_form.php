@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use app\models\Turno;
-use app\models\Local;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Transporte */
@@ -29,17 +26,13 @@ use app\models\Local;
 
     <?= $form->field($model, 'placa_vehiculo')->textInput(['maxlength' => 15]) ?>
 
-    <?= $form->field($model, 'id_turno')->dropDownList(
-    		ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'),
-            ['prompt'=>'Selecionar Turno']
-        ) ?>
+    <?= $form->field($model, 'id_turno')->textInput() ?>
 
-    <?= $form->field($model, 'id_local')->dropDownList(
-    		ArrayHelper::map(Local::find()->all(), 'id_local', 'nombre'),
-            ['prompt'=>'Selecionar Local']
-        ) ?>
+    <?= $form->field($model, 'id_local')->textInput() ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'id_user')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

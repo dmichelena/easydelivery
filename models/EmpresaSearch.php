@@ -18,7 +18,7 @@ class EmpresaSearch extends Empresa
     public function rules()
     {
         return [
-            [['id_empresa', 'id_rubro'], 'integer'],
+            [['id_empresa', 'id_rubro', 'id_user'], 'integer'],
             [['nombre', 'ruc', 'telefono', 'direccion', 'status'], 'safe'],
         ];
     }
@@ -58,6 +58,7 @@ class EmpresaSearch extends Empresa
         $query->andFilterWhere([
             'id_empresa' => $this->id_empresa,
             'id_rubro' => $this->id_rubro,
+            'id_user' => $this->id_user,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])

@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 use app\models\Empresa;
+use yii\helpers\ArrayHelper;
 use app\models\Turno;
 
 /* @var $this yii\web\View */
@@ -27,17 +27,13 @@ use app\models\Turno;
 
     <?= $form->field($model, 'zona_reparto_km')->textInput() ?>
 
-    <?= $form->field($model, 'id_empresa')->dropDownList(
-    		ArrayHelper::map(Empresa::find()->all(), 'id_empresa', 'nombre'),
-            ['prompt'=>'Selecionar Empresa']
-        ) ?>
+    <?= $form->field($model, 'id_empresa')->dropDownList(ArrayHelper::map(Empresa::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->all(), 'id_empresa', 'nombre'), ['prompt' => 'Seleccione una empresa']) ?>
 
-    <?= $form->field($model, 'id_turno')->dropDownList(
-    		ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'),
-            ['prompt'=>'Selecionar Turno']
-        ) ?>
+    <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione una turno']) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

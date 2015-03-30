@@ -19,13 +19,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nombre') ?>
 
+    <?= $form->field($model, 'foto') ?>
+
     <?= $form->field($model, 'descipcion') ?>
 
     <?= $form->field($model, 'stock') ?>
 
-    <?= $form->field($model, 'precio_unitario') ?>
-
-    <?php // echo $form->field($model, 'foto') ?>
+    <?php // echo $form->field($model, 'precio_unitario') ?>
 
     <?php // echo $form->field($model, 'precio_envio') ?>
 
@@ -34,6 +34,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'id_local') ?>
 
     <?php // echo $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'id_user') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

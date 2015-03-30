@@ -18,10 +18,12 @@ use Yii;
  * @property integer $id_turno
  * @property integer $id_local
  * @property string $status
+ * @property integer $id_user
  *
  * @property Delivery[] $deliveries
  * @property Local $idLocal
  * @property Turno $idTurno
+ * @property User $idUser
  */
 class Transporte extends \yii\db\ActiveRecord
 {
@@ -39,8 +41,8 @@ class Transporte extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_turno', 'id_local'], 'required'],
-            [['id_turno', 'id_local'], 'integer'],
+            [['id_turno', 'id_local', 'id_user'], 'required'],
+            [['id_turno', 'id_local', 'id_user'], 'integer'],
             [['status'], 'string'],
             [['nombre', 'apellido'], 'string', 'max' => 45],
             [['dni'], 'string', 'max' => 10],
@@ -66,6 +68,7 @@ class Transporte extends \yii\db\ActiveRecord
             'id_turno' => 'Id Turno',
             'id_local' => 'Id Local',
             'status' => 'Status',
+            'id_user' => 'Id User',
         ];
     }
 
@@ -91,5 +94,13 @@ class Transporte extends \yii\db\ActiveRecord
     public function getIdTurno()
     {
         return $this->hasOne(Turno::className(), ['id_turno' => 'id_turno']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUser()
+    {
+        return $this->hasOne(User::className(), ['id_user' => 'id_user']);
     }
 }

@@ -41,6 +41,7 @@ AppAsset::register($this);
 							['label' => 'Empresas', 'url' => '/empresa'],
 							['label' => 'Locales', 'url' => '/local'],
 							['label' => 'Productos', 'url' => '/producto'],
+            				['label' => 'Transporte', 'url' => '/transporte'],
             			]	 
 					],
 					['label' => 'Configuración',
@@ -49,6 +50,7 @@ AppAsset::register($this);
 							['label' => 'Rubro', 'url' => '/rubro'],
 						]
 					],
+					['label' => 'Usuario', 'url' => '/usuario'],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => '/site/login'] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',

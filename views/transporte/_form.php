@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Turno;
+use app\models\Local;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Transporte */
@@ -26,13 +29,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'placa_vehiculo')->textInput(['maxlength' => 15]) ?>
 
-    <?= $form->field($model, 'id_turno')->textInput() ?>
+    <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione un turno']) ?>
 
-    <?= $form->field($model, 'id_local')->textInput() ?>
+    <?= $form->field($model, 'id_local')->dropDownList(ArrayHelper::map(Local::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->all(), 'id_local', 'nombre'),['prompt' => 'Seleccione un local']) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

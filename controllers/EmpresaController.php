@@ -137,8 +137,10 @@ class EmpresaController extends Controller
     		{
     			$modelLogin->username = $post['LoginForm']['username'];
     			$modelLogin->password = $post['LoginForm']['password'];
-    			$modelLogin->login();
-    			return $this->redirect('/local');
+    			if($modelLogin->login())
+    			{
+	    			return $this->redirect('/local');
+    			}
     		}
     		else 
     		{
@@ -159,9 +161,10 @@ class EmpresaController extends Controller
 	    		
 	    		$modelLogin->username = $post['LoginForm']['username'];
 	    		$modelLogin->password = $post['LoginForm']['password'];
-	    		$modelLogin->login();
-	    		
-	    		return $this->redirect('/local');
+	    		if($modelLogin->login())
+	    		{
+	    			return $this->redirect('/local');
+	    		}
     		}
     	}
     	

@@ -1,3 +1,8 @@
+<?php 
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+?>
+
 <div class="row">
    	<div class="col-md-6" style="text-align:center">
    		<h1>¿Tienes cuenta?</h1>

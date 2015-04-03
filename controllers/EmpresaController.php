@@ -140,7 +140,7 @@ class EmpresaController extends Controller
     		$model->direccion 	= $post['Empresa']['direccion'];
     		$model->id_rubro 	= $post['Empresa']['id_rubro'];
     		$model->status 		= $post['Empresa']['status'];
-    		$model->id_usuario 	= $db->lastInsertID;
+    		$model->id_user 	= $db->lastInsertID;
     		$model->save();
     		
     	}

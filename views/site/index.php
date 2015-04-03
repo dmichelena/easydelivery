@@ -11,8 +11,8 @@ $this->title = 'My Yii Application';
     </div>
     
     <div class="row">
-    	<div class="col-md-6">Pedir Delivery</div>
-    	<div class="col-md-6">Empresas</div>
+    	<div class="col-md-6" style="text-align:center">Pedir Delivery</div>
+    	<div class="col-md-6" style="text-align:center">Empresas</div>
     </div>
 
 </div>

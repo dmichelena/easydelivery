@@ -14,9 +14,9 @@ use app\models\Rubro;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
-
     <?= $form->field($model, 'ruc')->textInput(['maxlength' => 20]) ?>
+    
+    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100])->label('Razón Social') ?>
 
     <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15]) ?>
 

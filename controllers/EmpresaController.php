@@ -133,7 +133,6 @@ class EmpresaController extends Controller
     	$post = Yii::$app->request->post();
     	if(!empty($post))
     	{
-    		echo "<pre>";print_r($post);die();
     		if(isset($post['login-button']))
     		{
     			$modelLogin->username = $post['LoginForm']['username'];

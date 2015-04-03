@@ -11,9 +11,6 @@ use app\models\Turno;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-
-<div id="map_canvas" style="width:400px; height:400px"></div>
-
 <div class="local-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -21,10 +18,8 @@ use app\models\Turno;
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
 
     <?= $form->field($model, 'direccion')->textInput(['maxlength' => 100]) ?>
-
-    <?= $form->field($model, 'latitud')->textInput(['maxlength' => 45]) ?>
-
-    <?= $form->field($model, 'longitud')->textInput(['maxlength' => 45]) ?>
+    
+    <div id="map_canvas" style="width:400px; height:400px"></div>
 
     <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15]) ?>
 
@@ -35,6 +30,10 @@ use app\models\Turno;
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
+    
+    <?= $form->field($model, 'latitud')->hiddenInput(['inputOptions' =>['class' => 'latitud']])->label('') ?>
+    
+    <?= $form->field($model, 'longitud')->hiddenInput(['inputOptions' =>['class' => 'longitud']])->label('') ?>
     
     <?php 
     	$empresa = Empresa::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->one();

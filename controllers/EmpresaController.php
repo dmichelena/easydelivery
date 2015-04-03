@@ -128,7 +128,21 @@ class EmpresaController extends Controller
     	$post = Yii::$app->request->post();
     	if(!empty($post))
     	{
-    		echo "<pre>";print_r(Yii::$app->request->post());die();
+    		$db = \Yii::$app->db;
+    		$db->createCommand()->insert('user', [
+					'username' => $post['LoginForm']['username'],
+    				'password' => sha1($post['LoginForm']['password']),
+    		])->execute();
+    		
+    		$model->ruc 		= $post['Empresa']['ruc'];
+    		$model->nombre 		= $post['Empresa']['nombre'];
+    		$model->telefono 	= $post['Empresa']['telefono'];
+    		$model->direccion 	= $post['Empresa']['direccion'];
+    		$model->id_rubro 	= $post['Empresa']['id_rubro'];
+    		$model->status 		= $post['Empresa']['status'];
+    		$model->id_usuario 	= $db->lastInsertID;
+    		$model->save();
+    		
     	}
     	
     	return $this->render("superlogin", [

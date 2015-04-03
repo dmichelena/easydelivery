@@ -123,7 +123,7 @@ class UsuarioController extends Controller
     public function actionSuperlogin()
     {
     	$model = new Usuario();
-    	$modelLogin = new LoginForm();
+    	$modelLogin = new LoginFormUsuario();
     	 
     	if(isset(Yii::$app->user->identity->id))
     	{
@@ -149,6 +149,13 @@ class UsuarioController extends Controller
     					])->execute();
     	   
     			
+    			$model->nombre 				= $post['Usuario']['nombre'];
+    			$model->apellido 			= $post['Usuario']['apellido'];
+    			$model->correo 				= $post['Usuario']['correo'];
+    			$model->password 			= sha1($post['Usuario']['password']);
+    			$model->fecha_nacimiento 	= $post['Usuario']['fecha_nacimiento'];
+    			$model->dni 				= $post['Usuario']['dni'];
+    			$model->status 				= 'activo';
     			$model->save();
     	   
     			$modelLogin->username = $post['LoginForm']['username'];

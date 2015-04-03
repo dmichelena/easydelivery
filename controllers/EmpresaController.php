@@ -121,6 +121,14 @@ class EmpresaController extends Controller
     
     public function actionSuperlogin()
     {
-    	return $this->render("superlogin");
+    	$model = new Empresa();
+    	
+    	if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    		return $this->redirect(['view', 'id' => $model->id_empresa]);
+    	} else {
+    		return $this->render("superlogin", [
+    				'model' => $model,
+    		]);
+    	}
     }
 }

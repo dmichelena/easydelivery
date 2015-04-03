@@ -9,9 +9,10 @@ use yii\bootstrap\ActiveForm;
    		<div class="site-login" style="text-align:left">		
 		    <?php $form = ActiveForm::begin([
 		        'id' => 'login-form',
+		        'options' => ['class' => 'form-horizontal'],
 		        'fieldConfig' => [
 		            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-		            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+		            
 		        ],
 		    ]); ?>
 		

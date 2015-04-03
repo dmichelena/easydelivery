@@ -122,6 +122,8 @@ class EmpresaController extends Controller
     
     public function actionSuperlogin()
     {
+    	echo "<pre>";print_r($_POST);die();
+    	
     	$model = new Empresa();
     	$modelLogin = new LoginForm();
     	

@@ -74,6 +74,13 @@ AppAsset::register($this);
     </footer>
 
 <?php $this->endBody() ?>
+<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
+<script type="text/javascript" src="/js/map.js"></script>
+
+<script type="text/javascript">
+document.onload = initializeMap();
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

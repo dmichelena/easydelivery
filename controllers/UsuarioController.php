@@ -126,11 +126,11 @@ class UsuarioController extends Controller
     	$model = new Usuario();
     	$modelLogin = new LoginFormUsuario();
     	 
-    	if(isset(Yii::$app->user->identity->id))
+    	/*if(isset(Yii::$app->user->identity->id))
     	{
     		return $this->redirect('/local');
     	}
-    	 
+    	 */
     	$post = Yii::$app->request->post();
     	if(!empty($post))
     	{
@@ -143,11 +143,11 @@ class UsuarioController extends Controller
     		}
     		else
     		{
-    			$db = \Yii::$app->db;
+    			/*$db = \Yii::$app->db;
     			$db->createCommand()->insert('user', [
     					'username' => $post['LoginForm']['username'],
     					'password' => sha1($post['LoginForm']['password']),
-    					])->execute();
+    					])->execute();*/
     	   
     			
     			$model->nombre 				= $post['Usuario']['nombre'];
@@ -159,11 +159,11 @@ class UsuarioController extends Controller
     			$model->status 				= 'activo';
     			$model->save();
     	   
-    			$modelLogin->username = $post['LoginForm']['username'];
+    			/*$modelLogin->username = $post['LoginForm']['username'];
     			$modelLogin->password = $post['LoginForm']['password'];
     			$modelLogin->login();
     	   
-    			return $this->redirect('/local');
+    			return $this->redirect('/local');*/
     		}
     	}
     	 

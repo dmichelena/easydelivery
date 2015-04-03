@@ -15,7 +15,7 @@ $this->title = 'My Yii Application';
     		Pedir Delivery
     	</div>
     	<div class="col-md-6" style="text-align:center">
-    		<a href="#aa">
+    		<a href="/empresa/superlogin">
     			Empresas
     		</a>
     	</div>

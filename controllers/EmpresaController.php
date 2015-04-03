@@ -8,6 +8,7 @@ use app\models\EmpresaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
 
 /**
  * EmpresaController implements the CRUD actions for Empresa model.
@@ -122,12 +123,14 @@ class EmpresaController extends Controller
     public function actionSuperlogin()
     {
     	$model = new Empresa();
+    	$modelLogin = new LoginForm();
     	
     	if ($model->load(Yii::$app->request->post()) && $model->save()) {
     		return $this->redirect(['view', 'id' => $model->id_empresa]);
     	} else {
     		return $this->render("superlogin", [
     				'model' => $model,
+    				'modelLogin' => $modelLogin
     		]);
     	}
     }

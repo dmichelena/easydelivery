@@ -20,11 +20,11 @@ use yii\bootstrap\ActiveForm;
 		        ],
 		    ]); ?>
 		
-		    <?= $form->field($model, 'username') ?>
+		    <?= $form->field($modelLogin, 'username') ?>
 		
-		    <?= $form->field($model, 'password')->passwordInput() ?>
+		    <?= $form->field($modelLogin, 'password')->passwordInput() ?>
 		
-		    <?= $form->field($model, 'rememberMe', [
+		    <?= $form->field($modelLogin, 'rememberMe', [
 		        'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
 		    ])->checkbox() ?>
 		

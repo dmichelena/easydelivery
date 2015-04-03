@@ -38,6 +38,7 @@ use yii\bootstrap\ActiveForm;
    		<div style="text-align:left">
 	   		<?= $this->render('_form', [
 	        	'model' => $model,
+	   			'modelLogin' => $modelLogin,
 	    	]) ?>
     	</div>
    	</div>

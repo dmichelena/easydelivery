@@ -31,9 +31,9 @@ use app\models\Turno;
 
     <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
     
-    <?= $form->field($model, 'latitud')->hiddenInput(['inputOptions' =>['class' => 'latitud']])->label('') ?>
+    <?= $form->field($model, 'latitud')->hiddenInput(['class' => 'latitud'])->label('') ?>
     
-    <?= $form->field($model, 'longitud')->hiddenInput(['inputOptions' =>['class' => 'longitud']])->label('') ?>
+    <?= $form->field($model, 'longitud')->hiddenInput(['class' => 'longitud'])->label('') ?>
     
     <?php 
     	$empresa = Empresa::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->one();

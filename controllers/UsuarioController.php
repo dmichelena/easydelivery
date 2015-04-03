@@ -118,4 +118,50 @@ class UsuarioController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    
+    public function actionSuperlogin()
+    {
+    	$model = new Usuario();
+    	$modelLogin = new LoginForm();
+    	 
+    	if(isset(Yii::$app->user->identity->id))
+    	{
+    		return $this->redirect('/local');
+    	}
+    	 
+    	$post = Yii::$app->request->post();
+    	if(!empty($post))
+    	{
+    		if(isset($post['login-button']))
+    		{
+    			$modelLogin->username = $post['LoginForm']['username'];
+    			$modelLogin->password = $post['LoginForm']['password'];
+    			$modelLogin->login();
+    			return $this->redirect('/local');
+    		}
+    		else
+    		{
+    			$db = \Yii::$app->db;
+    			$db->createCommand()->insert('user', [
+    					'username' => $post['LoginForm']['username'],
+    					'password' => sha1($post['LoginForm']['password']),
+    					])->execute();
+    	   
+    			
+    			$model->save();
+    	   
+    			$modelLogin->username = $post['LoginForm']['username'];
+    			$modelLogin->password = $post['LoginForm']['password'];
+    			$modelLogin->login();
+    	   
+    			return $this->redirect('/local');
+    		}
+    	}
+    	 
+    	return $this->render("superlogin", [
+    			'model' => $model,
+    			'modelLogin' => $modelLogin
+    			]);
+    	 
+    }
 }

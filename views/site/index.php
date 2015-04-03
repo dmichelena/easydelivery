@@ -16,7 +16,9 @@ if(!isset(Yii::$app->user->identity->id))
 ?>
     <div class="row">
     	<div class="col-md-6" style="text-align:center">
-    		Pedir Delivery
+    		<a href="/usuario/superlogin">
+    			Pedir Delivery
+    		</a>
     	</div>
     	<div class="col-md-6" style="text-align:center">
     		<a href="/empresa/superlogin">

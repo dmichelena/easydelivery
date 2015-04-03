@@ -11,10 +11,11 @@ use app\models\Turno;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<script type="text/javscript" src="/js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
 <script type="text/javascript" src="/js/map.js"></script>
 
-<<script type="text/javascript">
+<script type="text/javascript">
 $(document).read(function(){
 	initializeMap();
 });

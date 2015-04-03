@@ -35,8 +35,8 @@ function placeMarker(position, map) {
 	map.panTo(position);
 }
 function setXYForm(position){
-	alert(position.lat());
-	alert(position.lng());
+	$(".latitud").val(position.lat());
+	$(".longitud").val(position.lng());
 }
 function getMyPosition() {
 	//despues implementar para que encontrar la posicion con html5

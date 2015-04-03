@@ -16,7 +16,7 @@ use app\models\Turno;
 <script type="text/javascript" src="/js/map.js"></script>
 
 <script type="text/javascript">
-$(document).read(function(){
+$(document).ready(function(){
 	initializeMap();
 });
 </script>

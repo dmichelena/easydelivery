@@ -127,7 +127,7 @@ class EmpresaController extends Controller
     	
     	if(isset(Yii::$app->user->identity->id))
     	{
-    		return $this->redirect('local');
+    		return $this->redirect('/local');
     	}
     	
     	$post = Yii::$app->request->post();
@@ -152,7 +152,7 @@ class EmpresaController extends Controller
     		$modelLogin->password = $post['LoginForm']['password'];
     		$modelLogin->login();
     		
-    		return $this->redirect('local');
+    		return $this->redirect('/local');
     	}
     	
     	return $this->render("superlogin", [

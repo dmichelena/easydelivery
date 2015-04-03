@@ -16,9 +16,7 @@ use app\models\Turno;
 <script type="text/javascript" src="/js/map.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){
-	initializeMap();
-});
+document.onload = initializeMap();
 </script>
 <div id="map_canvas" style="width:400px; height:400px"></div>
 

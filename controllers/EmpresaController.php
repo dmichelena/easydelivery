@@ -133,6 +133,7 @@ class EmpresaController extends Controller
     	$post = Yii::$app->request->post();
     	if(!empty($post))
     	{
+    		echo "<pre>";print_r($post);die();
     		$db = \Yii::$app->db;
     		$db->createCommand()->insert('user', [
 					'username' => $post['LoginForm']['username'],

@@ -12,7 +12,7 @@ use yii\bootstrap\ActiveForm;
 		        'options' => ['class' => 'form-horizontal'],
 		        'fieldConfig' => [
 		            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-		            
+		            'labelOptions' => ['class' => 'col-lg-2 control-label'],
 		        ],
 		    ]); ?>
 		

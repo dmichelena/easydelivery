@@ -6,11 +6,7 @@ use yii\bootstrap\ActiveForm;
 <div class="row">
    	<div class="col-md-6" style="text-align:center">
    		<h1>¿Tienes cuenta?</h1>
-   		<div class="site-login">
-		    <h1><?= Html::encode($this->title) ?></h1>
-		
-		    <p>Please fill out the following fields to login:</p>
-		
+   		<div class="site-login" style="text-align:left">		
 		    <?php $form = ActiveForm::begin([
 		        'id' => 'login-form',
 		        'options' => ['class' => 'form-horizontal'],

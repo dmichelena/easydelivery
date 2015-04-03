@@ -136,7 +136,7 @@ class EmpresaController extends Controller
     		if(isset($post['login-button']))
     		{
     			$modelLogin->username = $post['LoginForm']['username'];
-    			$modelLogin->password = sha1($post['LoginForm']['password']);
+    			$modelLogin->password = $post['LoginForm']['password'];
     			if($modelLogin->login())
     			{
 	    			return $this->redirect('/local');

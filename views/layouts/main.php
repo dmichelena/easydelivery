@@ -33,29 +33,27 @@ AppAsset::register($this);
                 ],
             ]);
             
-            $menu1 = [];
-            $menu2 = [];
-            $menu3 = [];
+            $menu = [
+                    	['label' => 'Home', 'url' => '/site/index'],
+                    ]; 
             if(!Yii::$app->user->isGuest)
             {
-            	$menu1 = ['label' => 'Locales', 'url' => '/local'];
-            	$menu2 = ['label' => 'Productos', 'url' => '/producto'];
-            	$menu3 = ['label' => 'Transporte', 'url' => '/transporte'];
-            }
-            
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
+            	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
-                    $menu1,
-					$menu2,
-					$menu3,	
+					['label' => 'Locales', 'url' => '/local'],
+					['label' => 'Productos', 'url' => '/producto'],
+            		['label' => 'Transporte', 'url' => '/transporte'],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => '/site/login'] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                             'url' => '/site/logout',
                             'linkOptions' => ['data-method' => 'post']],
-                ],
+                ];
+            }
+            
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => $menu,
             ]);
             NavBar::end();
         ?>

@@ -27,16 +27,16 @@ use app\models\Turno;
 
     <?= $form->field($model, 'zona_reparto_km')->textInput() ?>
 
-    <?php 
-    	$empresa = Empresa::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->one();
-    ?>
-    <?= $form->field($model, 'id_empresa')->hiddenInput(['value'=> $empresa['id_empresa']])->label('') ?>
-
     <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione una turno']) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
+    <?php 
+    	$empresa = Empresa::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->one();
+    ?>
+    <?= $form->field($model, 'id_empresa')->hiddenInput(['value'=> $empresa['id_empresa']])->label('') ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

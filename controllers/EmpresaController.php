@@ -121,6 +121,6 @@ class EmpresaController extends Controller
     
     public function actionSuperlogin()
     {
-    	$this->render("superlogin");
+    	$this->render(["superlogin"]);
     }
 }

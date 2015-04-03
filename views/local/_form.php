@@ -11,6 +11,16 @@ use app\models\Turno;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
+<script type="text/javascript" src="/js/map.js"></script>
+
+<<script type="text/javascript">
+$(document).read(function(){
+	initializeMap();
+});
+</script>
+<div id="map_canvas" style="width:400px; height:400px"></div>
+
 <div class="local-form">
 
     <?php $form = ActiveForm::begin(); ?>

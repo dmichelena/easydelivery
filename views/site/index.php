@@ -10,7 +10,9 @@ $this->title = 'My Yii Application';
         <p class="lead">Pide. Trackea. Paga.</p>
     </div>
     
-    <div class="glyphicon glyphicon-barcode"></div>
-    <div class="glyphicon glyphicon-barcode"></div>
+    <div class="row">
+    	<div class="col-md-6">Pedir Delivery</div>
+    	<div class="col-md-6">Empresas</div>
+    </div>
 
 </div>

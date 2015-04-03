@@ -7,8 +7,10 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <h1>EasyDelivery</h1>
 
-        <p class="lead">Pide. Trackea. Paga.	</p>
-
+        <p class="lead">Pide. Trackea. Paga.</p>
     </div>
+    
+    <div class="glyphicon glyphicon-barcode"></div>
+    <div class="glyphicon glyphicon-barcode"></div>
 
 </div>

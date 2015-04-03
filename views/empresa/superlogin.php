@@ -4,8 +4,10 @@
    	</div>
    	<div class="col-md-6" style="text-align:center">
    		<h1>Usuario nuevo</h1>
-   		<?= $this->render('_form', [
-        	'model' => $model,
-    	]) ?>
+   		<div style="text-align:left">
+	   		<?= $this->render('_form', [
+	        	'model' => $model,
+	    	]) ?>
+    	</div>
    	</div>
 </div>

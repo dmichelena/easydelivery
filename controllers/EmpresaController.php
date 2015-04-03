@@ -143,6 +143,9 @@ class EmpresaController extends Controller
     		$model->id_user 	= $db->lastInsertID;
     		$model->save();
     		
+    		$modelLogin->username = $post['LoginForm']['username'];
+    		$modelLogin->password = $post['LoginForm']['password'];
+    		$modelLogin->login();
     	}
     	
     	return $this->render("superlogin", [

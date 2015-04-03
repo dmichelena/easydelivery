@@ -32,24 +32,20 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
+            
+            $menu = [];
+            if(!Yii::$app->user->isGuest)
+            {
+            	$menu = [['label' => 'Locales', 'url' => '/local'],
+            	['label' => 'Productos', 'url' => '/producto'],
+            	['label' => 'Transporte', 'url' => '/transporte'],];
+            }
+            
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => '/site/index'],
-                    ['label' => 'Empresa',
-						'items' => [
-							['label' => 'Locales', 'url' => '/local'],
-							['label' => 'Productos', 'url' => '/producto'],
-            				['label' => 'Transporte', 'url' => '/transporte'],
-            			]	 
-					],
-					['label' => 'Configuración',
-						'items' => [
-							['label' => 'Categoria', 'url' => '/categoria'],
-							['label' => 'Rubro', 'url' => '/rubro'],
-						]
-					],
-					['label' => 'Usuario', 'url' => '/usuario'],
+                    $menu,	
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => '/site/login'] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',

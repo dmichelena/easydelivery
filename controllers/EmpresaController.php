@@ -125,7 +125,7 @@ class EmpresaController extends Controller
     	$model = new Empresa();
     	$modelLogin = new LoginForm();
     	
-    	if(isset(Yii::$app->request->post()) and !empty(Yii::$app->request->post()))
+    	if(null !== Yii::$app->request->post())
     	{
     		echo "<pre>";print_r(Yii::$app->request->post());die();
     	}

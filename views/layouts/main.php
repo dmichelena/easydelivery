@@ -36,9 +36,8 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => '/site/index'],
-                    ['label' => 'Empresas',
+                    ['label' => 'Empresa',
 						'items' => [
-							['label' => 'Empresas', 'url' => '/empresa'],
 							['label' => 'Locales', 'url' => '/local'],
 							['label' => 'Productos', 'url' => '/producto'],
             				['label' => 'Transporte', 'url' => '/transporte'],

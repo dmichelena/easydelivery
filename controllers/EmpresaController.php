@@ -125,6 +125,11 @@ class EmpresaController extends Controller
     	$model = new Empresa();
     	$modelLogin = new LoginForm();
     	
+    	if(isset(Yii::$app->user->identity->id))
+    	{
+    		return $this->redirect('local');
+    	}
+    	
     	$post = Yii::$app->request->post();
     	if(!empty($post))
     	{
@@ -146,6 +151,8 @@ class EmpresaController extends Controller
     		$modelLogin->username = $post['LoginForm']['username'];
     		$modelLogin->password = $post['LoginForm']['password'];
     		$modelLogin->login();
+    		
+    		return $this->redirect('local');
     	}
     	
     	return $this->render("superlogin", [

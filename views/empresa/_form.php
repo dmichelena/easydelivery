@@ -24,7 +24,7 @@ use app\models\Rubro;
 
     <?= $form->field($model, 'id_rubro')->dropDownList(ArrayHelper::map(Rubro::find()->all(), 'id_rubro', 'nombre'), ['prompt' => 'Seleccione un rubro']) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->hiddenInput(['value'=> 'activo'])->label('') ?>
 
     <?= $form->field($model, 'id_user')->hiddenInput(['value'=> '1'])->label('') ?>
 		

@@ -11,9 +11,9 @@ use app\models\Turno;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="local-form form-horizontal">
+<div class="local-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
 

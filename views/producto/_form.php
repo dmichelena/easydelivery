@@ -13,27 +13,32 @@ use app\models\Local;
 
 <div class="producto-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+    		'options' => ['class' => 'form-horizontal'],
+    		'fieldConfig' => [
+    			'template' => "{label}\n<div class=\"col-md-10\">{input}</div>\n<div class=\"col-md-offset-2 col-md-10\">{error}</div>",
+    		],
+    ]); ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => 100]) ?>
+    <?= $form->field($model, 'foto', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'descipcion')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'descipcion', ['labelOptions'=>['class'=>'control-label col-md-2']])->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'stock')->textInput() ?>
+    <?= $form->field($model, 'stock', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput() ?>
 
-    <?= $form->field($model, 'precio_unitario')->textInput() ?>
+    <?= $form->field($model, 'precio_unitario', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput() ?>
 
-    <?= $form->field($model, 'precio_envio')->textInput() ?>
+    <?= $form->field($model, 'precio_envio', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput() ?>
 
-    <?= $form->field($model, 'id_categoria')->dropDownList(ArrayHelper::map(Categoria::find()->all(), 'id_categoria', 'nombre'), ['prompt' => 'Seleccione una categoria']) ?>
+    <?= $form->field($model, 'id_categoria', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList(ArrayHelper::map(Categoria::find()->all(), 'id_categoria', 'nombre'), ['prompt' => 'Seleccione una categoria']) ?>
 
-    <?= $form->field($model, 'id_local')->dropDownList(ArrayHelper::map(Local::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
+    <?= $form->field($model, 'id_local', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList(ArrayHelper::map(Local::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']]->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
+    <?= $form->field($model, 'id_user', ['labelOptions'=>['class'=>'control-label col-md-2']])->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

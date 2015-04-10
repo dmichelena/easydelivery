@@ -13,7 +13,12 @@ use app\models\Turno;
 
 <div class="local-form">
 
-    <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
+    <?php $form = ActiveForm::begin([
+    		'options' => ['class' => 'form-horizontal'],
+    		'fieldConfig' => [
+    			'template' => "{label}\n<div class=\"col-md-10\">{input}</div>\n<div class=\"col-md-offset-2 col-md-10\">{error}</div>",
+    		],
+    ]); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
 

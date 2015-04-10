@@ -32,7 +32,7 @@ use app\models\Turno;
 
     <?= $form->field($model, 'id_turno', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione una turno']) ?>
 
-    <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ]) ?>
 
     <?= $form->field($model, 'id_user', ['labelOptions'=>['class'=>'control-label col-md-2']])->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
     

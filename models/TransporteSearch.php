@@ -42,7 +42,8 @@ class TransporteSearch extends Transporte
     public function search($params)
     {
         $query = Transporte::find();
-
+        $query->where("id_usuario=:id_usuario", [':id_usuario' => Yii::$app->user->identity->id]);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

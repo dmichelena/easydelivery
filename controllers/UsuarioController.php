@@ -8,6 +8,8 @@ use app\models\UsuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
+use app\models\LoginFormUsuario;
 
 /**
  * UsuarioController implements the CRUD actions for Usuario model.
@@ -117,5 +119,58 @@ class UsuarioController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    public function actionSuperlogin()
+    {
+    	$model = new Usuario();
+    	$modelLogin = new LoginFormUsuario();
+    	 
+    	/*if(isset(Yii::$app->user->identity->id))
+    	{
+    		return $this->redirect('/local');
+    	}
+    	 */
+    	$post = Yii::$app->request->post();
+    	if(!empty($post))
+    	{
+    		if(isset($post['login-button']))
+    		{
+    			$modelLogin->username = $post['LoginForm']['username'];
+    			$modelLogin->password = $post['LoginForm']['password'];
+    			$modelLogin->login();
+    			return $this->redirect('/local');
+    		}
+    		else
+    		{
+    			/*$db = \Yii::$app->db;
+    			$db->createCommand()->insert('user', [
+    					'username' => $post['LoginForm']['username'],
+    					'password' => sha1($post['LoginForm']['password']),
+    					])->execute();*/
+    	   
+    			
+    			$model->nombre 				= $post['Usuario']['nombre'];
+    			$model->apellido 			= $post['Usuario']['apellido'];
+    			$model->correo 				= $post['Usuario']['correo'];
+    			$model->password 			= sha1($post['Usuario']['password']);
+    			$model->fecha_nacimiento 	= $post['Usuario']['fecha_nacimiento'];
+    			$model->dni 				= $post['Usuario']['dni'];
+    			$model->status 				= 'activo';
+    			$model->save();
+    	   
+    			/*$modelLogin->username = $post['LoginForm']['username'];
+    			$modelLogin->password = $post['LoginForm']['password'];
+    			$modelLogin->login();
+    	   
+    			return $this->redirect('/local');*/
+    		}
+    	}
+    	 
+    	return $this->render("superlogin", [
+    			'model' => $model,
+    			'modelLogin' => $modelLogin
+    			]);
+    	 
     }
 }

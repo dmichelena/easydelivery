@@ -14,9 +14,9 @@ use app\models\Rubro;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
-
     <?= $form->field($model, 'ruc')->textInput(['maxlength' => 20]) ?>
+    
+    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100])->label('Razón Social') ?>
 
     <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15]) ?>
 
@@ -24,9 +24,12 @@ use app\models\Rubro;
 
     <?= $form->field($model, 'id_rubro')->dropDownList(ArrayHelper::map(Rubro::find()->all(), 'id_rubro', 'nombre'), ['prompt' => 'Seleccione un rubro']) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->hiddenInput(['value'=> 'activo'])->label('') ?>
 
-    <?= $form->field($model, 'id_user')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
+    <?= $form->field($model, 'id_user')->hiddenInput(['value'=> '1'])->label('') ?>
+		
+    <?= $form->field($modelLogin, 'username') ?>
+	<?= $form->field($modelLogin, 'password')->passwordInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

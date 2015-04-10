@@ -8,6 +8,7 @@ use app\models\EmpresaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
 
 /**
  * EmpresaController implements the CRUD actions for Empresa model.
@@ -117,5 +118,60 @@ class EmpresaController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    public function actionSuperlogin()
+    {
+    	$model = new Empresa();
+    	$modelLogin = new LoginForm();
+    	
+    	if(isset(Yii::$app->user->identity->id))
+    	{
+    		return $this->redirect('/local');
+    	}
+    	
+    	$post = Yii::$app->request->post();
+    	if(!empty($post))
+    	{
+    		if(isset($post['login-button']))
+    		{
+    			$modelLogin->username = $post['LoginForm']['username'];
+    			$modelLogin->password = $post['LoginForm']['password'];
+    			if($modelLogin->login())
+    			{
+	    			return $this->redirect('/local');
+    			}
+    		}
+    		else 
+    		{
+	    		$db = \Yii::$app->db;
+	    		$db->createCommand()->insert('user', [
+						'username' => $post['LoginForm']['username'],
+	    				'password' => sha1($post['LoginForm']['password']),
+	    		])->execute();
+	    		
+	    		$model->ruc 		= $post['Empresa']['ruc'];
+	    		$model->nombre 		= $post['Empresa']['nombre'];
+	    		$model->telefono 	= $post['Empresa']['telefono'];
+	    		$model->direccion 	= $post['Empresa']['direccion'];
+	    		$model->id_rubro 	= $post['Empresa']['id_rubro'];
+	    		$model->status 		= $post['Empresa']['status'];
+	    		$model->id_user 	= $db->lastInsertID;
+	    		$model->save();
+	    		
+	    		$modelLogin->username = $post['LoginForm']['username'];
+	    		$modelLogin->password = $post['LoginForm']['password'];
+	    		if($modelLogin->login())
+	    		{
+	    			return $this->redirect('/local');
+	    		}
+    		}
+    	}
+    	
+    	return $this->render("superlogin", [
+    			'model' => $model,
+    			'modelLogin' => $modelLogin
+    	]);
+    	
     }
 }

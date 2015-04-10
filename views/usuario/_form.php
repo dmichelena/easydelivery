@@ -16,15 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellido')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'correo')->textInput(['maxlength' => 45]) ?>
+    <?= $form->field($model, 'correo')->input('email') ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'fecha_nacimiento')->textInput() ?>
 
     <?= $form->field($model, 'dni')->textInput(['maxlength' => 10]) ?>
-
-    <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

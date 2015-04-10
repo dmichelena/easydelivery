@@ -24,7 +24,7 @@ use app\models\Turno;
 
     <?= $form->field($model, 'direccion', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 100]) ?>
     
-    Seleccione su local en el mapa<div class="col-md-10"><div id="map_canvas" style="width:100%; height:400px"></div></div>
+    <div class="control-label col-md-2">Seleccione su local en el mapa</div><div class="col-md-10"><div id="map_canvas" style="width:100%; height:400px"></div></div>
 
     <?= $form->field($model, 'telefono', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 15]) ?>
 

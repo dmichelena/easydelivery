@@ -696,3 +696,14 @@
 127.0.0.1 - - [30/Mar/2015:11:47:07 -0500] "GET /debug/default/toolbar?tag=55197e0b19709 HTTP/1.1" 200 19673
 127.0.0.1 - - [30/Mar/2015:11:47:10 -0500] "GET /transporte/index HTTP/1.1" 200 11991
 127.0.0.1 - - [30/Mar/2015:11:47:10 -0500] "GET /debug/default/toolbar?tag=55197e0ea3826 HTTP/1.1" 200 19675
+127.0.0.1 - - [08/Apr/2015:16:22:40 -0500] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /assets/ea7bab79/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /site/login HTTP/1.1" 200 13256
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /css/site.css HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /assets/53ea9f75/jquery.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /assets/63a1ee7a/yii.validation.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /assets/63a1ee7a/yii.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:41 -0500] "GET /debug/default/toolbar?tag=55259c211c85a HTTP/1.1" 200 19413
+127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /assets/ea7bab79/js/bootstrap.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /assets/63a1ee7a/yii.activeForm.js HTTP/1.1" 304 -
+127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /favicon.ico HTTP/1.1" 304 -

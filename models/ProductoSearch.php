@@ -43,7 +43,7 @@ class ProductoSearch extends Producto
     public function search($params)
     {
         $query = Producto::find();
-        $query->where("id_usuario=:id_usuario", [':id_usuario' => Yii::$app->user->identity->id]);
+        $query->where("id_user=:id_usuario", [':id_usuario' => Yii::$app->user->identity->id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

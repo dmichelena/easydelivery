@@ -21,21 +21,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'direccion') ?>
 
-    <?= $form->field($model, 'latitud') ?>
+    <?= //$form->field($model, 'latitud') ?>
 
-    <?= $form->field($model, 'longitud') ?>
+    <?= //$form->field($model, 'longitud') ?>
 
-    <?php // echo $form->field($model, 'telefono') ?>
+    <?php echo $form->field($model, 'telefono') ?>
 
-    <?php // echo $form->field($model, 'zona_reparto_km') ?>
+    <?php echo $form->field($model, 'zona_reparto_km') ?>
 
-    <?php // echo $form->field($model, 'id_empresa') ?>
+    <?php echo $form->field($model, 'id_empresa') ?>
 
-    <?php // echo $form->field($model, 'id_turno') ?>
+    <?php echo $form->field($model, 'id_turno') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+    <?php echo $form->field($model, 'status') ?>
 
-    <?php // echo $form->field($model, 'id_user') ?>
+    <?php echo $form->field($model, 'id_user') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

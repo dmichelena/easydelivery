@@ -36,7 +36,7 @@ use app\models\Local;
 
     <?= $form->field($model, 'id_local', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList(ArrayHelper::map(Local::find()->where('id_user=:id_user',[':id_user' => Yii::$app->user->identity->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
 
-    <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']]->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']])->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'id_user', ['labelOptions'=>['class'=>'control-label col-md-2']])->hiddenInput(['value'=> Yii::$app->user->identity->id])->label('') ?>
 

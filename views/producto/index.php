@@ -27,10 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_producto',
             'nombre',
-            'foto',
+            //'foto',
             'descipcion:ntext',
             'stock',
-            // 'precio_unitario',
+             'precio_unitario',
             // 'precio_envio',
             // 'id_categoria',
             // 'id_local',

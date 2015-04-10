@@ -11,7 +11,7 @@ use app\models\Turno;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="local-form">
+<div class="local-form form-horizontal">
 
     <?php $form = ActiveForm::begin(); ?>
 

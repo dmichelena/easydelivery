@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'latitud',
             //'longitud',
              'telefono',
-             'zona_reparto_km',
+            // 'zona_reparto_km',
             // 'id_empresa',
             // 'id_turno',
             // 'status',

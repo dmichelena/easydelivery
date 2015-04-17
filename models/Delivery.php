@@ -12,17 +12,22 @@ use Yii;
  * @property string $destino_longitud
  * @property string $telefono
  * @property string $status
- * @property string $paso
- * @property string $justificacion_cancelado
- * @property integer $id_transporte
  * @property integer $id_usuario
  * @property integer $id_local
+ * @property string $paso
+ * @property string $justificacion_cancelado
+ * @property double $costo_envio
+ * @property integer $id_transporte
+ * @property string $tipo_comprobante
+ * @property integer $id_empresa
+ * @property string $nombre_receptor
+ * @property string $dni_receptor
  *
- * @property Local $idLocal
  * @property Transporte $idTransporte
  * @property Usuario $idUsuario
+ * @property Local $idLocal
+ * @property Sunat $idEmpresa
  * @property Pedido[] $pedidos
- * @property Tracking[] $trackings
  */
 class Delivery extends \yii\db\ActiveRecord
 {
@@ -40,10 +45,14 @@ class Delivery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status', 'paso', 'justificacion_cancelado'], 'string'],
-            [['id_transporte', 'id_usuario', 'id_local'], 'required'],
-            [['id_transporte', 'id_usuario', 'id_local'], 'integer'],
-            [['destino_latitud', 'destino_longitud', 'telefono'], 'string', 'max' => 45]
+            [['destino_latitud', 'destino_longitud', 'telefono', 'status', 'id_usuario', 'id_local', 'paso'], 'required'],
+            [['status', 'paso', 'justificacion_cancelado', 'tipo_comprobante'], 'string'],
+            [['id_usuario', 'id_local', 'id_transporte', 'id_empresa'], 'integer'],
+            [['costo_envio'], 'number'],
+            [['destino_latitud', 'destino_longitud'], 'string', 'max' => 13],
+            [['telefono'], 'string', 'max' => 15],
+            [['nombre_receptor'], 'string', 'max' => 150],
+            [['dni_receptor'], 'string', 'max' => 8]
         ];
     }
 
@@ -58,20 +67,17 @@ class Delivery extends \yii\db\ActiveRecord
             'destino_longitud' => 'Destino Longitud',
             'telefono' => 'Telefono',
             'status' => 'Status',
-            'paso' => 'Paso',
-            'justificacion_cancelado' => 'Justificacion Cancelado',
-            'id_transporte' => 'Id Transporte',
             'id_usuario' => 'Id Usuario',
             'id_local' => 'Id Local',
+            'paso' => 'Paso',
+            'justificacion_cancelado' => 'Justificacion Cancelado',
+            'costo_envio' => 'Costo Envio',
+            'id_transporte' => 'Id Transporte',
+            'tipo_comprobante' => 'Tipo Comprobante',
+            'id_empresa' => 'Id Empresa',
+            'nombre_receptor' => 'Nombre Receptor',
+            'dni_receptor' => 'Dni Receptor',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdLocal()
-    {
-        return $this->hasOne(Local::className(), ['id_local' => 'id_local']);
     }
 
     /**
@@ -93,16 +99,24 @@ class Delivery extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPedidos()
+    public function getIdLocal()
     {
-        return $this->hasMany(Pedido::className(), ['id_delivery' => 'id_delivery']);
+        return $this->hasOne(Local::className(), ['id_local' => 'id_local']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTrackings()
+    public function getIdEmpresa()
     {
-        return $this->hasMany(Tracking::className(), ['id_delivery' => 'id_delivery']);
+        return $this->hasOne(Sunat::className(), ['id_empresa' => 'id_empresa']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPedidos()
+    {
+        return $this->hasMany(Pedido::className(), ['id_delivery' => 'id_delivery']);
     }
 }

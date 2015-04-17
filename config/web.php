@@ -4,8 +4,14 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name'	=> 'EasyDelivery',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'admin'],
+    'modules' => [
+	    'admin' => [
+	    	'class' => 'app\modules\admin\Module',
+	    ],
+    ],
     'components' => [
     	'urlManager' => [
     		'enablePrettyUrl' => true,

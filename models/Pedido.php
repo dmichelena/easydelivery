@@ -7,15 +7,14 @@ use Yii;
 /**
  * This is the model class for table "pedido".
  *
- * @property integer $id_pedido
+ * @property integer $id_producto
+ * @property integer $id_local
+ * @property integer $id_delivery
  * @property integer $cantidad
  * @property double $precio_unitario
- * @property integer $id_producto
- * @property integer $id_delivery
- * @property string $status
  *
+ * @property ProductoLocal $idProducto
  * @property Delivery $idDelivery
- * @property Producto $idProducto
  */
 class Pedido extends \yii\db\ActiveRecord
 {
@@ -33,10 +32,9 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cantidad', 'id_producto', 'id_delivery'], 'integer'],
-            [['precio_unitario'], 'number'],
-            [['id_producto', 'id_delivery'], 'required'],
-            [['status'], 'string']
+            [['id_producto', 'id_local', 'id_delivery', 'cantidad', 'precio_unitario'], 'required'],
+            [['id_producto', 'id_local', 'id_delivery', 'cantidad'], 'integer'],
+            [['precio_unitario'], 'number']
         ];
     }
 
@@ -46,13 +44,20 @@ class Pedido extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_pedido' => 'Id Pedido',
+            'id_producto' => 'Id Producto',
+            'id_local' => 'Id Local',
+            'id_delivery' => 'Id Delivery',
             'cantidad' => 'Cantidad',
             'precio_unitario' => 'Precio Unitario',
-            'id_producto' => 'Id Producto',
-            'id_delivery' => 'Id Delivery',
-            'status' => 'Status',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdProducto()
+    {
+        return $this->hasOne(ProductoLocal::className(), ['id_producto' => 'id_producto', 'id_local' => 'id_local']);
     }
 
     /**
@@ -61,13 +66,5 @@ class Pedido extends \yii\db\ActiveRecord
     public function getIdDelivery()
     {
         return $this->hasOne(Delivery::className(), ['id_delivery' => 'id_delivery']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdProducto()
-    {
-        return $this->hasOne(Producto::className(), ['id_producto' => 'id_producto']);
     }
 }

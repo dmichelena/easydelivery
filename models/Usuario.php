@@ -9,12 +9,13 @@ use Yii;
  *
  * @property integer $id_usuario
  * @property string $nombre
- * @property string $apellido
- * @property string $correo
+ * @property string $apellido_p
+ * @property string $apellido_m
  * @property string $password
  * @property string $fecha_nacimiento
  * @property string $dni
  * @property string $status
+ * @property string $correo
  *
  * @property Delivery[] $deliveries
  */
@@ -34,10 +35,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre', 'apellido_p', 'apellido_m', 'password', 'fecha_nacimiento', 'dni', 'status', 'correo'], 'required'],
             [['fecha_nacimiento'], 'safe'],
             [['status'], 'string'],
-            [['nombre', 'apellido', 'correo', 'password'], 'string', 'max' => 45],
-            [['dni'], 'string', 'max' => 10]
+            [['nombre', 'apellido_p', 'apellido_m', 'password', 'correo'], 'string', 'max' => 45],
+            [['dni'], 'string', 'max' => 8]
         ];
     }
 
@@ -49,12 +51,13 @@ class Usuario extends \yii\db\ActiveRecord
         return [
             'id_usuario' => 'Id Usuario',
             'nombre' => 'Nombre',
-            'apellido' => 'Apellido',
-            'correo' => 'Correo',
+            'apellido_p' => 'Apellido P',
+            'apellido_m' => 'Apellido M',
             'password' => 'Password',
             'fecha_nacimiento' => 'Fecha Nacimiento',
             'dni' => 'Dni',
             'status' => 'Status',
+            'correo' => 'Correo',
         ];
     }
 

@@ -11,18 +11,12 @@ use Yii;
  * @property string $nombre
  * @property string $foto
  * @property string $descipcion
- * @property integer $stock
- * @property double $precio_unitario
- * @property double $precio_envio
  * @property integer $id_categoria
- * @property integer $id_local
  * @property string $status
- * @property integer $id_user
+ * @property integer $id_empresa
  *
- * @property Pedido[] $pedidos
  * @property Categoria $idCategoria
- * @property Local $idLocal
- * @property User $idUser
+ * @property Empresa $idEmpresa
  */
 class Producto extends \yii\db\ActiveRecord
 {
@@ -40,12 +34,12 @@ class Producto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['descipcion', 'status'], 'string'],
-            [['stock', 'id_categoria', 'id_local', 'id_user'], 'integer'],
-            [['precio_unitario', 'precio_envio'], 'number'],
-            [['id_categoria', 'id_local', 'id_user'], 'required'],
+            [['nombre', 'foto', 'descipcion', 'id_categoria', 'status', 'id_empresa'], 'required'],
+            [['id_categoria', 'id_empresa'], 'integer'],
+            [['status'], 'string'],
             [['nombre'], 'string', 'max' => 50],
-            [['foto'], 'string', 'max' => 100]
+            [['foto'], 'string', 'max' => 150],
+            [['descipcion'], 'string', 'max' => 250]
         ];
     }
 
@@ -59,22 +53,10 @@ class Producto extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'foto' => 'Foto',
             'descipcion' => 'Descipcion',
-            'stock' => 'Stock',
-            'precio_unitario' => 'Precio Unitario',
-            'precio_envio' => 'Precio Envio',
             'id_categoria' => 'Id Categoria',
-            'id_local' => 'Id Local',
             'status' => 'Status',
-            'id_user' => 'Id User',
+            'id_empresa' => 'Id Empresa',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPedidos()
-    {
-        return $this->hasMany(Pedido::className(), ['id_producto' => 'id_producto']);
     }
 
     /**
@@ -88,16 +70,8 @@ class Producto extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdLocal()
+    public function getIdEmpresa()
     {
-        return $this->hasOne(Local::className(), ['id_local' => 'id_local']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdUser()
-    {
-        return $this->hasOne(User::className(), ['id_user' => 'id_user']);
+        return $this->hasOne(Empresa::className(), ['id_empresa' => 'id_empresa']);
     }
 }

@@ -17,13 +17,13 @@ use Yii;
  * @property integer $id_empresa
  * @property integer $id_turno
  * @property string $status
- * @property integer $id_user
+ * @property double $costo_envio
+ * @property string $usuario
+ * @property string $password
  *
  * @property Delivery[] $deliveries
  * @property Empresa $idEmpresa
  * @property Turno $idTurno
- * @property User $idUser
- * @property Producto[] $productos
  * @property Transporte[] $transportes
  */
 class Local extends \yii\db\ActiveRecord
@@ -42,12 +42,14 @@ class Local extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['zona_reparto_km', 'id_empresa', 'id_turno', 'id_user'], 'integer'],
-            [['id_empresa', 'id_turno', 'id_user'], 'required'],
+            [['nombre', 'direccion', 'latitud', 'longitud', 'telefono', 'zona_reparto_km', 'id_empresa', 'id_turno', 'status', 'usuario', 'password'], 'required'],
+            [['zona_reparto_km', 'id_empresa', 'id_turno'], 'integer'],
             [['status'], 'string'],
+            [['costo_envio'], 'number'],
             [['nombre', 'direccion'], 'string', 'max' => 100],
-            [['latitud', 'longitud'], 'string', 'max' => 45],
-            [['telefono'], 'string', 'max' => 15]
+            [['latitud', 'longitud'], 'string', 'max' => 13],
+            [['telefono'], 'string', 'max' => 15],
+            [['usuario', 'password'], 'string', 'max' => 45]
         ];
     }
 
@@ -67,7 +69,9 @@ class Local extends \yii\db\ActiveRecord
             'id_empresa' => 'Id Empresa',
             'id_turno' => 'Id Turno',
             'status' => 'Status',
-            'id_user' => 'Id User',
+            'costo_envio' => 'Costo Envio',
+            'usuario' => 'Usuario',
+            'password' => 'Password',
         ];
     }
 
@@ -93,22 +97,6 @@ class Local extends \yii\db\ActiveRecord
     public function getIdTurno()
     {
         return $this->hasOne(Turno::className(), ['id_turno' => 'id_turno']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getIdUser()
-    {
-        return $this->hasOne(User::className(), ['id_user' => 'id_user']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProductos()
-    {
-        return $this->hasMany(Producto::className(), ['id_local' => 'id_local']);
     }
 
     /**

@@ -31,6 +31,7 @@ class Turno extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre', 'inicio', 'fin'], 'required'],
             [['inicio', 'fin'], 'safe'],
             [['nombre'], 'string', 'max' => 45]
         ];

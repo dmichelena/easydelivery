@@ -17,7 +17,7 @@ AppAsset::register($this);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title>EasyDelivery</title>
+    <title>EasyDeliver2y</title>
     <?php $this->head() ?>
 </head>
 <body>

@@ -6,14 +6,19 @@
                          <h4>"Es importante saber donde te ubicas para llevarte tus compras"</h4>
                     </div>
                     </center>
+                    <div class="col-lg-4 col-xs-2 col-md-4">
+                        <h2></h2>
+                    </div>
                     <div class="col-lg-4 col-xs-5 col-md-5" ></br>
-                        <button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>Seguimiento de Pedido</button><br />  
+                        <button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>Seguimiento de Pedido</button><br />
+                        
                     </div>
                 </div>
                 <hr/>
                 <div class="row">
+                <form action="" method="POST">
                     <div class="col-lg-4 col-xs-12">
-                        * Añade Tu dirección: <input type="text" name="firstname" size="60%">
+                        * Añade Tu dirección: <input type="text" name="direccion" size="60%">
                     </div>
                    <br />
 				   <br />
@@ -30,7 +35,7 @@
 						<br />
                     <button type="button"  class="btn btn-primary">Guardar Ubicación</button>
                    
-                    
+                    </form>
                 </div>
                 <hr/>
             </div>	

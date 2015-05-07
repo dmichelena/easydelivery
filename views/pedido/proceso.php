@@ -35,7 +35,7 @@
                     <div class="col-lg-4">
                         
                             <label style="color: #FFBD32"><u><?= $p->nombre ?></u></label>
-                            <label class="control-label"><?= $p->descripcion?></label>
+                            <label class="control-label"><?= $p->descipcion?></label>
                     </div>
                     <div class="col-lg-4">
                         <form class=" form-inline">

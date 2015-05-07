@@ -69,7 +69,8 @@ class PedidoController extends Controller
 			->where("producto_local.id_local = :id_local AND producto.id_categoria = :id_categoria", [
 					':id_local' 	=> $id_local,
 					':id_categoria'	=> $categoria[0]['id_categoria']
-			]);
+			])
+			->all();
 		
 		echo "<pre>";print_r($productos);die();
 

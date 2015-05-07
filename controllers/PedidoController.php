@@ -17,7 +17,7 @@ class PedidoController extends Controller
 		
 		$sql = "
 			SELECT 
-				nombre, 
+				*,
 				( 3959 * acos( cos( radians('%s') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( latitud ) ) ) ) AS distance 
 			FROM 
 				local
@@ -31,14 +31,10 @@ class PedidoController extends Controller
 				$session['usuario-web']['longitud'],
 				$session['usuario-web']['latitud']
 		);
-		echo "<pre>";print_r($sql);die();
   
+		$model = \Yii::$app->db->createCommand($sql)->queryAll();
 		
-		/*$model = (new Query())
-					->select('address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance')
-					->from('local')
-					->where('')
-		*/
+		echo "<pre>";print_r($model);die();
 		return $this->render("productos");
 	}
 }

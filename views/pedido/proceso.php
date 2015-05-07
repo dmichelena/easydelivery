@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <?php 
-                	foreach($producto as $p):
+                	foreach($productos as $p):
                 ?>
                 <hr/>
                 <div class="row">

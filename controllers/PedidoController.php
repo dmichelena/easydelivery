@@ -21,6 +21,10 @@ class PedidoController extends Controller
 				( 3959 * acos( cos( radians('%s') ) * cos( radians( latitud ) ) * cos( radians( longitud ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( latitud ) ) ) ) AS distance 
 			FROM 
 				local
+			INNER JOIN
+				empresa
+			ON
+				local.id_empresa = empresa.id_empresa
 			HAVING 
 				distance < '100' 
 			ORDER BY 

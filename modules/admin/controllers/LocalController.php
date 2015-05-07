@@ -172,9 +172,11 @@ class LocalController extends Controller
             $this->redirect("/admin/local/login");
         }
 
-        $model = Producto::find()->where("id_local = :id_local",[
-            ':id_local' => $session['local']->id_local,
-        ])->all();
+        $model = Producto::find()
+            ->join("INNER JOIN", "local", "local.id_empresa = producto.id_empresa")
+            ->where("id_local = :id_local",[
+                ':id_local' => $session['local']->id_local,
+            ])->all();
 
         echo "<pre>";print_r($model);die();
     }

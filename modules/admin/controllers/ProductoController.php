@@ -95,6 +95,7 @@ class ProductoController extends Controller
                     ]);
                 }
             }
+            echo "<pre>";print_r($modelUpload);die();
             $model->foto = \Yii::$app->urlManager->createAbsoluteUrl("") . 'uploads/' . $modelUpload->file->baseName . '.' . $modelUpload->file->extension;
 
             if($model->save())

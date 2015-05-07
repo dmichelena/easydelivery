@@ -175,7 +175,24 @@ class LocalController extends Controller
         $post = Yii::$app->request->post();
         if(!empty($post))
         {
-        	echo "<pre>";print_r($post);die();
+        	$insert = [];
+        	foreach($post['Producto'] as $producto)
+        	{
+        		if($producto['id_producto'] != 0)
+        		{
+        			$insert[] = [
+						$producto['id_producto'],
+						$session['local']->id_local,
+						$producto['stock'],
+						$producto['precio'],
+						'activo'
+        			];
+        		}
+        	}
+        	if(count($insert) > 0)
+        	{ 
+        		\Yii::$app->db->createCommand()->batchInsert('producto_local', ['id_producto', 'id_local', 'stock', 'precio', 'status'], $insert);
+        	}
         }
 
         $model = Producto::find()

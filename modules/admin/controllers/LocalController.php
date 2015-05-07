@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\LoginForm;
 use Yii;
 use app\models\Local;
 use app\models\search\LocalSearch;
@@ -130,5 +131,14 @@ class LocalController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionLogin()
+    {
+        $modelLogin = new LoginForm();
+
+        return $this->render('login',[
+            'modelLogin' => $modelLogin,
+        ]);
     }
 }

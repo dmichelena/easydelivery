@@ -46,8 +46,8 @@ class TransporteSearch extends Transporte
         {
             $this->redirect("/admin/empresa/superlogin");
         }
-        $query = Transporte::find()->join("INNER JOIN", 'local', 'transporte.id_local = local.id_local')->where("local.id_local = :id_local"[
-            ":id_local" => $session['admin']->id;
+        $query = Transporte::find()->join("INNER JOIN", 'local', 'transporte.id_local = local.id_local')->where("local.id_local = :id_local",[
+            ":id_local" => $session['admin']->id,
         ]);
 
         $dataProvider = new ActiveDataProvider([

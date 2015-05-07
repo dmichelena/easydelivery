@@ -88,7 +88,6 @@ class ProductoController extends Controller
                 if($modelUpload->hasErrors())
                 {
                     $error = $modelUpload->errors;
-                    echo "<pre>";print_r($error);die();
 
                     $model->addError("foto", $error['file'][0]);
                     return $this->render("create", [
@@ -99,6 +98,13 @@ class ProductoController extends Controller
 
             if($model->save())
                 return $this->redirect(['view', 'id' => $model->id_producto]);
+            else
+            {
+                return $this->render('create', [
+                    'model' => $model,
+                    'session' => $session,
+                ]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,

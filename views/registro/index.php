@@ -27,7 +27,7 @@
                     </div>
                         
                     
-                        <div class="control-label">Seleccione su local en el mapa</div><div id="map_canvas" style="width:100%; height:400px"></div>
+                        <div id="map_canvas" style="width:100%; height:400px"></div>
 						<br />
 						<br />
                     <button type="button"  class="btn btn-primary">Guardar Ubicación</button>

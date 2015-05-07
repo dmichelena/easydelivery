@@ -26,7 +26,7 @@
 									<div class="col-md-4">
 										</br>
 										<h3>
-											<a href="/pedido/proceso?id=<?= $m['id_local']?>" type="button" class="btn btn-success"> Ver productos </button>
+											<a href="/pedido/proceso?id=<?= $m['id_local']?>" type="button" class="btn btn-success"> Ver productos </a>
 										</h3>
 									</div>
 								</td>

@@ -20,7 +20,7 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-			[['file'], 'file', 'extensions' => 'gif, jpg'],
+			[['file'], 'file', 'extensions' => 'gif, jpg, png'],
         ];
     }
 }

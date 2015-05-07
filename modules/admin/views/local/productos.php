@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
     <?php
         foreach($model as $m):
     ?>
-            <?= $form->field($m, "[".$m->id_producto."]Producto")->checkbox(['label' => $m->nombre])?>
+            <?= $form->field($m, "[".$m->id_producto."]id_producto")->checkbox(['label' => $m->nombre])?>
     <?php endforeach; ?>
 
     <?php ActiveForm::end(); ?>

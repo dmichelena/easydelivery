@@ -16,7 +16,7 @@
                 </div>
                 <hr/>
                 <div class="row">
-                <form action="" method="POST">
+                <?php $form = ActiveForm::begin(); ?>
                     <div class="col-lg-4 col-xs-12">
                         * Añade Tu dirección: <input type="text" name="direccion" size="60%">
                     </div>
@@ -35,7 +35,7 @@
 						<br />
                     <button type="submit"  class="btn btn-primary">Guardar Ubicación</button>
                    
-                    </form>
+                   <?php ActiveForm::end(); ?>
                 </div>
                 <hr/>
             </div>	

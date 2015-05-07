@@ -12,7 +12,7 @@
                 <div class="row">
                 	<center>
                     <div class="col-lg-4 col-xs-3 col-md-3">
-                        <img src="<?= $empresa->foto?>" height="80" width="80" /> <h2><?=$empresa->nombre?></h2>
+                        <img src="<?= $empresa->foto?>" height="80" width="80" /> <h2><?=$empresa->razon_social?></h2>
                     </div>
                     </center>
                     <div class="col-lg-4 col-xs-4 col-md-4">

@@ -45,6 +45,13 @@ class PedidoController extends Controller
 	
 	public function actionProceso()
 	{
-		print_r($_GET);
+		$session = \Yii::$app->session;
+		
+		if(!$session->has('usuario-web'))
+		{
+			return $this->redirect("/registro");
+		}
+
+		return $this->render('proceso');
 	}
 }

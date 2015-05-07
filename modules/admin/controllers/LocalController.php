@@ -154,7 +154,7 @@ class LocalController extends Controller
             }
             else
             {
-                $modelLogin->addErrors("usuario", 'Usuario y/o password incorrectos');
+                $modelLogin->addError("usuario", 'Usuario y/o password incorrectos');
             }
         }
 

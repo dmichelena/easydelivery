@@ -1,4 +1,4 @@
-<section class="row">
+		<section class="row">
             <div class="col-md-11">
                 <div class="row">
                 	<center>
@@ -28,6 +28,8 @@
                         
                     
                         <div id="map_canvas" style="width:100%; height:400px"></div>
+                        <input type="text" name="latitud" class="latitud" />
+                        <input type="text" name="longitud" class="longitud" />
 						<br />
 						<br />
                     <button type="button"  class="btn btn-primary">Guardar Ubicación</button>

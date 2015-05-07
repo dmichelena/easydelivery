@@ -43,7 +43,7 @@
 				</div></br>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon" id="sizing-addon1">Precio Unitario</span>
-					<span class="input-group-addon" id="sizing-addon1">Precio <?=$p->precio?></span>
+					<span class="input-group-addon" id="sizing-addon1"><?=$p->precio?></span>
 				</div></br>
 				<button type="button" class="btn btn-lg btn-warning" >Comprar</button>
 			</div>

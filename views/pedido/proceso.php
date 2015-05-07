@@ -30,11 +30,11 @@
 		<hr/>
 		<div class="row">
 			<div class="col-lg-4">
-				<img alt="140x140" src="<?= $p->foto?>" class="img-rounded"  width="100" height="100" class="img-circle" />
+				<img alt="140x140" src="<?= $p['foto']?>" class="img-rounded"  width="100" height="100" class="img-circle" />
 			</div>
 			<div class="col-lg-4">            
-				<label style="color: #FFBD32"><u><?= $p->nombre ?></u></label>
-				<label class="control-label"><?= $p->descipcion?></label>
+				<label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label>
+				<label class="control-label"><?= $p['descipcion']?></label>
 			</div>
 			<div class="col-lg-4">
 				<div class="input-group input-group-sm">
@@ -43,7 +43,7 @@
 				</div></br>
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon" id="sizing-addon1">Precio Unitario</span>
-					<input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?=$p->precio?>" />
+					<input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?=$p['precio']?>" />
 				</div></br>
 				<button type="button" class="btn btn-lg btn-warning" >Comprar</button>
 			</div>

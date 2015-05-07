@@ -74,9 +74,7 @@ class PedidoController extends Controller
 					':id_categoria'	=> $categoria[0]['id_categoria']
 			])
 			->all();
-		
-		echo "<pre>";print_r($productos);die();
-		
+				
 		$empresa = Empresa::find()
 			->join("INNER JOIN", "local", "empresa.id_empresa = local.id_empresa")
 			->where("local.id_local = :id_local", [':id_local' => $id_local])

@@ -152,6 +152,10 @@ class LocalController extends Controller
 
                 $this->redirect('/admin/local/productos');
             }
+            else
+            {
+                $modelLogin->addErrors(['Usuario y/o password incorrectos']);
+            }
         }
 
         return $this->render('login',[

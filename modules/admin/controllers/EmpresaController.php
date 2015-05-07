@@ -207,7 +207,7 @@ class EmpresaController extends Controller
     {
         $session = \Yii::$app->session;
 
-        $session->destroy();
+        $session->remove('admin');
         $this->redirect("/admin/empresa/superlogin");
     }
 }

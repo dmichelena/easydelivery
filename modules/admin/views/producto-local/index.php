@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
 				'attribute' => 'id_producto',
 				'value'		=> function($model){
-            		$producto = $model->getIdProducto()->all();
+            		$producto = $model->getIdProducto()->one();
             		return $producto['nombre'];
             	}
             ],

@@ -42,4 +42,9 @@ class PedidoController extends Controller
 			'model' => $model,
 		]);
 	}
+	
+	public function actionProceso()
+	{
+		print_r($_GET);
+	}
 }

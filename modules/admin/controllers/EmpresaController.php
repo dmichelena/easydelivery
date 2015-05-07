@@ -171,14 +171,11 @@ class EmpresaController extends Controller
     			$model->usuario   	= $post['Empresa']['usuario'];
     			$model->password   	= sha1($post['Empresa']['password']);
     			$model->save();
-    			
-    			
-    			$modelLogin->username = $model->usuario;
-    			$modelLogin->password = $post['Empresa']['password'];
-    			if($modelLogin->login())
-    			{
-    				return $this->redirect('/local');
-    			}
+
+                $session = \Yii::$app->session;
+                $session['admin'] = $model;
+
+    			return $this->redirect('/local');
     		}
     	}
     	 

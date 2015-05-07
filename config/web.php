@@ -13,6 +13,11 @@ $config = [
 	    ],
     ],
     'components' => [
+        'session' => [
+            'class' => 'yii\web\DbSession',
+            'db' => 'easydelivery',  // the application component ID of the DB connection. Defaults to 'db'.
+            'sessionTable' => 'my_session', // session table name. Defaults to 'session'.
+        ],
     	'urlManager' => [
     		'enablePrettyUrl' => true,
     		'showScriptName' => false,

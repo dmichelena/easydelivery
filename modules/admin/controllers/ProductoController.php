@@ -95,6 +95,7 @@ class ProductoController extends Controller
                     ]);
                 }
             }
+            $model->foto = \Yii::$app->urlManager->createAbsoluteUrl("") . 'uploads/' . $modelUpload->file->baseName . '.' . $modelUpload->file->extension;
 
             if($model->save())
                 return $this->redirect(['view', 'id' => $model->id_producto]);

@@ -24,21 +24,18 @@
                         <label>S/. 0.00 </label>
                     </div>
                 </div>
+                <?php 
+                	foreach($producto as $p):
+                ?>
                 <hr/>
                 <div class="row">
                     <div class="col-lg-4">
-                        <img alt="140x140" src="img/productos/productos-twistertradicional.png" class="img-rounded" />
+                        <img alt="140x140" src="<?= $p['foto']?>" class="img-rounded" />
                     </div>
                     <div class="col-lg-4">
                         
-                            <label style="color: #FFBD32"><u>Combo Twister Tradicional</u></label>
-                            <label class="control-label">1 Twister tradicional </label>
-                            <br />
-                            <label class="control-label">1 Papa mediana </label>
-                            <br />
-                            <label class="control-label">1 Gaseosa mediana </label>
-                            <br/>
-                            <label class="control-label">Precio S/16.90 </label>
+                            <label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label>
+                            <label class="control-label"><?= $p['descripcion']?></label>
                     </div>
                     <div class="col-lg-4">
                         <form class=" form-inline">
@@ -51,6 +48,7 @@
                     </div>
                 </div>
                 <hr/>
+                <?php endforeach;?>
             </div>	
             
         </section>

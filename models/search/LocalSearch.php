@@ -42,7 +42,13 @@ class LocalSearch extends Local
      */
     public function search($params)
     {
-        $query = Local::find();
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
+        $query = Local::find()->where("id_empresa = :id_empresa", [':id_empresa' => $session['admin']->id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

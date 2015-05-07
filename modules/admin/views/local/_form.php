@@ -12,7 +12,7 @@ use yii\helpers\ArrayHelper;
 
 <div class="local-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['class' => 'form-horizontal']]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
 

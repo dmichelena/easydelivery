@@ -32,6 +32,12 @@ class ProductoController extends Controller
      */
     public function actionIndex()
     {
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
         $searchModel = new ProductoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

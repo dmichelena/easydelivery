@@ -41,7 +41,13 @@ class ProductoSearch extends Producto
      */
     public function search($params)
     {
-        $query = Producto::find();
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
+        $query = Producto::find()->where(":id_empresa = :id_empresa", [':id_empresa' => $session['admin']->id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

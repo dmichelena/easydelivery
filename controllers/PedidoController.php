@@ -56,7 +56,7 @@ class PedidoController extends Controller
 		
 		$id_local = $_GET['id'];
 		$categoria = (new Query())
-					->select('categoria.nombre')
+					->select('categoria.nombre, categoria.id_categoria')
 					->distinct("categoria.nombre")
 					->from("categoria")
 					->join("INNER JOIN", 'producto', 'categoria.id_categoria = producto.id_categoria')

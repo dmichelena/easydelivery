@@ -65,8 +65,10 @@ class PedidoController extends Controller
 					->where("producto_local.id_local = :id_local",[':id_local' => $id_local])
 					->all();
 		
-		$productos = Producto::find()
-			->joinWith("producto_local", "producto.id_producto = producto_local.id_producto")
+		$productos = (new Query())
+			->select('*')
+			->from('producto')
+			->join("INNER JOIN", "producto_local", "producto.id_producto = producto_local.id_producto")
 			->where("producto_local.id_local = :id_local AND producto.id_categoria = :id_categoria", [
 					':id_local' 	=> $id_local,
 					':id_categoria'	=> $categoria[0]['id_categoria']

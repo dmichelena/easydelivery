@@ -156,7 +156,7 @@ class EmpresaController extends Controller
     			{
     				if($modelUpload->hasErrors())
     				{
-                        $model->addError("foto", $modelUpload->errors);
+                        $model->addError("foto", json_encode($modelUpload->errors));
                         return $this->render("superlogin", [
                             'model' => $model,
                             'modelLogin' => $modelLogin

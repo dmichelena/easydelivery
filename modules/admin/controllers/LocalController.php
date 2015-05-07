@@ -140,7 +140,7 @@ class LocalController extends Controller
         $post = Yii::$app->request->post();
         if(!empty($post))
         {
-            $model = Local::find()->where('username = :username AND password = :password', [
+            $model = Local::find()->where('usuario = :username AND password = :password', [
                 ':username' => $post['LoginForm']['username'],
                 ':password' => $post['LoginForm']['password'],
             ])->one();

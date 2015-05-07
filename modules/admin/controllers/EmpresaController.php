@@ -141,8 +141,21 @@ class EmpresaController extends Controller
                 $empresita = Empresa::find()->where("usuario = :usuario AND password = :password", [
                     ':usuario'  => $post['LoginForm']['username'],
                     ':password' => sha1($post['LoginForm']['password']),
-                ])->all();
-                echo "<pre>";print_r($empresita);die();
+                ])->one();
+
+                if(empty($empresita))
+                {
+                    $model->addError("username", "Usuario y/o password incorrectos.");
+                    return $this->render("superlogin", [
+                        'model' => $model,
+                        'modelLogin' => $modelLogin
+                    ]);
+                }
+
+                $session = \Yii::$app->session;
+                $session['admin'] = $empresita;
+
+                return $this->redirect('/admin/local');
     		}
     		else
     		{

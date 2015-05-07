@@ -30,12 +30,12 @@
                 <hr/>
                 <div class="row">
                     <div class="col-lg-4">
-                        <img alt="140x140" src="<?= $p['foto']?>" class="img-rounded" />
+                        <img alt="140x140" src="<?= $p->foto?>" class="img-rounded" />
                     </div>
                     <div class="col-lg-4">
                         
-                            <label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label>
-                            <label class="control-label"><?= $p['descripcion']?></label>
+                            <label style="color: #FFBD32"><u><?= $p->nombre ?></u></label>
+                            <label class="control-label"><?= $p->descripcion?></label>
                     </div>
                     <div class="col-lg-4">
                         <form class=" form-inline">

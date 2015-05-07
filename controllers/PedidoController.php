@@ -72,8 +72,6 @@ class PedidoController extends Controller
 			])
 			->all();
 		
-		echo "<pre>";print_r($productos);die();
-
 		return $this->render('proceso',[
 				'categoria' => $categoria,
 				'productos'	=> $productos

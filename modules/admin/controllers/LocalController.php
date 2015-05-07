@@ -37,9 +37,7 @@ class LocalController extends Controller
         {
             $this->redirect("/admin/empresa/superlogin");
         }
-
-
-        echo "<pre>";print_r($session['admin']);die();
+        
         $searchModel = new LocalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

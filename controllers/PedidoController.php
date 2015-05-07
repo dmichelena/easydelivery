@@ -34,7 +34,8 @@ class PedidoController extends Controller
   
 		$model = \Yii::$app->db->createCommand($sql)->queryAll();
 		
-		echo "<pre>";print_r($model);die();
-		return $this->render("productos");
+		return $this->render("productos",[
+			'model' => $model,
+		]);
 	}
 }

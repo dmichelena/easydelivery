@@ -11,15 +11,16 @@
 							</tr>
 						</thead>
 						<tbody class="active" >
+						<?php foreach($model as $m):?>
 							<tr>
 								<td>
 									<div class="col-md-3">
-										<h2><img  src="img/lapastara1.png" width="100" height="100" class="img-circle"> </h2>
+										<h2><img  src="<?= $m['foto'] ?>" width="100" height="100" class="img-circle"> </h2>
 									</div>
 									<div class="col-md-5">
-										<h3><strong> La Pastana </strong></h3>
+										<h3><strong> <?= $m['nombre'] ?> </strong></h3>
 										<em></br>
-											Pizza, Comida saludable
+											<?= $m['desctipcion'] ?>
 										</em>
 									</div>
 									<div class="col-md-4">
@@ -29,7 +30,8 @@
 										</h3>
 									</div>
 								</td>
-							</tr>                                                                                            
+							</tr>                  
+						<?php endforeach; ?>                                                                          
 						</tbody>
 						</table>
 					</div>

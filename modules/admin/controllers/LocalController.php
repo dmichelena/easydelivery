@@ -37,7 +37,7 @@ class LocalController extends Controller
         {
             $this->redirect("/admin/empresa/superlogin");
         }
-        
+
         $searchModel = new LocalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -66,6 +66,12 @@ class LocalController extends Controller
      */
     public function actionCreate()
     {
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
         $model = new Local();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -73,6 +79,7 @@ class LocalController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'session' => $session['admin'],
             ]);
         }
     }

@@ -3,8 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Empresa;
-use app\models\Turno;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Local */
@@ -27,9 +26,9 @@ use app\models\Turno;
 
     <?= $form->field($model, 'zona_reparto_km')->textInput() ?>
 
-    <?= $form->field($model, 'id_empresa')->dropDownList(ArrayHelper::map(Empresa::find()->all(), 'id_empresa', 'nombre'), ['prompt' => 'Seleccione una empresa']) ?>
+    <?= $form->field($model, 'id_empresa')->hiddenInput(['value' => $session->id]) ?>
 
-    <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione un turno']) ?>
+    <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(\app\models\Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione un turno']) ?>
 
     <?= $form->field($model, 'costo_envio')->textInput() ?>
 

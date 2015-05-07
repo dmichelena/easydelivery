@@ -70,6 +70,8 @@ class PedidoController extends Controller
 					':id_local' 	=> $id_local,
 					':id_categoria'	=> $categoria[0]['id_categoria']
 			]);
+		
+		echo "<pre>";print_r($productos);die();
 
 		return $this->render('proceso',[
 				'categoria' => $categoria,

@@ -9,11 +9,8 @@ use yii\helpers\ArrayHelper;
 
     <?php
         foreach($model as $m):
-        echo "<pre>";print_r($m);die();
     ?>
-            <?php
-                Html::checkbox("[".$m->id_producto."]producto");
-            ?>
+            <?= $form->field($m, "[".$m->id_producto."]producto")->checkbox(['label' => $m->nombre])?>
     <?php endforeach; ?>
 
     <?php ActiveForm::end(); ?>

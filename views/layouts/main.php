@@ -32,21 +32,25 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            
+
+
+
             $menu = [
                     	['label' => 'Home', 'url' => '/site/index'],
-                    ]; 
-            if(!Yii::$app->user->isGuest)
+                    ];
+
+            $session = \Yii::$app->session;
+            if(!$session->has('admin'))
             {
             	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
-					['label' => 'Locales', 'url' => '/local'],
-					['label' => 'Productos', 'url' => '/producto'],
-            		['label' => 'Transporte', 'url' => '/transporte'],
+					['label' => 'Locales', 'url' => '/admin/local'],
+					['label' => 'Productos', 'url' => '/admin/producto'],
+            		['label' => 'Transporte', 'url' => '/admin/transporte'],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => '/site/login'] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => '/site/logout',
+                        ['label' => 'Login', 'url' => '/admin/empresa/superlogin'] :
+                        ['label' => 'Logout (' . $session['admin']->razon_social . ')',
+                            'url' => '/admin/empresa/logout',
                             'linkOptions' => ['data-method' => 'post']],
                 ];
             }

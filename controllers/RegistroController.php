@@ -13,7 +13,7 @@ class RegistroController extends Controller
 {
 	public function actionIndex()
 	{
-		$post = \Yii::$app->request->post();
+		$post = $_POST;
 		if(!empty($post))
 		{
 			echo "<pre>";print_r($post);die();

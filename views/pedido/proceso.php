@@ -1,3 +1,6 @@
+<?php
+use yii\widgets\ActiveForm;
+?>
 <section class="row">
 	<div class="col-lg-3">
 		<div class="list-group">
@@ -24,6 +27,7 @@
 				<label>S/. 0.00 </label>
 			</div>
 		</div>
+		<?php $form = ActiveForm::begin(); ?>
 		<?php 
 			foreach($productos as $p):
 		?>
@@ -45,10 +49,11 @@
 					<span class="input-group-addon" id="sizing-addon1">Precio Unitario</span>
 					<input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?=$p['precio']?>" disabled="disabled" />
 				</div></br>
-				<button type="button" class="btn btn-lg btn-warning" >Comprar</button>
+				<button type="submit" class="btn btn-lg btn-warning" >Comprar</button>
 			</div>
 		</div>
 		<hr/>
 		<?php endforeach;?>
+		<?php ActiveForm::end(); ?>
 	</div>	
 </section>

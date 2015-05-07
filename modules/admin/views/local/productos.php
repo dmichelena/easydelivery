@@ -9,14 +9,24 @@ use yii\helpers\ArrayHelper;
 </h1>
     <?php $form = ActiveForm::begin(); ?>
 
+    
+    <table>
+    	<tr>
+    		<th>Producto</th>
+    		<th>Precio</th>
+    		<th>Stock</th>
+    	</tr>
     <?php
         foreach($model as $m):
     ?>
-            <?= $form->field($m, "[".$m->id_producto."]id_producto")->checkbox(['label' => $m->nombre, 'checked' => false])?>
+    	<tr>
+            <td><?= $form->field($m, "[".$m->id_producto."]id_producto")->checkbox(['label' => $m->nombre, 'checked' => false])?></td>
             
-            <?= $form->field($m, "[".$m->id_producto."]precio")->textInput()->label("Precio")?>
+            <td><?= $form->field($m, "[".$m->id_producto."]precio")->textInput()->label(false)?></td>
             
-            <?= $form->field($m, "[".$m->id_producto."]stock")->textInput()->label("Stock")?>
+            <td><?= $form->field($m, "[".$m->id_producto."]stock")->textInput()->label(false)?></td>
+        </tr>
     <?php endforeach; ?>
+    </table>
 
     <?php ActiveForm::end(); ?>

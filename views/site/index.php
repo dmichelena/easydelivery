@@ -42,7 +42,7 @@
 					¡Pruébalo ya!
 				</p>
 				<p>
-					<a class="btn btn-primary btn-large" href="#">Regístrate ahora</a>
+					<a class="btn btn-primary btn-large" href="/registro">Regístrate ahora</a>
 				</p>
 			</div>
 		</div>

@@ -30,7 +30,7 @@
                 <hr/>
                 <div class="row">
                     <div class="col-lg-4">
-                        <img alt="140x140" src="<?= $p->foto?>" class="img-rounded" />
+                        <img alt="140x140" src="<?= $p->foto?>" class="img-rounded"  width="100" height="100" class="img-circle" />
                     </div>
                     <div class="col-lg-4">
                         

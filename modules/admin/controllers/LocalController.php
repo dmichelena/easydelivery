@@ -171,6 +171,12 @@ class LocalController extends Controller
         {
             $this->redirect("/admin/local/login");
         }
+        
+        $post = Yii::$app->request->post();
+        if(!empty($post))
+        {
+        	echo "<pre>";print_r($post);die();
+        }
 
         $model = Producto::find()
             ->join("INNER JOIN", "local", "local.id_empresa = producto.id_empresa")

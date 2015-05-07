@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\LoginForm;
+use app\models\Producto;
 use Yii;
 use app\models\Local;
 use app\models\search\LocalSearch;
@@ -165,6 +166,16 @@ class LocalController extends Controller
 
     public function actionProductos()
     {
-        echo "ok";
+        $session = \Yii::$app->session;
+        if(!$session->has('local'))
+        {
+            $this->redirect("/admin/local/login");
+        }
+
+        $model = Producto::find()->where("id_local = :id_local",[
+            ':id_local' => $session['local']->id_local,
+        ]);
+
+        echo "<pre>";print_r($model);die();
     }
 }

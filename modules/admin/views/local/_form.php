@@ -18,7 +18,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'direccion')->textInput(['maxlength' => 100]) ?>
     
-    <div class="control-label col-md-2">Seleccione su local en el mapa</div><div class="col-md-10"><div id="map_canvas" style="width:100%; height:400px"></div></div>
+    <div class="control-label">Seleccione su local en el mapa</div><div id="map_canvas" style="width:100%; height:400px"></div>
 
     <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15, 'class' => 'longitud']) ?>
 

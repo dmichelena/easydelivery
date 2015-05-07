@@ -13,6 +13,6 @@ class PedidoController extends Controller
 			return $this->redirect("/registro");
 		}
 		
-		echo "<pre>";print_r($session);die();
+		echo "<pre>";print_r($session['usuario-web']);die();
 	}
 }

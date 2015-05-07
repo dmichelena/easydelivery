@@ -54,8 +54,14 @@ class PedidoController extends Controller
 		{
 			return $this->redirect("/registro");
 		}
-		
 		$id_local = $_GET['id'];
+		
+		$post = \Yii::$app->request->post();
+		if(!empty($post))
+		{
+			echo "<pre>";print_r($post);die();
+		}
+		
 		$categoria = (new Query())
 					->select('categoria.nombre, categoria.id_categoria')
 					->distinct("categoria.nombre")

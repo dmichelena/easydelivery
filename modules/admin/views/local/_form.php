@@ -12,7 +12,7 @@ use yii\helpers\ArrayHelper;
 
 <div class="local-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['class' => 'form-horizontal']]); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 100]) ?>
 
@@ -26,8 +26,6 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'zona_reparto_km')->textInput() ?>
 
-    <?= $form->field($model, 'id_empresa')->hiddenInput(['value' => $session->id]) ?>
-
     <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(\app\models\Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione un turno']) ?>
 
     <?= $form->field($model, 'costo_envio')->textInput() ?>
@@ -37,6 +35,8 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 45]) ?>
     
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ]) ?>
+
+    <?= $form->field($model, 'id_empresa')->hiddenInput(['value' => $session->id])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

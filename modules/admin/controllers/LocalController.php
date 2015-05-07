@@ -177,7 +177,7 @@ class LocalController extends Controller
             ->where("id_local = :id_local",[
                 ':id_local' => $session['local']->id_local,
             ])->all();
-
+        
         return $this->render('productos',[
             "model" => $model,
         ]);

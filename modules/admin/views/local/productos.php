@@ -9,6 +9,7 @@ use yii\helpers\ArrayHelper;
 
     <?php
         foreach($model as $m):
+        echo "<pre>";print_r($m);die();
     ?>
             <?php
                 Html::checkbox("[".$m->id_producto."]producto");

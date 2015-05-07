@@ -31,7 +31,7 @@ use app\models\Turno;
 
     <?= $form->field($model, 'id_turno')->dropDownList(ArrayHelper::map(Turno::find()->all(), 'id_turno', 'nombre'), ['prompt' => 'Seleccione un turno']) ?>
 
-    <?= $form->field($model, 'id_local')->dropDownList(ArrayHelper::map(Local::find()->where("id_empresa= :id_empresa",[':id_empresa'=>$session['admin]->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
+    <?= $form->field($model, 'id_local')->dropDownList(ArrayHelper::map(Local::find()->where("id_empresa= :id_empresa",[':id_empresa'=>$session['admin']->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
 
     <?= $form->field($model, 'longitud')->textInput(['maxlength' => 13]) ?>
 

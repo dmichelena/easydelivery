@@ -59,8 +59,9 @@ class PedidoController extends Controller
 					->select('categoria.nombre')
 					->distinct("categoria.nombre")
 					->from("categoria")
-					->join("INNER JOIN", 'producto', 'categoria.id_producto = producto.id_producto')
-					->where("producto.id_local = :id_local",[':id_local' => $id_local])
+					->join("INNER JOIN", 'producto', 'categoria.id_categoria = producto.id_categoria')
+					->join("INNER JOIN", "producto_local", "producto_local.id_producto = producto.id_producto")
+					->where("producto_local.id_local = :id_local",[':id_local' => $id_local])
 					->all();
 		echo "<pre>";print_r($categoria);die();
 

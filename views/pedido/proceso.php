@@ -1,10 +1,11 @@
 <section class="row">
             <div class="col-lg-3">
                 <div class="list-group">
-                    <a href="#" class="list-group-item ">Megas</a>
-                    <a href="#" class="list-group-item ">Combos</a>
-                    <a href="#" class="list-group-item ">Tostados y Sandwiches</a>
-                    <a href="#" class="list-group-item ">Postres</a>
+                	<?php 
+                		foreach($categoria as $c):
+                	?>
+                    <a href="#" class="list-group-item "><?=$c['nombre'] ?></a>
+                    <?php endforeach;?>
                 </div>
             </div>
             <div class="col-lg-9">

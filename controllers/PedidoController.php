@@ -63,8 +63,9 @@ class PedidoController extends Controller
 					->join("INNER JOIN", "producto_local", "producto_local.id_producto = producto.id_producto")
 					->where("producto_local.id_local = :id_local",[':id_local' => $id_local])
 					->all();
-		echo "<pre>";print_r($categoria);die();
 
-		return $this->render('proceso');
+		return $this->render('proceso',[
+			'categoria' => $categoria,
+		]);
 	}
 }

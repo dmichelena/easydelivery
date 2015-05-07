@@ -28,5 +28,9 @@ use yii\helpers\ArrayHelper;
         </tr>
     <?php endforeach; ?>
     </table>
-
+	
+	<div class="form-group">
+        <?= Html::submitButton('guardar','btn btn-success']) ?>
+    </div>
+	
     <?php ActiveForm::end(); ?>

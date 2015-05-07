@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\UploadForm;
 use Yii;
 use app\models\Producto;
 use app\models\search\ProductoSearch;

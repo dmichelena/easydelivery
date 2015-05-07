@@ -66,6 +66,7 @@ class ProductoController extends Controller
      */
     public function actionCreate()
     {
+        $modelUpload = new UploadForm();
         $session = \Yii::$app->session;
         if(!$session->has('admin'))
         {
@@ -74,8 +75,27 @@ class ProductoController extends Controller
 
         $model = new Producto();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_producto]);
+        if ($model->load(Yii::$app->request->post())) {
+            $modelUpload->file = UploadedFile::getInstance($model, 'foto');
+
+            if ($modelUpload->file && $modelUpload->validate()) {
+                $modelUpload->file->saveAs('uploads/' . $modelUpload->file->baseName . '.' . $modelUpload->file->extension);
+            }
+            else
+            {
+                if($modelUpload->hasErrors())
+                {
+                    $error = $modelUpload->errors;
+
+                    $model->addError("foto", $error['file'][0]);
+                    return $this->render("create", [
+                        'model' => $model
+                    ]);
+                }
+            }
+
+            if($model->save())
+                return $this->redirect(['view', 'id' => $model->id_producto]);
         } else {
             return $this->render('create', [
                 'model' => $model,

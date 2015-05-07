@@ -17,7 +17,7 @@ use app\models\Empresa;
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => 150]) ?>
+    <?= $form->field($model, 'foto')->fileInput() ?>
 
     <?= $form->field($model, 'descipcion')->textInput(['maxlength' => 250]) ?>
 

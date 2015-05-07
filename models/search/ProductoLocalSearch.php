@@ -43,7 +43,6 @@ class ProductoLocalSearch extends ProductoLocal
     public function search($params)
     {
         $query = ProductoLocal::find();
-        $query->join("INNER JOIN", 'producto', 'producto.id_producto = producto_local.id_producto');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

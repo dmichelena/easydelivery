@@ -88,6 +88,7 @@ class ProductoController extends Controller
                 if($modelUpload->hasErrors())
                 {
                     $error = $modelUpload->errors;
+                    echo "<pre>";print_r($error);die();
 
                     $model->addError("foto", $error['file'][0]);
                     return $this->render("create", [

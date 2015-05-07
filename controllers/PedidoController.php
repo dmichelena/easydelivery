@@ -4,6 +4,8 @@ namespace app\controllers;
 use yii\web\Controller;
 use app\models\Local;
 use yii\db\Query;
+use app\models\Categoria;
+use app\models\Producto;
 class PedidoController extends Controller
 {
 	public function actionProductos()
@@ -47,10 +49,20 @@ class PedidoController extends Controller
 	{
 		$session = \Yii::$app->session;
 		
-		if(!$session->has('usuario-web'))
+		if(!$session->has('usuario-web') or !isset($_GET['id']))
 		{
 			return $this->redirect("/registro");
 		}
+		
+		$id_local = $_GET['id'];
+		$categoria = (new Query())
+					->select('categoria.nombre')
+					->distinct("categoria.nombre")
+					->from("categoria")
+					->join("INNER JOIN", 'producto', 'categoria.id_producto = producto.id_producto')
+					->where("producto.id_local = :id_local",[':id_local' => $id_local])
+					->all();
+		echo "<pre>";print_r($categoria);die();
 
 		return $this->render('proceso');
 	}

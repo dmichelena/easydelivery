@@ -34,11 +34,11 @@ class PedidoController extends Controller
 		echo "<pre>";print_r($sql);die();
   
 		
-		$model = (new Query())
+		/*$model = (new Query())
 					->select('address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance')
 					->from('local')
 					->where('')
-		
+		*/
 		return $this->render("productos");
 	}
 }

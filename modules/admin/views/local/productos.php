@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
     <?php $form = ActiveForm::begin(); ?>
 
     
-    <table>
+    <table class="table table-striped table-bordered">
     	<tr>
     		<th>Producto</th>
     		<th>Precio</th>

@@ -202,4 +202,12 @@ class EmpresaController extends Controller
     			]);
     	 
     }
+
+    public function actionLogout()
+    {
+        $session = \Yii::$app->session;
+
+        $session->destroy();
+        $this->redirect("/admin/empresa/superlogin");
+    }
 }

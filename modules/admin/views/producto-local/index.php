@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
 				'attribute' => 'id_producto',
 				'value'		=> function($model){
-            		echo "<pre>";print_r($model->getIdProducto()->all());die();
+            		echo "<pre>";print_r($model->getIdProducto()->all()->nombre);die();
             	}
             ],
             'id_local',

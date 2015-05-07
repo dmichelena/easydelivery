@@ -137,8 +137,30 @@ class LocalController extends Controller
     {
         $modelLogin = new LoginForm();
 
+        $post = Yii::$app->request->post();
+        if(!empty($post))
+        {
+            $model = Local::find()->where('username = :username AND password = :password', [
+                ':username' => $post['LoginForm']['username'],
+                ':password' => $post['LoginForm']['password'],
+            ]);
+
+            if(!empty($model))
+            {
+                $session = \Yii::$app->session;
+                $session['local'] = $model;
+
+                $this->redirect('/admin/local/productos');
+            }
+        }
+
         return $this->render('login',[
             'modelLogin' => $modelLogin,
         ]);
+    }
+
+    public function actionProductos()
+    {
+        echo "ok";
     }
 }

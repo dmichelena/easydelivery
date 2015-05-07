@@ -12,7 +12,7 @@
                 <div class="row">
                 	<center>
                     <div class="col-lg-4 col-xs-3 col-md-3">
-                        <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png" height="80" width="80" /> <h2>KFC</h2>
+                        <img src="<?= $empresa->foto?>" height="80" width="80" /> <h2><?=$empresa->nombre?></h2>
                     </div>
                     </center>
                     <div class="col-lg-4 col-xs-4 col-md-4">

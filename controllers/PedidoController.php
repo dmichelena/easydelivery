@@ -6,6 +6,7 @@ use app\models\Local;
 use yii\db\Query;
 use app\models\Categoria;
 use app\models\Producto;
+use app\models\Empresa;
 class PedidoController extends Controller
 {
 	public function actionProductos()
@@ -72,9 +73,15 @@ class PedidoController extends Controller
 			])
 			->all();
 		
+		$empresa = Empresa::find()
+			->join("INNER JOIN", "local", "empresa.id_empresa = local.id_empresa")
+			->where("local.id_local = :id_local", [':id_local' => $id_local])
+			->one();
+		
 		return $this->render('proceso',[
 				'categoria' => $categoria,
-				'productos'	=> $productos
+				'productos'	=> $productos,
+				'empresa'	=> $empresa,
 		]);
 	}
 }

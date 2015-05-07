@@ -138,11 +138,11 @@ class EmpresaController extends Controller
     	{
     		if(isset($post['login-button']))
     		{
-                $model->find()->where("usuario = :usuario AND password = :password", [
+                $empresita = Empresa::find()->where("usuario = :usuario AND password = :password", [
                     ':usuario'  => $post['LoginForm']['username'],
                     ':password' => $post['LoginForm']['password'],
                 ])->all();
-                echo "<pre>";print_r($model);die();
+                echo "<pre>";print_r($empresita);die();
     		}
     		else
     		{

@@ -145,7 +145,7 @@ class EmpresaController extends Controller
 
                 if(empty($empresita))
                 {
-                    $model->addError("username", "Usuario y/o password incorrectos.");
+                    $modelLogin->addError("username", "Usuario y/o password incorrectos.");
                     return $this->render("superlogin", [
                         'model' => $model,
                         'modelLogin' => $modelLogin

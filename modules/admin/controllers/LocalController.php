@@ -178,6 +178,8 @@ class LocalController extends Controller
                 ':id_local' => $session['local']->id_local,
             ])->all();
 
-        echo "<pre>";print_r($model);die();
+        return $this->render('productos',[
+            "model" => $model,
+        ]);
     }
 }

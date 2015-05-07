@@ -138,12 +138,11 @@ class EmpresaController extends Controller
     	{
     		if(isset($post['login-button']))
     		{
-    			$modelLogin->username = $post['LoginForm']['username'];
-    			$modelLogin->password = $post['LoginForm']['password'];
-    			if($modelLogin->login())
-    			{
-    				return $this->redirect('/admin/local');
-    			}
+                $model->find()->where("usuario = :usuario AND password = :password", [
+                    ':usuario'  => $post['LoginForm']['username'],
+                    ':password' => $post['LoginForm']['password'],
+                ])->all();
+                echo "<pre>";print_r($model);die();
     		}
     		else
     		{

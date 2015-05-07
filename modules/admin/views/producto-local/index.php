@@ -32,7 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
             		return $producto['nombre'];
             	}
             ],
-            'id_local',
+            [
+				'attribute' => 'id_local',
+				'value'		=> function($model){
+            		$producto = $model->getIdLocal()->one();
+            		return $producto['nombre'];
+            	}
+            ],
             'stock',
             'precio',
             'status',

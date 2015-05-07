@@ -174,7 +174,7 @@ class LocalController extends Controller
 
         $model = Producto::find()->where("id_local = :id_local",[
             ':id_local' => $session['local']->id_local,
-        ]);
+        ])->all();
 
         echo "<pre>";print_r($model);die();
     }

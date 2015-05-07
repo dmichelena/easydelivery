@@ -1,3 +1,6 @@
+<?php 
+use yii\bootstrap\ActiveForm;
+?>
 		<section class="row">
             <div class="col-md-11">
                 <div class="row">

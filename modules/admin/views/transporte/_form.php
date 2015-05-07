@@ -33,15 +33,15 @@ use app\models\Turno;
 
     <?= $form->field($model, 'id_local')->dropDownList(ArrayHelper::map(Local::find()->where("id_empresa= :id_empresa",[':id_empresa'=>$session['admin']->id])->all(), 'id_local', 'nombre'), ['prompt' => 'Seleccione un local']) ?>
 
-    <?= $form->field($model, 'longitud')->textInput(['maxlength' => 13]) ?>
-
-    <?= $form->field($model, 'latitud')->textInput(['maxlength' => 13]) ?>
-
     <?= $form->field($model, 'usuario')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 45]) ?>
     
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ]) ?>
+
+    <?= $form->field($model, 'longitud')->hiddenInput(['value' => 0])->label(false) ?>
+
+    <?= $form->field($model, 'latitud')->hiddenInput(['value' => 0])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

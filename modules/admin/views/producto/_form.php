@@ -25,7 +25,7 @@ use app\models\Empresa;
 
     <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ]) ?>
 
-    <?= $form->field($model, 'id_empresa')->hiddenInput(['value' => $session->id])->label(false) ?>
+    <?= $form->field($model, 'id_empresa')->hiddenInput(['value' => $session['admin']->id])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

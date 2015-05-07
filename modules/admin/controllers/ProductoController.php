@@ -66,6 +66,12 @@ class ProductoController extends Controller
      */
     public function actionCreate()
     {
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
         $model = new Producto();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -73,6 +79,7 @@ class ProductoController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'session' => $session,
             ]);
         }
     }

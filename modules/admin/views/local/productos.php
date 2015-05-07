@@ -30,7 +30,7 @@ use yii\helpers\ArrayHelper;
     </table>
 	
 	<div class="form-group">
-        <?= Html::submitButton(['guardar','btn btn-success']) ?>
+        <?= Html::submitButton('guardar' ,['class' =>'btn btn-success']) ?>
     </div>
 	
     <?php ActiveForm::end(); ?>

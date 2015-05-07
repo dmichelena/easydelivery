@@ -4,7 +4,7 @@ namespace app\controllers;
 use yii\web\Controller;
 class PedidoController extends Controller
 {
-	public function actionPedido()
+	public function actionProductos()
 	{
 		$session = \Yii::$app->session;
 		

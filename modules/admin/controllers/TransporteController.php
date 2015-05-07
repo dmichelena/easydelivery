@@ -78,6 +78,7 @@ class TransporteController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'session' => $session,
             ]);
         }
     }

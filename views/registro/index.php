@@ -33,7 +33,7 @@
                         <input type="hidden" name="longitud" class="longitud" />
 						<br />
 						<br />
-                    <button type="button"  class="btn btn-primary">Guardar Ubicación</button>
+                    <button type="submit"  class="btn btn-primary">Guardar Ubicación</button>
                    
                     </form>
                 </div>

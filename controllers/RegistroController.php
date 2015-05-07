@@ -16,7 +16,13 @@ class RegistroController extends Controller
 		$post = \Yii::$app->request->post();
 		if(!empty($post))
 		{
-			echo "<pre>";print_r($post);die();
+			if(!empty($post['latitud']))
+			{
+				$session = \Yii::$app->session;
+				$session['usuario-web'] = $post;
+			
+				return $this->redirect("/pedido/productos");
+			}
 		}
 		
 		return $this->render('index');

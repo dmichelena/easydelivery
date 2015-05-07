@@ -143,7 +143,7 @@ class LocalController extends Controller
             $model = Local::find()->where('username = :username AND password = :password', [
                 ':username' => $post['LoginForm']['username'],
                 ':password' => $post['LoginForm']['password'],
-            ]);
+            ])->one();
 
             if(!empty($model))
             {

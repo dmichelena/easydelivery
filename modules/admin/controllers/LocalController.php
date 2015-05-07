@@ -192,6 +192,8 @@ class LocalController extends Controller
         	if(count($insert) > 0)
         	{ 
         		\Yii::$app->db->createCommand()->batchInsert('producto_local', ['id_producto', 'id_local', 'stock', 'precio', 'status'], $insert)->execute();
+        		
+        		return $this->redirect("/admin/producto-local");
         	}
         }
 

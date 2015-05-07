@@ -1,42 +1,4 @@
 <div class="col-md-12 column">
-			<nav class="navbar navbar-default navbar-inverse" role="navigation">
-				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">EasyDelivery</a>
-				</div>
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						
-					<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rubro<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Carnes y Parrillas</a></li>
-								<li><a href="#">Comida Rápida</a></li>
-                                <li><a href="#">Electrodomésticos</a></li>
-       								<li><a href="#">Licorería</a></li>
-								<li><a href="#">Pizza</a></li>
-							</ul>
-						</li>	
-						
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div> <button type="submit" class="btn btn-default">Buscar</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Iniciar Sesión</a></li>
-						<li class="dropdown">
-							<ul class="dropdown-menu">
-								<li><a href="#">Mi Cuenta</a></li>
-                                <li class="divider"></li>
-								<li><a href="#">Salir</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				
-			</nav>
 			<div class="carousel slide" id="carousel-796873" style="width: 675px; margin: 0 auto">
 				<ol class="carousel-indicators">
 					<li data-slide-to="0" data-target="#carousel-796873">

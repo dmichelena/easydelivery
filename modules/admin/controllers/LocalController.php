@@ -35,8 +35,7 @@ class LocalController extends Controller
         $session = \Yii::$app->session;
         if(!$session->has('admin'))
         {
-            //$this->redirect("/empresa/superlogin");
-            echo "no";
+            $this->redirect("/admin/empresa/superlogin");
         }
 
 

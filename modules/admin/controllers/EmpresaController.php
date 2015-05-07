@@ -142,7 +142,7 @@ class EmpresaController extends Controller
     			$modelLogin->password = $post['LoginForm']['password'];
     			if($modelLogin->login())
     			{
-    				return $this->redirect('/local');
+    				return $this->redirect('/admin/local');
     			}
     		}
     		else
@@ -156,11 +156,14 @@ class EmpresaController extends Controller
     			{
     				if($modelUpload->hasErrors())
     				{
-    					//AQUI VA EL ERROR
-    					echo "<pre>";print_r($modelUpload->errors);die();
+                        $model->addError("foto", $modelUpload->errors);
+                        return $this->render("superlogin", [
+                            'model' => $model,
+                            'modelLogin' => $modelLogin
+                        ]);
     				}
     			}
-    			 
+
     			$model->ruc         = $post['Empresa']['ruc'];
     			$model->razon_social= $post['Empresa']['razon_social'];
     			$model->telefono    = $post['Empresa']['telefono'];
@@ -175,7 +178,7 @@ class EmpresaController extends Controller
                 $session = \Yii::$app->session;
                 $session['admin'] = $model;
 
-    			return $this->redirect('/local');
+    			return $this->redirect('/admin/local');
     		}
     	}
     	 

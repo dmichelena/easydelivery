@@ -41,7 +41,7 @@
                         <form class=" form-inline">
                             <div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon1">Cantidad</span>
-                            <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="1" />
+                            <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="0" />
                         </div></br>
                         <button type="button" class="btn btn-lg btn-warning" >Comprar</button>
                         </form>

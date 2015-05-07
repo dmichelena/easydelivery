@@ -20,7 +20,7 @@
 									<div class="col-md-5">
 										<h3><strong> <?= $m['nombre'] ?> </strong></h3>
 										<em></br>
-											<?= $m['descripcion'] ?>
+											<?= $m['direccion'] ?>
 										</em>
 									</div>
 									<div class="col-md-4">

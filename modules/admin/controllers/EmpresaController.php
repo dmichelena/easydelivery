@@ -140,7 +140,7 @@ class EmpresaController extends Controller
     		{
                 $empresita = Empresa::find()->where("usuario = :usuario AND password = :password", [
                     ':usuario'  => $post['LoginForm']['username'],
-                    ':password' => $post['LoginForm']['password'],
+                    ':password' => sha1($post['LoginForm']['password']),
                 ])->all();
                 echo "<pre>";print_r($empresita);die();
     		}

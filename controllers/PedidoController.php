@@ -132,7 +132,26 @@ class PedidoController extends Controller
         $post = \Yii::$app->request->post();
         if(!empty($post))
         {
-            echo "<pre>";print_r($post);die();
+            \Yii::$app->db->createCommand()->insert('delivery',
+                [
+                    'destino_latitud'               => $session['usuario-web']['latitud'],
+                    'destino_longitud'              => $session['usuario-web']['longitud'],
+                    'telefono'                      => $post['telefono'],
+                    'status'                        => 'activo',
+                    'id_usuario'                    => 0,
+                    'id_local'                      => $_GET['id'],
+                    'paso'                          => 'en proceso',
+                    'costo_envio'                   => 10,
+                    'id_transporte'                 => 0,
+                    'tipo_comprobante'              => ($post['Comprobante'] == 2)?'boleta':'factura',
+                    'nombre_receptor'               => $post['nombres'],
+                    'dni_receptor'                  => $post['dni'],
+                    'ruc_receptor'                  => $post['ruc'],
+                    'razon_social_receptor'         => '',
+                    'direccion_empresa_receptor'    => '',
+                    'fecha_pedido'                  => date("Y-m-d"),
+                    'fecha_entregado'               => '0000-00-00',
+                ])->execute();
         }
 
         $pedido = [];

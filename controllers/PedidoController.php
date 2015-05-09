@@ -132,7 +132,6 @@ class PedidoController extends Controller
         $post = \Yii::$app->request->post();
         if(!empty($post))
         {
-            echo "<pre>";print_r($session['pedido'] );die();
             \Yii::$app->db->createCommand()->insert('delivery',
                 [
                     'destino_latitud'               => $session['usuario-web']['latitud'],
@@ -162,6 +161,7 @@ class PedidoController extends Controller
                     'id_local'      => $_GET['id'],
                     'id_delivery'   => $id_delivery,
                     'cantidad'      => $cant,
+                    'precio'        => 0,
                 ])->execute();
             }
         }

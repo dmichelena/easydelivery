@@ -162,7 +162,7 @@ class PedidoController extends Controller
             ->one();
         if(count($dni) == 0)
         {
-            echo json_encode(['status' => false, 'response' = NULL]);
+            echo json_encode(['status' => false, 'response' => NULL]);
         }
         else
         {

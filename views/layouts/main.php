@@ -57,7 +57,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; EasyDelivery <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-right">Solo hay 10 tipos de personas en el mundo. Los que saben binario y las que no.</p>
         </div>
     </footer>
 

@@ -181,13 +181,27 @@ class LocalController extends Controller
         	{
         		if($producto['id_producto'] != 0)
         		{
-        			$insert[] = [
-						$producto['id_producto'],
-						$session['local']->id_local,
-						$producto['stock'],
-						$producto['precio'],
-						'activo'
-        			];
+                    $producto_local = ProductoLocal::find()->where([
+                        'id_producto'   => $producto['id_producto'],
+                        'id_local'      => $session['local']->id_local
+                    ])->one();
+
+                    if(!empty($producto_local))
+                    {
+                        $producto_local->stock = $producto['stock'];
+                        $producto_local->precio = $producto['precio'];
+                        $producto_local->save();
+                    }
+                    else
+                    {
+                        $insert[] = [
+                            $producto['id_producto'],
+                            $session['local']->id_local,
+                            $producto['stock'],
+                            $producto['precio'],
+                            'activo'
+                        ];
+                    }
         		}
         	}
         	if(count($insert) > 0)

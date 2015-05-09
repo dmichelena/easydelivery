@@ -227,8 +227,8 @@ class LocalController extends Controller
             ])->one();
 
 
-            $m['precio'] = $producto_local->precio;
-            $m['stock'] = $producto_local->stock;
+            $m['precio'] = 10;
+            $m['stock'] = 20;
 
             $model2[] = $m;
         }

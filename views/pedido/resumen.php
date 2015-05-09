@@ -11,7 +11,7 @@
                     <?php foreach($pedido as  $cantidad => $p):?>
                     <div class="row clearfix">
                         <div class="col-md-4 column">
-                            <img src="<?= $p->foto ?>" class="img-rounded" />
+                            <img src="<?= $p->foto ?>"  width="100" height="100" class="img-circle" />
                         </div>
                         <div class="col-md-4 column">
                             <div class="form-group">

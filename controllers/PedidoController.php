@@ -77,7 +77,8 @@ class PedidoController extends Controller
 		$post = \Yii::$app->request->post();
 		if(!empty($post))
 		{
-			echo "<pre>";print_r($post);die();
+			$session['pedido'] = $post['cantidad'];
+            $this->redirect("pedido/resumen");
 		}
 		
 		$categoria = (new Query())
@@ -117,4 +118,9 @@ class PedidoController extends Controller
 				'empresa'	=> $empresa,
 		]);
 	}
+
+    public function actionResumen()
+    {
+        $this->render("resumen");
+    }
 }

@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 		<?php $form = ActiveForm::begin(); ?>
         <?php if(count($productos) == 0): ?>
         <div class="row">
-            <h2 clas="warning">No hay productos para esa categoría</h2>
+            <h2 clas="btn-warning">No hay productos para esa categoría</h2>
         </div>
         <?php endif; ?>
 		<?php 

@@ -132,6 +132,7 @@ class PedidoController extends Controller
         $post = \Yii::$app->request->post();
         if(!empty($post))
         {
+            echo "<pre>";print_r($session['pedido'] );die();
             \Yii::$app->db->createCommand()->insert('delivery',
                 [
                     'destino_latitud'               => $session['usuario-web']['latitud'],
@@ -152,6 +153,17 @@ class PedidoController extends Controller
                     'fecha_pedido'                  => date("Y-m-d"),
                     'fecha_entregado'               => '0000-00-00',
                 ])->execute();
+
+            $id_delivery = \Yii::$app->db->getLastInsertID();
+            foreach($session['pedido'] as $cant => $p)
+            {
+                \Yii::$app->db->createCommand()->insert('pedido',[
+                    'id_producto'   => $p,
+                    'id_local'      => $_GET['id'],
+                    'id_delivery'   => $id_delivery,
+                    'cantidad'      => $cant,
+                ])->execute();
+            }
         }
 
         $pedido = [];

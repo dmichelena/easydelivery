@@ -108,7 +108,7 @@ use yii\widgets\ActiveForm;
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10" >
-                    <?=CHtml::submitButton('Save', array('confirm'=>'¿Confirma la compra?'));?>
+                    <button type="submit" class="btn btn-primary" data-confirm="Are you sure?">Confirmar Compra</button>
                 </div>
             </div>
 

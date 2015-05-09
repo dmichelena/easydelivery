@@ -132,7 +132,7 @@ class PedidoController extends Controller
         $post = \Yii::$app->request->post();
         if(!empty($post))
         {
-            echo "<pre>";print_r(post);die();
+            echo "<pre>";print_r($post);die();
         }
 
         $pedido = [];

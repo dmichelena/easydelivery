@@ -36,8 +36,13 @@ AppAsset::register($this);
 
             	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
-                    ['items' => \app\component\MenuHelper::getMenu()],
+
                 ];
+
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-left'],
+                'items' => \app\component\MenuHelper::getMenu(),
+            ]);
             
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],

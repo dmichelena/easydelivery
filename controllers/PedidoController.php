@@ -134,11 +134,11 @@ class PedidoController extends Controller
         {
             $producto = Producto::find()->where([
                 'id_producto' => $sp
-            ]);
+            ])->one();
             $pedido[$cant] = $producto;
         }
 
-        echo "<pre>";print_r($pedido);die();
+        //echo "<pre>";print_r($pedido);die();
         return $this->render("resumen", [
             'pedido' => $pedido
         ]);

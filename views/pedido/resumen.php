@@ -48,12 +48,13 @@
                 <label class="col-sm-3 control-label">D.N.I:</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control" placeholder="Numero de D.N.I">
+                    <input type="button" class="form-control" value="Buscar" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Recibe la Orden:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" disabled placeholder="Maylin Marchan">
+                    <input type="text" class="form-control" disabled placeholder="Akiles Vailoyo">
                 </div>
             </div>
             <div class="form-group">

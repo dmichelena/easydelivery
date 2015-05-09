@@ -11,6 +11,11 @@
 							</tr>
 						</thead>
 						<tbody class="active" >
+                        <?php if(count($model) == 0):?>
+                            <tr>
+                                <h2>No hay locales de ese rubro cerca de ti.</h2>
+                            </tr>
+                        <?php endif; ?>
 						<?php foreach($model as $m):?>
 							<tr>
 								<td>

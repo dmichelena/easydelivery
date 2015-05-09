@@ -76,9 +76,9 @@ document.onload = initializeMap();
 
     $("select").change(function(){
         alert("ok");
-        subTotal = $(".sub-total").html();
-        valor = $(this).attr("valor");
-        $(".sub-total").html(subTotal+valor);
+        //subTotal = $(".sub-total").html();
+        //valor = $(this).attr("valor");
+        //$(".sub-total").html(subTotal+valor);
     });
 </script>
 </body>

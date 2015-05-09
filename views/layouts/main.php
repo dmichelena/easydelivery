@@ -75,7 +75,7 @@ AppAsset::register($this);
 
     $("select").change(function(){
 
-        subTotal = $(".sub-total").html();
+        subTotal = ($(".sub-total").html()*1);
         valor = $(this).attr("valor");
         cant = $(this).val();
         $(".sub-total").html((subTotal+(cant*valor)));

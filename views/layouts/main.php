@@ -88,7 +88,7 @@ AppAsset::register($this);
 
     $(".buscar").click(function(){
         $.get("/pedido/dni?dni="+$(".dni").val(), function(data){
-            console.log(data);
+            data = JSON.parse(data);
             if(!data.status)
             {
                 alert("No se encontró ese dni en el sistema");

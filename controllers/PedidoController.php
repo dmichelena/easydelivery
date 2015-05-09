@@ -161,7 +161,7 @@ class PedidoController extends Controller
                     'id_local'      => $_GET['id'],
                     'id_delivery'   => $id_delivery,
                     'cantidad'      => $cant,
-                    'precio'        => 0,
+                    'precio_unitario'        => 0,
                 ])->execute();
             }
         }

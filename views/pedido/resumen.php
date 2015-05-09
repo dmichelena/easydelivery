@@ -1,4 +1,7 @@
-<form class="form-horizontal">
+<?php
+use yii\widgets\ActiveForm;
+?>
+<?php $form = ActiveForm::begin(); ?>
     <div class="row clearfix">
         <div class="col-md-12 column">
             <font size="+2"><span class="glyphicon glyphicon-shopping-cart">Descripción del Pedido</span></font>
@@ -41,13 +44,12 @@
 
         <div class="col-md-6 column" >
             <div style="text-align: center">
-                <label>Direccion: Av. Aviacion 3351 Dpt.128 - San Borja, Lima</label><br />
                 <label style="color: #3E7FB7">Tiempo Máximo de Pedido: 45 Minutos</label>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">D.N.I:</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control dni" placeholder="Numero de D.N.I">
+                    <input type="text" name="dni" class="form-control dni" placeholder="Numero de D.N.I">
                 </div>
                 <div class="col-sm-3">
                     <input type="button" class="btn btn-warning buscar" value="Buscar" />
@@ -56,19 +58,19 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Recibe la Orden:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
+                    <input type="text" name="nombres" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Teléfono:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Ejemplo: 958478123">
+                    <input type="text" name="telefono" class="form-control" placeholder="Ejemplo: 958478123">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">RUC:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="Ejemplo: 19875487542">
+                    <input type="text" name="ruc" class="form-control" placeholder="Ejemplo: 19875487542">
                 </div>
             </div>
             <div class="form-group">
@@ -113,4 +115,4 @@
         </div>
 
     </div> <br></br><br></br>
-</form>
+<?php ActiveForm::end(); ?>

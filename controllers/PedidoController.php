@@ -129,6 +129,12 @@ class PedidoController extends Controller
             return $this->redirect("/registro");
         }
 
+        $post = \Yii::$app->request->post();
+        if(!empty($post))
+        {
+            echo "<pre>";print_r(post);die();
+        }
+
         $pedido = [];
         $sessionPedido = $session['pedido'];
         foreach($sessionPedido as $sp => $cant)

@@ -78,7 +78,7 @@ class PedidoController extends Controller
         foreach ($modelTotal as $m) {
             $locales[] = $m['id_local'];
         }
-echo "<pre>";print_r($locales);die();
+
             $session['locales-web'] = $locales;
 
 		

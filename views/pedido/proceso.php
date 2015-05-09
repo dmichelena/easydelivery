@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 		<?php 
 			foreach($categoria as $c):
 		?>
-			<a href="<?= \yii\helpers\Url::toRoute('pedido/proceso', array_merge($_GET, ['id_categoria' => $c['id_categoria']])) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
+			<a href="<?= \yii\helpers\Url::toRoute('pedido/proceso', $_GET, ['id_categoria' => $c['id_categoria']]) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
 		<?php endforeach;?>
 		</div>
 	</div>

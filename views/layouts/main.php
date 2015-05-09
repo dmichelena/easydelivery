@@ -36,7 +36,15 @@ AppAsset::register($this);
 
             	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
-					['label' => 'Locales', 'url' => '/admin/local'],
+                    [
+                        'label' => 'Dropdown',
+                        'items' => [
+                            ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                            '<li class="divider"></li>',
+                            '<li class="dropdown-header">Dropdown Header</li>',
+                            ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
+                        ],
+                    ],
                 ];
             
             echo Nav::widget([

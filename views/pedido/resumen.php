@@ -58,7 +58,7 @@ use yii\widgets\ActiveForm;
             <div class="form-group">
                 <label class="col-sm-3 control-label">Recibe la Orden:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="nombres" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
+                    <input type="text" name="nombres" class="form-control nombre" placeholder="Akiles Vailoyo">
                 </div>
             </div>
             <div class="form-group">

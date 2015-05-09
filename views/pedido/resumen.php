@@ -108,7 +108,7 @@ use yii\widgets\ActiveForm;
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10" >
-                    <button type="submit" class="btn btn-primary" data-confirm="Are you sure?">Confirmar Compra</button>
+                    <button type="submit" class="btn btn-primary" data-confirm="¿Confirmas la compra?">Confirmar Compra</button>
                 </div>
             </div>
 

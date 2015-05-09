@@ -54,11 +54,11 @@ use yii\widgets\ActiveForm;
 					<span class="input-group-addon" id="sizing-addon1">Precio Unitario</span>
 					<input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?=$p['precio']?>" disabled="disabled" />
 				</div></br>
-				<button type="submit" class="btn btn-lg btn-warning" >Comprar</button>
 			</div>
 		</div>
 		<hr/>
 		<?php endforeach;?>
+        <button type="submit" class="btn btn-lg btn-warning" >Comprar</button>
 		<?php ActiveForm::end(); ?>
 	</div>	
 </section>

@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 		<?php 
 			foreach($categoria as $c):
 		?>
-			<a href="<?=$c['id'] ?>" class="list-group-item "><?=$c['nombre'] ?></a>
+			<a href="<?=$c['id_categoria'] ?>" class="list-group-item "><?=$c['nombre'] ?></a>
 		<?php endforeach;?>
 		</div>
 	</div>

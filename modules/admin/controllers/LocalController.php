@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\LoginForm;
 use app\models\Producto;
+use app\models\ProductoLocal;
 use Yii;
 use app\models\Local;
 use app\models\search\LocalSearch;
@@ -202,9 +203,23 @@ class LocalController extends Controller
             ->where("id_local = :id_local",[
                 ':id_local' => $session['local']->id_local,
             ])->all();
+
+        $model2 = [];
+        foreach($model as $m)
+        {
+            $producto_local = ProductoLocal::find()->where([
+                'id_producto'   => $m->id_producto,
+                'id_local'      => $session['local']->id_local
+            ])->one();
+
+            $m->precio = $producto_local->precio;
+            $m->stock = $producto_local->stock;
+
+            $model2[] = $m;
+        }
         
         return $this->render('productos',[
-            "model" => $model,
+            "model" => $model2,
         ]);
     }
 }

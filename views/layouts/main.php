@@ -34,28 +34,10 @@ AppAsset::register($this);
             ]);
 
 
-
-            $menu = [
-                    	['label' => 'Home', 'url' => '/site/index'],
-                    ];
-
-            $session = \Yii::$app->session;
-            if($session->has('admin'))
-            {
             	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
 					['label' => 'Locales', 'url' => '/admin/local'],
-					['label' => 'Productos', 'url' => '/admin/producto'],
-            		['label' => 'Transporte', 'url' => '/admin/transporte'],
-                    ['label' => 'Logout (' . $session['admin']->razon_social . ')',
-                           'url' => '/admin/empresa/logout',
-                           'linkOptions' => ['data-method' => 'post']],
                 ];
-            }
-        else
-        {
-            $menu[] = ['label' => 'Login', 'url' => '/admin/empresa/superlogin'];
-        }
             
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],

@@ -159,14 +159,14 @@ class PedidoController extends Controller
             ->where([
                 'dni' => $_GET['dni']
             ])
-            ->one();
+            ->all();
         if(count($dni) == 0)
         {
             echo json_encode(['status' => false, 'response' => NULL]);
         }
         else
         {
-            echo json_encode(['status' => true, 'response' => $dni]);
+            echo json_encode(['status' => true, 'response' => $dni[0]]);
         }
 
     }

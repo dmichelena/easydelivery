@@ -37,7 +37,7 @@ class PedidoController extends Controller
 			ON
 				local.id_empresa = empresa.id_empresa
 			HAVING
-				distance < '100'
+				distance < '20'
 			ORDER BY
 				distance
 			LIMIT 0 , 20";
@@ -61,7 +61,7 @@ class PedidoController extends Controller
 				local.id_empresa = empresa.id_empresa
             WHERE 1 = 1 %s
 			HAVING 
-				distance < '100' 
+				distance < '20'
 			ORDER BY 
 				distance 
 			LIMIT 0 , 20";

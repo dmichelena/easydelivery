@@ -17,6 +17,12 @@ class PedidoController extends Controller
 		{
 			return $this->redirect("/registro");
 		}
+
+        $where = '';
+        if(isset($_GET['id_rubro']))
+        {
+            $where = ' AND id_rubro = '.$_GET['id_rubro'].' ';
+        }
 		
 		$sql = "
 			SELECT 
@@ -28,6 +34,7 @@ class PedidoController extends Controller
 				empresa
 			ON
 				local.id_empresa = empresa.id_empresa
+            WHERE 1 = 1 %s
 			HAVING 
 				distance < '100' 
 			ORDER BY 
@@ -36,18 +43,21 @@ class PedidoController extends Controller
 		$sql = sprintf($sql, 
 				$session['usuario-web']['latitud'],
 				$session['usuario-web']['longitud'],
-				$session['usuario-web']['latitud']
+				$session['usuario-web']['latitud'],
+                $where
 		);
   
 		$model = \Yii::$app->db->createCommand($sql)->queryAll();
 
-        $locales = [];
-        foreach($model as $m)
+        if(!$session->has('locales-web'))
         {
-            $locales[] = $m['id_local'];
-        }
+            $locales = [];
+            foreach ($model as $m) {
+                $locales[] = $m['id_local'];
+            }
 
-        $session['locales-web'] = $locales;
+            $session['locales-web'] = $locales;
+        }
 		
 		return $this->render("productos",[
 			'model' => $model,

@@ -30,7 +30,7 @@ class MenuHelper
         {
             $items[] = [
                 'label' => $d['nombre'],
-                'url'   => '/pedido/producto?id_rubro='.$d['id_rubro'],
+                'url'   => '/pedido/productos?id_rubro='.$d['id_rubro'],
             ];
         }
 

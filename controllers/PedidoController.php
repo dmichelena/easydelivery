@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\models\ProductoLocal;
 use yii\web\Controller;
 use app\models\Local;
 use yii\db\Query;
@@ -135,6 +136,12 @@ class PedidoController extends Controller
             $producto = Producto::find()->where([
                 'id_producto' => $sp
             ])->one();
+
+            $productoLocal = ProductoLocal::find()->where([
+                'id_producto'   => $sp,
+                'id_local'      => $_GET['id']
+            ])->one();
+            $producto->precio = $productoLocal->precio;
             $pedido[$cant] = $producto;
         }
 

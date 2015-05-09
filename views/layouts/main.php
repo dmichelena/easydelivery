@@ -36,7 +36,7 @@ AppAsset::register($this);
 
             	$menu = [
                     ['label' => 'Home', 'url' => '/site/index'],
-                    ['items' => \component\MenuHelper::getMenu()],
+                    ['items' => \app\component\MenuHelper::getMenu()],
                 ];
             
             echo Nav::widget([

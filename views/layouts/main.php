@@ -72,7 +72,6 @@ AppAsset::register($this);
 <script type="text/javascript" src="/js/map.js"></script>
 
 <script type="text/javascript">
-document.onload = initializeMap();
 
     $("select").change(function(){
         alert("ok");
@@ -80,6 +79,8 @@ document.onload = initializeMap();
         //valor = $(this).attr("valor");
         //$(".sub-total").html(subTotal+valor);
     });
+
+document.onload = initializeMap();
 </script>
 </body>
 </html>

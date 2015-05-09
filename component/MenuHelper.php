@@ -12,7 +12,7 @@ class MenuHelper
 
         if(!$session->has('locales-web'))
         {
-            return null;
+            return [];
         }
 
         $data = (new Query())

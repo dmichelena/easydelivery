@@ -150,4 +150,16 @@ class PedidoController extends Controller
             'pedido' => $pedido
         ]);
     }
+
+    public function actionDni()
+    {
+        $dni = (new Query)
+            ->select('*')
+            ->from('reniec')
+            ->where([
+                'dni' => $_POST['dni']
+            ])
+            ->all();
+        json_encode($dni);
+    }
 }

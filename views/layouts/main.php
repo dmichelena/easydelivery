@@ -87,7 +87,10 @@ AppAsset::register($this);
     });
 
     $(".buscar").click(function(){
-        alert("ok2");
+        dni = $(".dni").val();
+        $.post("/pedido/dni", {dni: dni},function(data){
+            console.log(data);
+        });
     });
 
 document.onload = initializeMap();

@@ -47,7 +47,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">D.N.I:</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control" placeholder="Numero de D.N.I">
+                    <input type="email" class="form-control dni" placeholder="Numero de D.N.I">
                 </div>
                 <div class="col-sm-3">
                     <input type="button" class="btn btn-warning buscar" value="Buscar" />

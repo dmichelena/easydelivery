@@ -16,7 +16,7 @@
                         <div class="col-md-4 column">
                             <div class="form-group">
                                 <label class="control-label" style="color: #FFBD32"><u><?= $p->nombre ?></u></label>
-                                <label class="control-label"><?= $p->descripcion ?></label><br/>
+                                <label class="control-label"><?= $p->descipcion ?></label><br/>
                                 <label class="control-label">S/<?= $p->precio ?></label>
                             </div>
 

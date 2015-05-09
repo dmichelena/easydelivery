@@ -138,6 +138,7 @@ class PedidoController extends Controller
             $pedido[$cant] = $producto;
         }
 
+        echo "<pre>";print_r($pedido);die();
         return $this->render("resumen", [
             'pedido' => $pedido
         ]);

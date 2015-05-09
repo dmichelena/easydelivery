@@ -8,7 +8,11 @@
         <div class="col-md-6 column">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <?php foreach($pedido as  $cantidad => $p):?>
+                    <?php
+                    $precioTotal = 0;
+                    foreach($pedido as  $cantidad => $p):
+                        $precioTotal+=$cantidad*$p->precio;
+                        ?>
                     <div class="row clearfix">
                         <div class="col-md-4 column">
                             <img src="<?= $p->foto ?>"  width="100" height="100" class="img-circle" />
@@ -67,19 +71,19 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Sub Total:</label>
                 <div class="col-sm-9">
-                    <label class="control-label">S/88.00</label>
+                    <label class="control-label">S/<?= $precioTotal ?></label>
                 </div>
 
 
                 <label class="col-sm-3 control-label">Costo de Envío:</label>
                 <div class="col-sm-9">
-                    <label class="control-label">S/. 0.00</label>
+                    <label class="control-label">S/. <?php $envio = 10; echo $envio; ?></label>
                 </div>
 
 
                 <label class="col-sm-3 control-label" style="color: #E45863">Monto Total:</label>
                 <div class="col-sm-9">
-                    <label class="control-label" style="color: #E45863">S/88.00</label>
+                    <label class="control-label" style="color: #E45863">S/<?= $precioTotal+$envio ?></label>
                 </div>
             </div>
 

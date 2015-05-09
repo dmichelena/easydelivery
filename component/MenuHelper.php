@@ -18,22 +18,23 @@ class MenuHelper
         $locales = implode(",", $session['locales-web']);
 
         $data = (new Query())
-            ->select('*')
+            ->select('rubro.nombre')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")
             ->where(['local.id_local' => $locales])
             ->all();
 
-        echo "<pre>";print_r($data);die();
+        $items = [];
+        foreach($data as $d)
+        {
+            $items[] = '<li class="dropdown-header">'.$d['nombre'].'</li>';
+        }
 
         $response[] = [
-                    'label' => 'ola',
+                    'label' => 'Rubro',
                     'url' => ['#'],
-                    'items' => [
-                        '<li class="dropdown-header">Dropdown Header</li>',
-                        '<li class="divider"></li>',
-                    ]
+                    'items' => $items
                 ];
 
         return $response;

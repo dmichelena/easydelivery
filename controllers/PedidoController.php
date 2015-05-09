@@ -160,6 +160,6 @@ class PedidoController extends Controller
                 'dni' => $_POST['dni']
             ])
             ->all();
-        json_encode($dni);
+        echo json_encode($dni);
     }
 }

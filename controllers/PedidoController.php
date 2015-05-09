@@ -154,7 +154,7 @@ class PedidoController extends Controller
                 ])->execute();
 
             $id_delivery = \Yii::$app->db->getLastInsertID();
-            foreach($session['pedido'] as $cant => $p)
+            foreach($session['pedido'] as $p => $cant)
             {
                 \Yii::$app->db->createCommand()->insert('pedido',[
                     'id_producto'   => $p,

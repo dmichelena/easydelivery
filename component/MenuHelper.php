@@ -18,7 +18,7 @@ class MenuHelper
         $locales = implode(",", $session['locales-web']);
 
         $data = (new Query())
-            ->select('rubro.nombre, rubro.id')
+            ->select('rubro.nombre, rubro.id_rubro')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")

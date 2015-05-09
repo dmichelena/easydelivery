@@ -226,11 +226,12 @@ class LocalController extends Controller
                 'id_local'      => $session['local']->id_local
             ])->one();
 
-
-            $m['precio'] = 10;
-            $m['stock'] = 20;
+            $m['precio'] = $producto_local->precio;
+            $m['stock'] = $producto_local->stock;
 
             $model2[] = $m;
+
+            continue;
         }
         
         return $this->render('productos',[

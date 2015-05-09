@@ -15,8 +15,8 @@ class MenuHelper
             return [];
         }
 
-        $locales = implode(",", $session['locales-web']);
-echo "<pre>";print_r($locales);die();
+        $locales = $session['locales-web'];
+
         $data = (new Query())
             ->select('rubro.nombre, rubro.id_rubro')
             ->from('rubro')

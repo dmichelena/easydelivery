@@ -86,9 +86,14 @@ class PedidoController extends Controller
 					->from("categoria")
 					->join("INNER JOIN", 'producto', 'categoria.id_categoria = producto.id_categoria')
 					->join("INNER JOIN", "producto_local", "producto_local.id_producto = producto.id_producto")
-					->where("producto_local.id_local = :id_local",[':id_local' => $id_local])
-					->all();
-		
+					->where("producto_local.id_local = :id_local",[':id_local' => $id_local]);
+
+        if(isset($_GET['id_catergoria']))
+        {
+            $categoria->andWhere(['producto.id_categoria' => $_GET['id_categoria']]);
+        }
+
+        $categoria = $categoria->all();
 		$productos = (new Query())
 			->select('*')
 			->from('producto')

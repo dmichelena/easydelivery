@@ -1,7 +1,7 @@
 <?php
 use yii\widgets\ActiveForm;
 ?>
-<?php $form = ActiveForm::begin(['class' => 'form-horizontal']); ?>
+<?php $form = ActiveForm::begin([ 'options' => ['class' => 'form-horizontal'],]); ?>
     <div class="row clearfix">
         <div class="col-md-12 column">
             <font size="+2"><span class="glyphicon glyphicon-shopping-cart">Descripción del Pedido</span></font>

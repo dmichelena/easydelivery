@@ -19,6 +19,7 @@ class MenuHelper
 
         $data = (new Query())
             ->select('rubro.nombre, rubro.id_rubro')
+            ->distinct('rubro.nombre')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")

@@ -153,12 +153,11 @@ class PedidoController extends Controller
 
     public function actionDni()
     {
-        echo json_encode($_POST);die();
         $dni = (new Query)
             ->select('*')
             ->from('reniec')
             ->where([
-                'dni' => $_POST['dni']
+                'dni' => $_GET['dni']
             ])
             ->all();
         echo json_encode($dni);

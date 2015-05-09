@@ -13,7 +13,7 @@
 						<tbody class="active" >
                         <?php if(count($model) == 0):?>
                             <tr>
-                                <h2>No hay locales de ese rubro cerca de ti.</h2>
+                                <td><h2>No hay locales de ese rubro cerca de ti.</h2></td>
                             </tr>
                         <?php endif; ?>
 						<?php foreach($model as $m):?>

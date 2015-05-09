@@ -218,8 +218,6 @@ class LocalController extends Controller
                 ':id_local' => $session['local']->id_local,
             ])->all();
 
-        echo "<pre>";print_R($model);die();
-
         $model2 = [];
         foreach($model as $m)
         {
@@ -229,8 +227,8 @@ class LocalController extends Controller
             ])->one();
 
 
-            $m->precio = $producto_local->precio;
-            $m->stock = $producto_local->stock;
+            $m['precio'] = $producto_local->precio;
+            $m['stock'] = $producto_local->stock;
 
             $model2[] = $m;
         }

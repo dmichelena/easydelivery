@@ -95,7 +95,7 @@ AppAsset::register($this);
             }
             else
             {
-                $(".nombre").val(data.response.nombres+" ".data.response.apellido_paterno+" ".data.response.apellido_materno);
+                $(".nombre").val(data.respuesta.nombres+" "+data.respuesta.apellido_paterno+" "+data.respuesta.apellido_materno);
             }
         });
     });

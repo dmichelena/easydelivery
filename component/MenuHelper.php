@@ -18,7 +18,7 @@ class MenuHelper
         $locales = implode(",", $session['locales-web']);
 
         $data = (new Query())
-            ->select('rubro.nombre')
+            ->select('rubro.nombre, rubro.id')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")
@@ -28,7 +28,10 @@ class MenuHelper
         $items = [];
         foreach($data as $d)
         {
-            $items[] = '<li class="dropdown-header">'.$d['nombre'].'</li>';
+            $items[] = [
+                'label' => $d['nombre'],
+                'url'   => ['id_rubro' => $d['id']],
+            ];
         }
 
         $response[] = [

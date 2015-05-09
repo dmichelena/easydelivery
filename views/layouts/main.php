@@ -86,6 +86,10 @@ AppAsset::register($this);
         $(".sub-total").html(subTotal);
     });
 
+    $(".buscar").click(function(){
+        alert("ok2");
+    });
+
 document.onload = initializeMap();
 </script>
 </body>

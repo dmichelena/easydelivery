@@ -128,7 +128,7 @@ class PedidoController extends Controller
             return $this->redirect("/registro");
         }
 
-        $pedido = []
+        $pedido = [];
         $sessionPedido = $session['pedido'];
         foreach($sessionPedido as $sp => $cant)
         {

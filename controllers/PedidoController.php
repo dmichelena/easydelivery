@@ -104,6 +104,7 @@ class PedidoController extends Controller
         }
 
         $productos = $productos->all();
+        echo "<pre>";print_R($productos);die();
 
 				
 		$empresa = Empresa::find()

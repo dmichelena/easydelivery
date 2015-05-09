@@ -90,7 +90,7 @@ AppAsset::register($this);
         dni = $(".dni").val();
         documento = $.post("/pedido/dni", {dni: dni});
         documento.done(function(data){
-            console.log(data);
+            alert(data);
         });
     });
 

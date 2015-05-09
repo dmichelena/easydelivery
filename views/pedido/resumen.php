@@ -49,7 +49,7 @@ use yii\widgets\ActiveForm;
             <div class="form-group">
                 <label class="col-sm-3 control-label">D.N.I:</label>
                 <div class="col-sm-6">
-                    <input type="text" name="dni" class="form-control dni" placeholder="Numero de D.N.I">
+                    <input type="text"  class="form-control dni" placeholder="Numero de D.N.I">
                 </div>
                 <div class="col-sm-3">
                     <input type="button" class="btn btn-warning buscar" value="Buscar" />
@@ -58,19 +58,19 @@ use yii\widgets\ActiveForm;
             <div class="form-group">
                 <label class="col-sm-3 control-label">Recibe la Orden:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="nombres" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
+                    <input type="text" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Teléfono:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="telefono" class="form-control" placeholder="Ejemplo: 958478123">
+                    <input type="text" class="form-control" placeholder="Ejemplo: 958478123">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">RUC:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="ruc" class="form-control" placeholder="Ejemplo: 19875487542">
+                    <input type="text"  class="form-control" placeholder="Ejemplo: 19875487542">
                 </div>
             </div>
             <div class="form-group">

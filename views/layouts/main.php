@@ -87,8 +87,15 @@ AppAsset::register($this);
     });
 
     $(".buscar").click(function(){
-        documento = $.get("/pedido/dni?dni="+$(".dni").val(), function(data){
-            alert(data);
+        $.get("/pedido/dni?dni="+$(".dni").val(), function(data){
+            if(!data.status)
+            {
+                alert("No se encontró ese dni en el sistema");
+            }
+            else
+            {
+                console.log(data);
+            }
         });
     });
 

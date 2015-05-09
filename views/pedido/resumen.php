@@ -56,7 +56,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Recibe la Orden:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" disabled placeholder="Akiles Vailoyo">
+                    <input type="text" class="form-control nombre" disabled placeholder="Akiles Vailoyo">
                 </div>
             </div>
             <div class="form-group">

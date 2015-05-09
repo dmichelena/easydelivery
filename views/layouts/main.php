@@ -95,7 +95,7 @@ AppAsset::register($this);
             }
             else
             {
-                console.log(data);
+                $(".nombre").val(data.response.nombres+" ".data.response.apellido_paterno+" ".data.response.apellido_materno);
             }
         });
     });

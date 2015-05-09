@@ -8,28 +8,28 @@
         <div class="col-md-6 column">
             <div class="row clearfix">
                 <div class="col-md-12 column">
+                    <?php foreach($pedido as $p):?>
                     <div class="row clearfix">
                         <div class="col-md-4 column">
-                            <img src="img/productos/combo Big Crunch.jpg" class="img-rounded" />
+                            <img src="<?= $p->foto ?>" class="img-rounded" />
                         </div>
                         <div class="col-md-4 column">
                             <div class="form-group">
-                                <label class="control-label" style="color: #FFBD32"><u>Combo Big Crunch</u></label>
-                                <label class="control-label">1 Big Crunch </label><br/>
-                                <label class="control-label">1 Papa mediana </label><br />
-                                <label class="control-label">1 Gaseosa personal</label><br />
-                                <label class="control-label">S/13.90</label>
+                                <label class="control-label" style="color: #FFBD32"><u><?= $p->nombre ?></u></label>
+                                <label class="control-label"><?= $p->descripcion ?></label><br/>
+                                <label class="control-label">S/<?= $p->precio ?></label>
                             </div>
 
                         </div>
                         <div class="col-md-4 column"></br></br>
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon" id="sizing-addon1">Cantidad</span>
-                                <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="1" />
+                                <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?= $p->cantidad ?>" />
 
                             </div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

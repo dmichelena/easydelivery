@@ -121,8 +121,26 @@ class PedidoController extends Controller
 
     public function actionResumen()
     {
-        
+        $session = \Yii::$app->session;
 
-        return $this->render("resumen");
+        if(!$session->has('usuario-web') or !isset($_GET['id']) or !$session->has('pedido'))
+        {
+            return $this->redirect("/registro");
+        }
+
+        $pedido = []
+        $sessionPedido = $session['pedido'];
+        foreach($sessionPedido as $sp => $cant)
+        {
+            $producto = Producto::find()->where([
+                'id_producto' => $sp
+            ]);
+            $producto->cantidad = $cant;
+            $pedido[] = $producto;
+        }
+
+        return $this->render("resumen", [
+            'pedido' => $pedido
+        ]);
     }
 }

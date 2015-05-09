@@ -28,6 +28,11 @@ use yii\widgets\ActiveForm;
 			</div>
 		</div>
 		<?php $form = ActiveForm::begin(); ?>
+        <?php if(count($productos) == 0): ?>
+        <div class="row">
+            <h2>No hay productos para esa categoría</h2>
+        </div>
+        <?php endif; ?>
 		<?php 
 			foreach($productos as $p):
 		?>

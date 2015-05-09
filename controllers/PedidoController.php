@@ -212,6 +212,6 @@ class PedidoController extends Controller
 
     public function actionExitosa()
     {
-        $this->render('exitosa');
+        return $this->render('exitosa');
     }
 }

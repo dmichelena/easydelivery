@@ -78,7 +78,7 @@ class PedidoController extends Controller
 		if(!empty($post))
 		{
 			$session['pedido'] = $post['cantidad'];
-            $this->redirect("pedido/resumen");
+            $this->redirect("/pedido/resumen");
 		}
 		
 		$categoria = (new Query())
@@ -121,6 +121,6 @@ class PedidoController extends Controller
 
     public function actionResumen()
     {
-        $this->render("resumen");
+        return $this->render("resumen");
     }
 }

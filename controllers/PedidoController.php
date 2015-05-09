@@ -164,6 +164,8 @@ class PedidoController extends Controller
                     'precio_unitario'        => 0,
                 ])->execute();
             }
+
+            $this->redirect("/pedido/exitosa");
         }
 
         $pedido = [];
@@ -206,5 +208,10 @@ class PedidoController extends Controller
             echo json_encode(['status' => true, 'respuesta' => $dni[0]]);
         }
 
+    }
+
+    public function actionExitosa()
+    {
+        $this->render('exitosa');
     }
 }

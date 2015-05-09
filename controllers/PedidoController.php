@@ -135,8 +135,7 @@ class PedidoController extends Controller
             $producto = Producto::find()->where([
                 'id_producto' => $sp
             ]);
-            $producto->cantidad = $cant;
-            $pedido[] = $producto;
+            $pedido[$cant] = $producto;
         }
 
         return $this->render("resumen", [

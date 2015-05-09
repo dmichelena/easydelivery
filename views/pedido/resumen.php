@@ -8,7 +8,7 @@
         <div class="col-md-6 column">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <?php foreach($pedido as $p):?>
+                    <?php foreach($pedido as  $cantidad => $p):?>
                     <div class="row clearfix">
                         <div class="col-md-4 column">
                             <img src="<?= $p->foto ?>" class="img-rounded" />
@@ -24,7 +24,7 @@
                         <div class="col-md-4 column"></br></br>
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon" id="sizing-addon1">Cantidad</span>
-                                <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?= $p->cantidad ?>" />
+                                <input type="number" min="1" class="form-control" aria-describedby="sizing-addon1" value="<?= $cantidad ?>" />
 
                             </div>
                         </div>

@@ -87,8 +87,7 @@ AppAsset::register($this);
     });
 
     $(".buscar").click(function(){
-        documento = $.post("/pedido/dni", {dni: $(".dni").val()});
-        documento.done(function(data){
+        documento = $.get("/pedido/dni?dni="+$(".dni").val(), function(data){
             alert(data);
         });
     });

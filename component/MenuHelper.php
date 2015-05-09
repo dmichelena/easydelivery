@@ -1,5 +1,5 @@
 <?php
-namespace component;
+namespace component\;
 
 class MenuHelper
 {

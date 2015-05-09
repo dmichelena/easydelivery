@@ -88,7 +88,8 @@ AppAsset::register($this);
 
     $(".buscar").click(function(){
         dni = $(".dni").val();
-        $.post("/pedido/dni", {dni: dni},function(data){
+        documento = $.post("/pedido/dni", {dni: dni});
+        documento.done(function(data){
             console.log(data);
         });
     });

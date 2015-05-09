@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
         foreach($model as $m):
     ?>
     	<tr>
-            <td><?= $form->field($m, "[".$m->id_producto."]id_producto")->checkbox(['label' => $m->nombre, 'checked' => false])?></td>
+            <td><?= $form->field($m, "[".$m->id_producto."]id_producto")->checkbox(['label' => $m->nombre, 'checked' => false, 'value' => $m->id_producto])?></td>
             
             <td><?= $form->field($m, "[".$m->id_producto."]precio")->textInput()->label(false)?></td>
             

@@ -166,7 +166,7 @@ class PedidoController extends Controller
         }
         else
         {
-            echo json_encode(['status' => true, 'response' = $dni]);
+            echo json_encode(['status' => true, 'response' => $dni]);
         }
 
     }

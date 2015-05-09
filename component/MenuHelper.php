@@ -15,13 +15,18 @@ class MenuHelper
             return [];
         }
 
-        /*$data = (new Query())
+        $locales = implode(",", $session['locales-web']);
+
+        $data = (new Query())
             ->select('*')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")
-            ->where()
-*/
+            ->where(['local.id_local' => $locales])
+            ->all();
+
+        echo "<pre>";print_r($data);die();
+
         $response[] = [
                     'label' => 'ola',
                     'url' => ['#'],

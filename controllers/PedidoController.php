@@ -40,6 +40,14 @@ class PedidoController extends Controller
 		);
   
 		$model = \Yii::$app->db->createCommand($sql)->queryAll();
+
+        $locales = [];
+        foreach($model as $m)
+        {
+            $locales[] = $m['id_local'];
+        }
+
+        $session['locales-web'] = $locales;
 		
 		return $this->render("productos",[
 			'model' => $model,

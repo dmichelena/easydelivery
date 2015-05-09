@@ -218,6 +218,8 @@ class LocalController extends Controller
                 ':id_local' => $session['local']->id_local,
             ])->all();
 
+        echo "<pre>";print_R($model);die();
+
         $model2 = [];
         foreach($model as $m)
         {

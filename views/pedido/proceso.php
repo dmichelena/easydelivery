@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
 			<div class="col-lg-4">
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon" id="sizing-addon1">Cantidad</span>
-                    <select name="cantidad[<?=$p['id_producto']?>]" class="form-control cantidaad" valor="<?=$p['precio']?>">
+                    <select name="cantidad[<?=$p['id_producto']?>]" class="form-control cantidaad" valor="<?=$p['precio']?>" valor-total="0">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>

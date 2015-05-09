@@ -62,7 +62,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; EasyDelivery <?= date('Y') ?></p>
-            <p class="pull-right">Solo hay 10 tipos de personas en el mundo. Los que saben binario y las que no.</p>
+            <p class="pull-right">Solo hay 10 tipos de personas en el mundo. Las que saben binario y las que no.</p>
         </div>
     </footer>
 
@@ -78,7 +78,12 @@ AppAsset::register($this);
         subTotal = ($(".sub-total").html()*1);
         valor = $(this).attr("valor");
         cant = $(this).val();
-        $(".sub-total").html((subTotal+(cant*valor)));
+        valorTotal = $(this).attr("valor-total")*1;
+        $(this).attr("valor-total", (cant*valor));
+
+        subTotal = subTotal-valorTotal;
+        subTotal = subTotal+(valor*cant);
+        $(".sub-total").html(subTotal);
     });
 
 document.onload = initializeMap();

@@ -226,6 +226,8 @@ class LocalController extends Controller
                 'id_local'      => $session['local']->id_local
             ])->one();
 
+            echo "<pre>";print_r($producto_local);die();
+
             $m->precio = $producto_local->precio;
             $m->stock = $producto_local->stock;
 

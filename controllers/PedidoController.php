@@ -36,7 +36,6 @@ class PedidoController extends Controller
 				empresa
 			ON
 				local.id_empresa = empresa.id_empresa
-            WHERE 1 = 1
 			HAVING
 				distance < '100'
 			ORDER BY
@@ -74,7 +73,7 @@ class PedidoController extends Controller
 		);
   
 		$model = \Yii::$app->db->createCommand($sql)->queryAll();
-
+echo "<pre>";print_r($modelTotal);die();
         $locales = [];
         foreach ($modelTotal as $m) {
             $locales[] = $m['id_local'];

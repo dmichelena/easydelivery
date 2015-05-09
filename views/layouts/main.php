@@ -74,10 +74,11 @@ AppAsset::register($this);
 <script type="text/javascript">
 
     $("select").change(function(){
-        
-       subTotal = $(".sub-total").html();
-       valor = $(this).attr("valor");
-       $(".sub-total").html(subTotal+valor);
+
+        subTotal = $(".sub-total").html();
+        valor = $(this).attr("valor");
+        cant = $(this).val();
+        $(".sub-total").html((subTotal+(cant*valor)));
     });
 
 document.onload = initializeMap();

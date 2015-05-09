@@ -15,13 +15,13 @@ class MenuHelper
             return [];
         }
 
-        $data = (new Query())
+        /*$data = (new Query())
             ->select('*')
             ->from('rubro')
             ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
             ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")
             ->where()
-
+*/
         $response[] = [
                     'label' => 'ola',
                     'url' => ['#'],

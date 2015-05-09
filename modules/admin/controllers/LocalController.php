@@ -231,7 +231,7 @@ class LocalController extends Controller
 
             $model2[] = $m;
 
-            continue;
+            continue 2;
         }
         
         return $this->render('productos',[

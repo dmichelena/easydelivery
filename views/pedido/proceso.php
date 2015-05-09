@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 			<div class="col-lg-4 col-xs-5 col-md-5" ></br>
 				<button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>Carrito de Compra</button><br />
 				<label>Sub-Total: </label>
-				<label>S/. 0.00 </label>
+				<label>S/. <span class="sub-total">0</span> </label>
 			</div>
 		</div>
 		<?php $form = ActiveForm::begin(); ?>
@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
 			<div class="col-lg-4">
 				<div class="input-group input-group-sm">
 					<span class="input-group-addon" id="sizing-addon1">Cantidad</span>
-                    <select name="cantidad[<?=$p['id_producto']?>]" class="form-control" >
+                    <select name="cantidad[<?=$p['id_producto']?>]" class="form-control" valor="<?=$p['precio']?>" class="cantidaad">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>

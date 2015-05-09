@@ -73,6 +73,11 @@ AppAsset::register($this);
 
 <script type="text/javascript">
 document.onload = initializeMap();
+    $(".cantidaad").change(function(){
+        subTotal = $(".sub-total").html();
+        valor = $(this).attr("valor");
+        $(".sub-total").html(subTotal+valor);
+    });
 </script>
 </body>
 </html>

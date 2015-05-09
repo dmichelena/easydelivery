@@ -94,15 +94,22 @@ class PedidoController extends Controller
         }
 
         $categoria = $categoria->all();
-		$productos = (new Query())
-			->select('*')
-			->from('producto')
-			->join("INNER JOIN", "producto_local", "producto.id_producto = producto_local.id_producto")
-			->where("producto_local.id_local = :id_local AND producto.id_categoria = :id_categoria", [
-					':id_local' 	=> $id_local,
-					':id_categoria'	=> $categoria[0]['id_categoria']
-			])
-			->all();
+        if(count($categoria) == 0)
+        {
+            $productos = [];
+        }
+        else
+        {
+            $productos = (new Query())
+                ->select('*')
+                ->from('producto')
+                ->join("INNER JOIN", "producto_local", "producto.id_producto = producto_local.id_producto")
+                ->where("producto_local.id_local = :id_local AND producto.id_categoria = :id_categoria", [
+                    ':id_local' => $id_local,
+                    ':id_categoria' => $categoria[0]['id_categoria']
+                ])
+                ->all();
+        }
 				
 		$empresa = Empresa::find()
 			->join("INNER JOIN", "local", "empresa.id_empresa = local.id_empresa")

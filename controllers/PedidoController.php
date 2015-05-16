@@ -114,7 +114,7 @@ class PedidoController extends Controller
                     ->all();
 
         $productos = (new Query())
-            ->select('*, cateogira.nombre as categoria')
+            ->select('*, categoria.nombre as categoria')
             ->from('producto')
             ->join("INNER JOIN", "producto_local", "producto.id_producto = producto_local.id_producto")
             ->join('INNER JOIN', "categoria", "categoria.id_categoria = producto.id_categoria")

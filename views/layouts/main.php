@@ -50,10 +50,10 @@ AppAsset::register($this);
         }
 
 
-            echo Nav::widget([
+          /*  echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left'],
                 'items' => \app\component\MenuHelper::getMenu(),
-            ]);
+            ]);*/
             
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],

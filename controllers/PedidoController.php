@@ -81,9 +81,20 @@ class PedidoController extends Controller
 
             $session['locales-web'] = $locales;
 
-		
-		return $this->render("productos",[
+
+        $rubros = (new Query())
+            ->select('rubro.nombre, rubro.id_rubro')
+            ->distinct('rubro.nombre')
+            ->from('rubro')
+            ->join("INNER JOIN", "empresa", "empresa.id_rubro = rubro.id_rubro")
+            ->join("INNER JOIN", "local", "local.id_empresa = empresa.id_empresa")
+            ->where(['local.id_local' => $locales])
+            ->all();
+
+
+        return $this->render("productos",[
 			'model' => $model,
+            'rubros' => $rubros,
 		]);
 	}
 	

@@ -21,7 +21,7 @@ use yii\bootstrap\ActiveForm;
                 <div class="row">
                 <?php $form = ActiveForm::begin(); ?>
                     <div class="col-lg-4 col-xs-12">
-                        * Añade Tu dirección: <input type="text" name="direccion" size="60%" value="<?= $model->direccion ?>">
+                        * Añade Tu dirección: <input type="text" name="direccion" size="60%" value="<?= $model['direccion'] ?>">
                     </div>
                    <br />
 				   <br />

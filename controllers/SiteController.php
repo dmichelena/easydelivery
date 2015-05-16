@@ -51,7 +51,16 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Usuario();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id_usuario]);
+        } else {
+            return $this->render('index', [
+                'model' => $model,
+            ]);
+        }
+        //return $this->render('index');
     }
 
     public function actionLogin()

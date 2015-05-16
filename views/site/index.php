@@ -31,5 +31,31 @@
     </div>
 </div>
 <div class="col-md-4 column">
-    oli
+    <div class="usuario-form">
+
+        <?php $form = \yii\widgets\ActiveForm::begin(); ?>
+
+        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 45]) ?>
+
+        <?= $form->field($model, 'apellido_p')->textInput(['maxlength' => 45]) ?>
+
+        <?= $form->field($model, 'apellido_m')->textInput(['maxlength' => 45]) ?>
+
+        <?= $form->field($model, 'password')->passwordInput(['maxlength' => 45]) ?>
+
+        <?= $form->field($model, 'fecha_nacimiento')->textInput() ?>
+
+        <?= $form->field($model, 'dni')->textInput(['maxlength' => 8]) ?>
+
+        <?= $form->field($model, 'correo')->textInput(['maxlength' => 45]) ?>
+
+        <?= $form->field($model, 'status')->dropDownList([ 'activo' => 'Activo', 'inactivo' => 'Inactivo', ]) ?>
+
+        <div class="form-group">
+            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
 </div>

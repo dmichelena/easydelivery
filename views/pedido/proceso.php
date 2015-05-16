@@ -2,16 +2,7 @@
 use yii\widgets\ActiveForm;
 ?>
 <section class="row">
-	<div class="col-lg-3">
-		<div class="list-group">
-		<?php 
-			foreach($categoria as $c):
-		?>
-			<a href="<?= \yii\helpers\Url::toRoute(['pedido/proceso', 'id' => $_GET['id'], 'id_categoria' => $c['id_categoria']]) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
-		<?php endforeach;?>
-		</div>
-	</div>
-	<div class="col-lg-9">
+	<div class="col-lg-12">
 		<div class="row">
 			<center>
 				<div class="col-lg-4 col-xs-3 col-md-3">
@@ -22,7 +13,7 @@ use yii\widgets\ActiveForm;
 				<h2></h2>
 			</div>
 			<div class="col-lg-4 col-xs-5 col-md-5" ></br>
-				
+
 				<label>Sub-Total: </label>
 				<label>S/. <span class="sub-total">0</span> </label>
 			</div>

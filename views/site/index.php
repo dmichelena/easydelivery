@@ -49,7 +49,6 @@
 
         <?= $form->field($model, 'apellido_m', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
-        <?= \yii\jui\DatePicker::widget([$model, 'fecha_nacimiento']); ?>
         <?= $form->field($model, 'fecha_nacimiento', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput() ?>
 
         <?= $form->field($model, 'correo', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>

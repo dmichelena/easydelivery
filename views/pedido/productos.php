@@ -6,6 +6,7 @@
                     <div class="col-md-3 column col-xs-3">
 
                             <div class="list-group">
+                                <a href="#" class="list-group-item disabled">Rubros</a>
                                 <?php
                                 foreach($rubros as $c):
                                     ?>

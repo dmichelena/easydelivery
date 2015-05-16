@@ -51,11 +51,11 @@ class Usuario extends \yii\db\ActiveRecord
         return [
             'id_usuario' => 'Id Usuario',
             'nombre' => 'Nombre',
-            'apellido_p' => 'Apellido P',
-            'apellido_m' => 'Apellido M',
-            'password' => 'Password',
-            'fecha_nacimiento' => 'Fecha Nacimiento',
-            'dni' => 'Dni',
+            'apellido_p' => 'Apellido Paterno',
+            'apellido_m' => 'Apellido Materno',
+            'password' => 'Contraseña',
+            'fecha_nacimiento' => 'Fecha de Nacimiento',
+            'dni' => 'DNI',
             'status' => 'Status',
             'correo' => 'Correo',
         ];

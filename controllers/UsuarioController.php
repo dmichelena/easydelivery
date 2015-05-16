@@ -7,6 +7,8 @@ class UsuarioController extends \yii\web\Controller
 {
     public function actionPedidos()
     {
+        $session = \Yii::$app->session;
+
         if(!$session->has('usuario-webos'))
         {
             return $this->redirect("/");

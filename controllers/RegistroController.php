@@ -13,6 +13,13 @@ class RegistroController extends Controller
 {
 	public function actionIndex()
 	{
+        $session = \Yii::$app->session;
+
+        if(!$session->has('usuario-webos'))
+        {
+            return $this->redirect("/registro");
+        }
+
 		$post = \Yii::$app->request->post();
 		if(!empty($post))
 		{

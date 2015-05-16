@@ -34,10 +34,21 @@ AppAsset::register($this);
             ]);
 
 
-            	$menu = [
-                    ['label' => 'login', 'url' => '/site/login'],
+        $session = \Yii::$app->session;
 
-                ];
+        if($session->has('usuario-webos'))
+        {
+            $menu = [
+                ['label' => 'log out', 'url' => '/site/logout'],
+            ];
+        }
+        else
+        {
+            $menu = [
+                ['label' => 'login', 'url' => '/site/login'],
+            ];
+        }
+
 
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left'],

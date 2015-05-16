@@ -129,8 +129,6 @@ class PedidoController extends Controller
 
         $productos = $productos->all();
 
-        echo "<pre>";print_r($productos);die();
-
 				
 		$empresa = Empresa::find()
 			->join("INNER JOIN", "local", "empresa.id_empresa = local.id_empresa")

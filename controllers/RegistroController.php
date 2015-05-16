@@ -25,8 +25,8 @@ class RegistroController extends Controller
             ->select("*")
             ->from("reniec")
             ->where([
-                "dni" => $session['usuario-webos']->dni;
-            ])
+                "dni" => $session['usuario-webos']->dni,
+            ])->one();
 
 		$post = \Yii::$app->request->post();
 		if(!empty($post))

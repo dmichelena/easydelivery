@@ -41,7 +41,7 @@
         ]); ?>
 
         <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 8]) ?>
-        <?= \yii\helpers\Html::submitButton('Create', ['class' => 'btn btn-success']) ?>
+        <div class=\"col-md-offset-2 col-md-10\"><?= \yii\helpers\Html::submitButton('Buscar', ['class' => 'btn btn-warning buscar']) ?></div>
 
         <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
@@ -65,3 +65,6 @@
 
     </div>
 </div>
+<script>
+
+</script>

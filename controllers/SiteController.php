@@ -101,7 +101,7 @@ class SiteController extends Controller
     {
         $session = \Yii::$app->session;
 
-        unset($session->has('usuario-webos'));
+        unset($session['usuario-webos']);
 
         return $this->goHome();
     }

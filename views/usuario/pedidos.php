@@ -1,6 +1,5 @@
 <div class="col-md-12 column">
-    <font size="+3"><span class="glyphicon glyphicon-shopping-cart">Seguimiento de mis Pedidos</span></font>
-</div>
+    <font size="+3"><span class="glyphicon glyphicon-shopping-cart">Mis Pedidos</span></font>
 </div>
 <div class="row clearfix">
     <div class="col-md-12 column">
@@ -43,5 +42,4 @@
 
         <div class="row clearfix"></div>
     </div>
-</div> <br></br><br></br>
 </div>

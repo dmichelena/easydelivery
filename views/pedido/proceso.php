@@ -34,7 +34,8 @@ use yii\widgets\ActiveForm;
 			</div>
 			<div class="col-lg-4">            
 				<label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label>
-				<label class="control-label"><?= $p['descipcion']?></label>
+                <label class="control-label"><?= $p['descipcion']?></label>
+                <label class="control-label"><strong>Categoria</strong> <?= $p['categoria'] ?></label>
 			</div>
 			<div class="col-lg-4">
 				<div class="input-group input-group-sm">

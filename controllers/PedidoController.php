@@ -117,9 +117,9 @@ class PedidoController extends Controller
             ->select('*')
             ->from('producto')
             ->join("INNER JOIN", "producto_local", "producto.id_producto = producto_local.id_producto")
-            ->where("producto_local.id_local = :id_local AND producto.id_categoria = :id_categoria", [
+            ->join('INNER JOIN', "categoria", "categoria.id_categoria = producto.id_categoria")
+            ->where("producto_local.id_local = :id_local", [
                 ':id_local' => $id_local,
-                ':id_categoria' => $categoria[0]['id_categoria']
             ]);
 
         if(isset($_GET['id_categoria']))

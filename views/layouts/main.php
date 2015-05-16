@@ -105,7 +105,7 @@ AppAsset::register($this);
             data = JSON.parse(data);
             if(!data.status)
             {
-                alert("No se encontró ese dni en el sistema");
+                //alert("No se encontró ese dni en el sistema");
             }
             else
             {

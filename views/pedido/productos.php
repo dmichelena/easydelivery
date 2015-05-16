@@ -3,7 +3,7 @@
 		<h5>
 			<div>
 				<div class="row clearfix">
-                    <div class="col-md-4 column col-xs-4">
+                    <div class="col-md-3 column col-xs-3">
 
                             <div class="list-group">
                                 <?php
@@ -13,7 +13,7 @@
                                 <?php endforeach;?>
                             </div>
                     </div>
-					<div class="col-md-8 column col-xs-8">
+					<div class="col-md-9 column col-xs-9">
 						<table style="text-align:center;" class="table table-condensed table-hover">
 						<thead>
 							<tr class="active" >

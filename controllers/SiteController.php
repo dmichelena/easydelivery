@@ -55,7 +55,7 @@ class SiteController extends Controller
         $model = new Usuario();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_usuario]);
+            return $this->redirect(['login']);
         } else {
             return $this->render('index', [
                 'model' => $model,
@@ -73,13 +73,24 @@ class SiteController extends Controller
             return $this->redirect("/registro");
         }
 
+        $model = new Usuario();
+
         $post = \Yii::$app->request->post();
         if(!empty($post))
         {
-            echo "<pre>";print_r($post);die();
+            $user = $model->find()->where([
+                'correo' => $post['Usuario']['correo'],
+                'password' => $post['Usuario']['password'],
+            ])->all();
+
+            if(!empty($user))
+            {
+                $session['usuario-webos'] = $user;
+                $this->redirect("/registro");
+            }
         }
 
-        $model = new Usuario();
+
         return $this->render('login', [
             'model' => $model,
         ]);

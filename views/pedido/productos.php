@@ -5,7 +5,6 @@
 				<div class="row clearfix">
                     <div class="col-md-4 column col-xs-4">
 
-                        <div class="col-lg-3">
                             <div class="list-group">
                                 <?php
                                 foreach($rubros as $c):
@@ -13,7 +12,6 @@
                                     <a href="<?= \yii\helpers\Url::toRoute(['pedido/producto', 'id_rubro' => $c['id_rubro']]) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
                                 <?php endforeach;?>
                             </div>
-                        </div>
                     </div>
 					<div class="col-md-8 column col-xs-8">
 						<table style="text-align:center;" class="table table-condensed table-hover">

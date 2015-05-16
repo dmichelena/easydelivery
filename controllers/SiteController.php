@@ -99,7 +99,9 @@ class SiteController extends Controller
 
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        $session = \Yii::$app->session;
+
+        unset($session->has('usuario-webos'));
 
         return $this->goHome();
     }

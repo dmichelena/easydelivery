@@ -81,7 +81,7 @@ class SiteController extends Controller
             $user = $model->find()->where([
                 'correo' => $post['Usuario']['correo'],
                 'password' => $post['Usuario']['password'],
-            ])->all();
+            ])->one();
 
             if(!empty($user))
             {

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -20,7 +21,12 @@ class RegistroController extends Controller
             return $this->redirect("/registro");
         }
 
-        echo "<pre>";print_r($session['usuario-webos']);die();
+        $query = (new Query())
+            ->select("*")
+            ->from("reniec")
+            ->where([
+                "dni" => $session['usuario-webos']->dni;
+            ])
 
 		$post = \Yii::$app->request->post();
 		if(!empty($post))

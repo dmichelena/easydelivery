@@ -54,7 +54,7 @@
 
         <?= $form->field($model, 'password', ['labelOptions'=>['class'=>'control-label col-md-3']])->passwordInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-3']])->hiddenInput(['value' => 'activo']) ?>
+        <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-3']])->hiddenInput(['value' => 'activo'])->label(false) ?>
 
         <div class="form-group">
             <?= \yii\helpers\Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

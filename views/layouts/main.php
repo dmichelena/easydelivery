@@ -34,10 +34,19 @@ AppAsset::register($this);
             ]);
 
 
-            	$menu = [
+            	$menu[] = [
                     ['label' => 'Home', 'url' => '/site/index'],
 
                 ];
+
+
+        $this->beginBlock('login');
+        $form = \yii\widgets\ActiveForm::begin();
+            \yii\helpers\Html::submitButton('Create', ['class' => 'btn btn-success' ])
+        \yii\widgets\ActiveForm::end();
+        $this->endBlock();
+
+        $menu[] = ['label' => Yii::t('app', "Login"), 'items' => $this->blocks['login']]
 
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left'],

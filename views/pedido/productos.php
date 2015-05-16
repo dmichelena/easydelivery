@@ -10,7 +10,7 @@
                                 <?php
                                 foreach($rubros as $c):
                                     ?>
-                                    <a href="<?= \yii\helpers\Url::toRoute(['pedido/producto', 'id_rubro' => $c['id_rubro']]) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
+                                    <a href="<?= \yii\helpers\Url::toRoute(['pedido/productos', 'id_rubro' => $c['id_rubro']]) ?>" class="list-group-item "><?=$c['nombre'] ?></a>
                                 <?php endforeach;?>
                             </div>
                     </div>

@@ -66,18 +66,18 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+        $session = \Yii::$app->session;
+
+        if($session->has('usuario-webos'))
+        {
+            return $this->redirect("/registro");
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+        $model = new Usuario();
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+
     }
 
     public function actionLogout()

@@ -13,7 +13,7 @@ use yii\bootstrap\ActiveForm;
                         <h2></h2>
                     </div>
                     <div class="col-lg-4 col-xs-5 col-md-5" ></br>
-                        <button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>Seguimiento de Pedido</button><br />
+                        <a href="/usuario/pedidos" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>Mis Pedido</a><br />
                         
                     </div>
                 </div>

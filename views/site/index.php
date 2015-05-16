@@ -1,4 +1,4 @@
-<div class="col-md-7 column">
+<div class="col-md-8 column">
 	<div class="carousel slide" id="carousel-796873" style="width: 675px; margin: 0 auto">
 		<ol class="carousel-indicators">
 			<li data-slide-to="0" data-target="#carousel-796873"></li>
@@ -30,6 +30,6 @@
             <a class="left carousel-control" href="#carousel-796873" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-796873" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
 </div>
-<div class="col-md-5 column">
+<div class="col-md-4 column">
     oli
 </div>

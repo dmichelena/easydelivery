@@ -246,6 +246,6 @@ class PedidoController extends Controller
 
     public function actionExitosa()
     {
-        return $this->render('exitosa');
+        return $this->redirect("usuario/pedidos");
     }
 }

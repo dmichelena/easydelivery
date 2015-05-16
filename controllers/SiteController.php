@@ -52,6 +52,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $session = \Yii::$app->session;
+
+        if($session->has('usuario-webos'))
+        {
+            return $this->redirect("/registro");
+        }
+
         $model = new Usuario();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

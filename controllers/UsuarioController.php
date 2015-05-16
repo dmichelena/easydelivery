@@ -22,6 +22,6 @@ class UsuarioController extends \yii\web\Controller
 
         return $this->render("pedidos", [
             'model' => $model,
-        ])
+        ]);
     }
 }

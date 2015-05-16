@@ -40,7 +40,9 @@
             ],
         ]); ?>
 
-        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 8]) ?>
+        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3'],'horizontalCssClasses' => [
+            'wrapper' => 'col-sm-2',
+        ]])->textInput(['maxlength' => 8]) ?>
         <div class=\"col-md-offset-2 col-md-10\"><?= \yii\helpers\Html::buttonInput('Buscar', ['class' => 'btn btn-warning buscarIni']) ?></div>
 
         <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>

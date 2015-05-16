@@ -103,7 +103,7 @@ class SiteController extends Controller
 
         unset($session['usuario-webos']);
 
-        return $this->goHome();
+        return $this->redirect('/');
     }
 
     public function actionContact()

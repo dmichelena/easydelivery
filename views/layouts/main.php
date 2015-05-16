@@ -101,7 +101,7 @@ AppAsset::register($this);
     });
 
     $(".buscarIni").click(function(){
-        $.get("/pedido/dni?dni="+$("name=\"Usuario[dni]\"").val(), function(data){
+        $.get("/pedido/dni?dni="+$("[name=\"Usuario[dni]\"]").val(), function(data){
             data = JSON.parse(data);
             if(!data.status)
             {

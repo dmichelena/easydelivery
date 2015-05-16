@@ -109,7 +109,10 @@ AppAsset::register($this);
             }
             else
             {
-                $(".nombre").val(data.respuesta.nombres);
+                $("[name=\"Usuario[nombre]\"]").val(data.respuesta.nombres);
+                $("[name=\"Usuario[apellido_p]\"]").val(data.respuesta.apellido_p);
+                $("[name=\"Usuario[apellido_m]\"]").val(data.respuesta.apellido_m);
+                $("[name=\"Usuario[fecha_nacimiento]\"]").val(data.respuesta.fecha_nacimiento);
             }
         });
     });

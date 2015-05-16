@@ -16,22 +16,20 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                foreach($model as $m):
+                ?>
                 <tr>
-                    <td>112</td>
-                    <td>Abril 10 12:45 PM</td>
-                    <td>Abril 10 1:30PM</td>
+                    <td><?= $m->id ?></td>
+                    <td><?= $m->fecha_pedido ?></td>
+                    <td><?= date("Y-m-d H:i:s", strtotime($m->fecha_pedido) * 45* 60);  ?></td>
                     <td> <button type="button" class="btn btn-primary">Ver Detalle</button> </td>
                     <td>En Camino</td>
                     <td><button type="button" class="btn btn-primary">Ver</button></td>
                 </tr>
-                <tr>
-                    <td>113</td>
-                    <td>Abril 12 2:30PM</td>
-                    <td>Abril 10 3:00PM</td>
-                    <td><button type="button" class="btn btn-primary">Ver Detalle</button></td>
-                    <td>En Camino</td>
-                    <td><button type="button" class="btn btn-primary">Ver</button></td>
-                </tr>
+                <?php
+                endforeach;
+                ?>
                 </tbody>
             </table>
         </div>

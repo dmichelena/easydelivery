@@ -1,4 +1,4 @@
-<div class="col-md-12 column">
+<div class="col-md-7 column">
 	<div class="carousel slide" id="carousel-796873" style="width: 675px; margin: 0 auto">
 		<ol class="carousel-indicators">
 			<li data-slide-to="0" data-target="#carousel-796873"></li>
@@ -29,12 +29,7 @@
 		</div>
             <a class="left carousel-control" href="#carousel-796873" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-796873" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
-	<div class="jumbotron">
-		<h1>Bienvenido,</h1>
-        <p>EasyDelivery es la opción más sencilla para realizar tus pedidos  y hacer el seguimiento en tiempo real en el momento que desees.</p>
-        <p>Compra, sigue y paga.</p>
-		<p>¡Pruébalo ya!</p>
-        <p><a class="btn btn-primary btn-large" href="/registro">Regístrate ahora</a></p>
-	</div>
 </div>
-
+<div class="col-md-5 column">
+    oli
+</div>

@@ -100,7 +100,7 @@ AppAsset::register($this);
         });
     });
 
-    $(".buscarIni").click(function(){
+    $("[name=\"Usuario[dni]\"]").bind("keypress", function(){
         $.get("/pedido/dni?dni="+$("[name=\"Usuario[dni]\"]").val(), function(data){
             data = JSON.parse(data);
             if(!data.status)

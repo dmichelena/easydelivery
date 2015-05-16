@@ -46,7 +46,7 @@ AppAsset::register($this);
         \yii\widgets\ActiveForm::end();
         $this->endBlock();
 
-        $menu[] = ['label' => Yii::t('app', "Login"), 'items' => $this->blocks['login']];
+        $menu[] = ['label' => "Login", 'items' => $this->blocks['login']];
 
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left'],

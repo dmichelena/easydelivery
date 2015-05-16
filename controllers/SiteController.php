@@ -73,6 +73,12 @@ class SiteController extends Controller
             return $this->redirect("/registro");
         }
 
+        $post = \Yii::$app->request->post();
+        if(!empty($post))
+        {
+            echo "<pre>";print_r($post);die();
+        }
+
         $model = new Usuario();
         return $this->render('login', [
             'model' => $model,

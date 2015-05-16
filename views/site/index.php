@@ -41,7 +41,7 @@
         ]); ?>
 
         <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 8]) ?>
-        <?= \yii\helpers\Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= \yii\helpers\Html::submitButton('Create', ['class' => 'btn btn-success']) ?>
 
         <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 

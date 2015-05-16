@@ -20,7 +20,7 @@
                 foreach($model as $m):
                 ?>
                 <tr>
-                    <td><?= $m['id'] ?></td>
+                    <td><?= $m['id_delivery'] ?></td>
                     <td><?= $m['fecha_pedido'] ?></td>
                     <td><?= date("Y-m-d H:i:s", strtotime($m['fecha_pedido']    ) * 45* 60);  ?></td>
                     <td> <button type="button" class="btn btn-primary">Ver Detalle</button> </td>

@@ -36,25 +36,25 @@
         <?php $form = \yii\widgets\ActiveForm::begin([
             'options' => ['class' => 'form-horizontal'],
             'fieldConfig' => [
-                'template' => "{label}\n<div class=\"col-md-10\">{input}</div>\n<div class=\"col-md-offset-2 col-md-10\">{error}</div>",
+                'template' => "{label}\n<div class=\"col-md-9\">{input}</div>\n<div class=\"col-md-offset-2 col-md-10\">{error}</div>",
             ],
         ]); ?>
 
-        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 8]) ?>
+        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 8]) ?>
 
-        <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'apellido_p', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'apellido_p', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'apellido_m', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'apellido_m', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'password', ['labelOptions'=>['class'=>'control-label col-md-2']])->passwordInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'password', ['labelOptions'=>['class'=>'control-label col-md-3']])->passwordInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'fecha_nacimiento', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput() ?>
+        <?= $form->field($model, 'fecha_nacimiento', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput() ?>
 
-        <?= $form->field($model, 'correo', ['labelOptions'=>['class'=>'control-label col-md-2']])->textInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'correo', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
-        <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-2']])->hiddenInput(['value' => 'activo']) ?>
+        <?= $form->field($model, 'status', ['labelOptions'=>['class'=>'control-label col-md-3']])->hiddenInput(['value' => 'activo']) ?>
 
         <div class="form-group">
             <?= \yii\helpers\Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

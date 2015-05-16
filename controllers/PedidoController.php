@@ -161,6 +161,10 @@ class PedidoController extends Controller
         {
             return $this->redirect("/registro");
         }
+        if(!$session->has('usuario-webos'))
+        {
+            return $this->redirect("/");
+        }
 
         $post = \Yii::$app->request->post();
         if(!empty($post))
@@ -171,7 +175,7 @@ class PedidoController extends Controller
                     'destino_longitud'              => $session['usuario-web']['longitud'],
                     'telefono'                      => $post['telefono'],
                     'status'                        => 'activo',
-                    'id_usuario'                    => 1,
+                    'id_usuario'                    => $session['usuario-webos']->id_usuario,
                     'id_local'                      => $_GET['id'],
                     'paso'                          => 'en proceso',
                     'costo_envio'                   => 10,
@@ -182,7 +186,7 @@ class PedidoController extends Controller
                     'ruc_receptor'                  => $post['ruc'],
                     'razon_social_receptor'         => '',
                     'direccion_empresa_receptor'    => '',
-                    'fecha_pedido'                  => date("Y-m-d"),
+                    'fecha_pedido'                  => date("Y-m-d H:i:s"),
                     'fecha_entregado'               => '0000-00-00',
                 ])->execute();
 
@@ -246,6 +250,6 @@ class PedidoController extends Controller
 
     public function actionExitosa()
     {
-        return $this->redirect("usuario/pedidos");
+        return $this->redirect("/usuario/pedidos");
     }
 }

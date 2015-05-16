@@ -40,10 +40,10 @@
             ],
         ]); ?>
 
-        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3', 'class' => 'dni']])->textInput(['maxlength' => 8]) ?>
-        <div class=\"col-md-offset-2 col-md-10\"><?= \yii\helpers\Html::buttonInput('Buscar', ['class' => 'btn btn-warning buscar']) ?></div>
+        <?= $form->field($model, 'dni', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 8]) ?>
+        <div class=\"col-md-offset-2 col-md-10\"><?= \yii\helpers\Html::buttonInput('Buscar', ['class' => 'btn btn-warning buscarIni']) ?></div>
 
-        <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3', 'class' => 'dni']])->textInput(['maxlength' => 45]) ?>
+        <?= $form->field($model, 'nombre', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 
         <?= $form->field($model, 'apellido_p', ['labelOptions'=>['class'=>'control-label col-md-3']])->textInput(['maxlength' => 45]) ?>
 

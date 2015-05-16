@@ -205,6 +205,7 @@ class PedidoController extends Controller
         $sessionPedido = $session['pedido'];
         foreach($sessionPedido as $sp => $cant)
         {
+            if($cant == 0) continue;
             $producto = Producto::find()->where([
                 'id_producto' => $sp
             ])->one();

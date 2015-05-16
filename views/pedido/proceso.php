@@ -33,8 +33,8 @@ use yii\widgets\ActiveForm;
 				<img alt="140x140" src="<?= $p['foto']?>" class="img-rounded"  width="100" height="100" class="img-circle" />
 			</div>
 			<div class="col-lg-4">            
-				<label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label>
-				<label class="control-label"><?= $p['descipcion']?></label>
+				<label style="color: #FFBD32"><u><?= $p['nombre'] ?></u></label><br/>
+				<label class="control-label"><?= $p['descipcion']?></label><br />
                 <label class="control-label"><strong>Categoría: </strong><?= $p['categoria']?></label>
 			</div>
 			<div class="col-lg-4">

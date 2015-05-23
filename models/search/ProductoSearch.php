@@ -47,7 +47,7 @@ class ProductoSearch extends Producto
             $this->redirect("/admin/empresa/superlogin");
         }
 
-        $query = Producto::find()->where(":id_empresa = :id_empresa", [':id_empresa' => $session['admin']->id]);
+        $query = Producto::find()->where("id_empresa = :id_empresa", [':id_empresa' => $session['admin']->id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

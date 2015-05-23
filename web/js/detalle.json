@@ -1,0 +1,24 @@
+{
+	"cod_pedido":"000123",
+	"usuario":"000123",
+	"direccion":"Av los Llanasos 123",
+	"productos":[
+		{
+			"producto":"Producto1",
+			"cantidad":1,
+			"precio":4
+		},
+		{
+			"producto":"Producto2",
+			"cantidad":4,
+			"precio":1
+		},
+		{
+			"producto":"Producto3",
+			"cantidad":6,
+			"precio":0.5
+		}
+	],
+	"costo_envio":6,
+	"total":17 
+}

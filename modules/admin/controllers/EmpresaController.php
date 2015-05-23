@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
+use yii\db\Query;
 
 /**
  * EmpresaController implements the CRUD actions for Empresa model.
@@ -209,5 +210,24 @@ class EmpresaController extends Controller
 
         $session->remove('admin');
         $this->redirect("/admin/empresa/superlogin");
+    }
+    public function actionRuc()
+    {
+        $ruc = (new Query)
+            ->select('*')
+            ->from('sunat')
+            ->where([
+                'ruc' => $_GET['ruc']
+            ])
+            ->all();
+        if(count($ruc) == 0)
+        {
+            echo json_encode(['status' => false, 'respuesta' => NULL]);
+        }
+        else
+        {
+            echo json_encode(['status' => true, 'respuesta' => $ruc[0]]);
+        }
+
     }
 }

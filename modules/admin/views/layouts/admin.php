@@ -36,14 +36,14 @@ AppAsset::register($this);
 
 
     $menu = [
-        ['label' => 'Home', 'url' => '/site/index'],
+        ['label' => 'Home', 'url' => '/site'],
     ];
 
     $session = \Yii::$app->session;
     if($session->has('admin'))
     {
         $menu = [
-            ['label' => 'Home', 'url' => '/site/index'],
+            ['label' => 'Home', 'url' => '/site'],
             ['label' => 'Locales', 'url' => '/admin/local'],
             ['label' => 'Productos', 'url' => '/admin/producto'],
             ['label' => 'Transporte', 'url' => '/admin/transporte'],
@@ -85,7 +85,22 @@ AppAsset::register($this);
 <script type="text/javascript" src="/js/map.js"></script>
 
 <script type="text/javascript">
+    $("[name=\"Empresa[ruc]\"]").keyup(function(){
+        $.get("ruc?ruc="+$("[name=\"Empresa[ruc]\"]").val(), function(data){
+         data = JSON.parse(data);
+         if(!data.status)
+         {
+         //alert("No se encontró ese ruc en el sistema");
+         }
+         else
+         {
+         $("[name=\"Empresa[razon_social]\"]").val(data.respuesta.razon_social);
+         $("[name=\"Empresa[direccion]\"]").val(data.respuesta.direccion);
+         }
+         });
+    });
     document.onload = initializeMap();
+
 </script>
 </body>
 </html>

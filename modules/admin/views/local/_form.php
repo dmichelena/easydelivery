@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
     
     <div class="control-label">Seleccione su local en el mapa</div><div id="map_canvas" style="width:100%; height:400px"></div>
 
-    <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15, 'class' => 'longitud']) ?>
+    <?= $form->field($model, 'telefono')->textInput(['maxlength' => 15]) ?>
 
     <?= $form->field($model, 'zona_reparto_km')->textInput() ?>
 

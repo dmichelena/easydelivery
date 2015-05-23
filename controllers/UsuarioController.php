@@ -26,4 +26,26 @@ class UsuarioController extends \yii\web\Controller
             'model' => $model,
         ]);
     }
+    public function actionSeguimiento()
+    {
+        $session = \Yii::$app->session;
+
+        if(!$session->has('usuario-webos'))
+        {
+            return $this->redirect("/");
+        }
+
+
+    }
+    public function actionDetalle()
+    {
+        $session = \Yii::$app->session;
+
+        if(!$session->has('usuario-webos'))
+        {
+            return $this->redirect("/");
+        }
+
+
+    }
 }

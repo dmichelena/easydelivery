@@ -7,7 +7,7 @@
             <table class="table table-hover table-bordered">
                 <thead>
                 <tr class="active">
-                    <th>N° Producto</th>
+                    <th>N° Pedido</th>
                     <th>Fecha</th>
                     <th>Tiempo Aproximado de Entrega</th>
                     <th>Detalle</th>
@@ -23,9 +23,13 @@
                     <td><?= $m['id_delivery'] ?></td>
                     <td><?= $m['fecha_pedido'] ?></td>
                     <td><?= date("Y-m-d H:i:s", strtotime($m['fecha_pedido']) + 45* 60);  ?></td>
-                    <td> <button type="button" class="btn btn-primary">Ver Detalle</button> </td>
-                    <td>En Camino</td>
-                    <td><button type="button" class="btn btn-primary">Ver</button></td>
+                    <td><a href="/usuario/detalle/?id_delivery=<?= $m['id_delivery'] ?>" class="btn btn-primary">Ver Detalle</a></td>
+                    <td><?= $m['paso'] ?></td>
+                    <?php if ($m['paso']=="en camino"): ?>
+                        <td><a href="/usuario/seguimiento/?id_delivery=<?= $m['id_delivery'] ?>" class="btn btn-primary">Ver</a></td>
+                    <?php else: ?>
+                        <td>---</td>
+                    <?php endif; ?>
                 </tr>
                 <?php
                 endforeach;

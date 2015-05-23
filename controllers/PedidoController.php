@@ -111,7 +111,7 @@ class PedidoController extends Controller
 		$post = \Yii::$app->request->post();
 		if(!empty($post))
 		{
-			$session['pedido'] = $post['cantidad'];
+           	$session['pedido'] = $post['cantidad'];
             $this->redirect("/pedido/resumen?id=".$_GET['id']);
 		}
 		

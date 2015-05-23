@@ -1,0 +1,28 @@
+{
+	"pedidos":[
+		{
+			"cod_pedido":"000123",
+			"cliente":"Diego Alonso Michelena",
+			"direccion":"Calle las Americas",
+			"monto":"421",
+			"longitud":123,
+			"latitud":123
+		},
+		{
+			"cod_pedido":"000123",
+			"cliente":"Juan Perez del Solar",
+			"direccion":"Calle las Americas",
+			"monto":"21",
+			"longitud":123,
+			"latitud":123
+		},
+		{
+			"cod_pedido":"000123",
+			"cliente":"Luis Alberto Ruiz",
+			"direccion":"Calle las Americas",
+			"monto":"42",
+			"longitud":123,
+			"latitud":123
+		}
+	]
+}

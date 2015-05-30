@@ -38,13 +38,14 @@ class LocalController extends Controller
     public function actionIndex()
     {
         $session = \Yii::$app->session;
-        if (!$session->has('admin')) {
-            $this->redirect("/admin/empresa/superlogin");
-        }
-        if (!$session->has('local')) {
+        if ($session->has('local')) {
+            //print_r($session);die();
             $this->redirect("/admin/local/productos");
+        }else{
+            if (!$session->has('admin')) {
+                $this->redirect("/admin/local/login");
+            }
         }
-
         $searchModel = new LocalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

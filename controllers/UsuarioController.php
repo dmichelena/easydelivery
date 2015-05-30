@@ -47,7 +47,9 @@ class UsuarioController extends \yii\web\Controller
             ])
             ->all();
 
-        echo "<pre>";print_r($model);die();
+        return $this->render("detalle",[
+            'model' => $model
+        ]);
     }
 
     public function actionSeguimiento()

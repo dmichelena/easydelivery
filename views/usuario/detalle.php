@@ -8,27 +8,23 @@
             <tbody>
             <tr>
                 <td><strong>Número de Pedido</strong></td>
-                <td>100123</td>
+                <td><?= Emodel[0]['id_delivery']?></td>
             </tr>
             <tr>
                 <td><strong>Fecha Pedido</strong></td>
-                <td>09/04/2015</td>
+                <td><?= $model[0]['fecha_pedido']</td>
             </tr>
             <tr>
                 <td><strong>Nombre</strong></td>
-                <td>Javier Guere</td>
+                <td><?= $model[0]['nombre_receptor']</td>
             </tr>
             <tr>
                 <td><strong>Teléfono</strong></td>
-                <td>01 3652161</td>
-            </tr>
-            <tr>
-                <td><strong>Dirección</strong></td>
-                <td>Av. Aviación 3351 - San Borja</td>
+                <td>$model[0]['telefono']</td>
             </tr>
             <tr>
                 <td><strong>Tiempo de Entrega (aprox)</strong></td>
-                <td>Abril 9,  13:00</td>
+                <td>45 min</td>
             </tr>
             </tbody>
         </table>

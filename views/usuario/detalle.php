@@ -12,15 +12,15 @@
             </tr>
             <tr>
                 <td><strong>Fecha Pedido</strong></td>
-                <td><?= $model[0]['fecha_pedido']</td>
+                <td><?= $model[0]['fecha_pedido'] ?></td>
             </tr>
             <tr>
                 <td><strong>Nombre</strong></td>
-                <td><?= $model[0]['nombre_receptor']</td>
+                <td><?= $model[0]['nombre_receptor'] ?></td>
             </tr>
             <tr>
                 <td><strong>Teléfono</strong></td>
-                <td>$model[0]['telefono']</td>
+                <td>$model[0]['telefono'] ?></td>
             </tr>
             <tr>
                 <td><strong>Tiempo de Entrega (aprox)</strong></td>

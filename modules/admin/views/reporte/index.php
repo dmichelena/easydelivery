@@ -160,8 +160,9 @@
                     <div style="text-align: center">
                         <h2>Zonas Comunes</h2><br />
                     </div>
-                    <div class="col-lg-4 col-xs-12"></div>
-                    <div id="map-canvas"></div>
+                    <div class="col-lg-4 col-xs-12">
+                        <div id="map-canvas" style="width:100%;height: 200px;"></div>
+                    </div>
                     <br />
                     <br />
                 </div>

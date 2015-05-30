@@ -19,7 +19,7 @@ class ReporteController extends Controller
         $productosVendidos = (new Query())
             ->select("producto.*, SUM(pedido.cantidad)")
             ->from("producto")
-            ->join("INNER JOIN", "pedido", "pedido.id_producto = producto_id_producto")
+            ->join("INNER JOIN", "pedido", "pedido.id_producto = producto.id_producto")
             ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
             ->where(["local.id_empresa" => $session['admin']->id])
             ->groupBy(['producto.id_producto'])

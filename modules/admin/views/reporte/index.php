@@ -193,14 +193,12 @@
 
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
+        data.addColumn('string', 'Producto');
+        data.addColumn('number', 'Cantidas');
         data.addRows([
-            ['Mushrooms', 3],
-            ['Onions', 1],
-            ['Olives', 1],
-            ['Zucchini', 1],
-            ['Pepperoni', 2]
+            <?php foreach($productoVendido as $pv): ?>
+                ['<?= $pv['nombre'] ?>', <?= $pv['vendido'] ?>],
+            <? endforeach; ?>;
         ]);
 
         // Set chart options

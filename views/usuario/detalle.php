@@ -8,7 +8,7 @@
             <tbody>
             <tr>
                 <td><strong>Número de Pedido</strong></td>
-                <td><?= Emodel[0]['id_delivery']?></td>
+                <td><?= $model[0]['id_delivery']?></td>
             </tr>
             <tr>
                 <td><strong>Fecha Pedido</strong></td>

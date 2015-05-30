@@ -44,16 +44,16 @@
             </thead>
             <tbody>
             <?
-            foreach($model as $m):
-            ?>
-            <tr>
-                <td><?= $m['nombre'] ?></td>
-                <td>S/. <?= $m['precio_unitario']?></td>
-                <td><?= $m['cantidad'] ?></td>
-                <td>S/. <?= $m['cantidad']*$m['precio_unitario']?></td>
-            </tr>
+            foreach($model as $m) {
+                ?>
+                <tr>
+                    <td><?= $m['nombre'] ?></td>
+                    <td>S/. <?= $m['precio_unitario'] ?></td>
+                    <td><?= $m['cantidad'] ?></td>
+                    <td>S/. <?= $m['cantidad'] * $m['precio_unitario'] ?></td>
+                </tr>
             <?
-            endforeach;
+            }
             ?>
             </tbody>
         </table>

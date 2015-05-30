@@ -17,17 +17,20 @@ class ReporteController extends Controller
         }
 
         $productosVendidos = (new Query())
-            ->select("producto.*, SUM(pedido.cantidad)")
+            ->select("producto.*, SUM(pedido.cantidad) as vendido")
             ->from("producto")
             ->join("INNER JOIN", "pedido", "pedido.id_producto = producto.id_producto")
             ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
             ->where(["local.id_empresa" => $session['admin']->id])
             ->groupBy(['producto.id_producto'])
-            ->orderBy('SUM(pedido.cantidad)')
+            ->orderBy('SUM(pedido.cantidad) DESC')
             ->all();
-        echo "<pre>";print_r($productosVendidos);die();
 
-        return $this->render('index');
+
+        return $this->render('index',
+            [
+                'productoVendido' => $productosVendidos,
+            ]);
     }
 
 }

@@ -23,6 +23,7 @@ class ReporteController extends Controller
             ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
             ->where(["local.id_empresa" => $session['admin']->id])
             ->groupBy(['producto.id_producto'])
+            ->having('SUM(pedido.cantidad) > 0')
             ->orderBy('SUM(pedido.cantidad) DESC')
             ->all();
 

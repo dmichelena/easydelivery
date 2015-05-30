@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td><strong>Teléfono</strong></td>
-                <td>$model[0]['telefono'] ?></td>
+                <td><?=$model[0]['telefono'] ?></td>
             </tr>
             <tr>
                 <td><strong>Tiempo de Entrega (aprox)</strong></td>
@@ -43,12 +43,18 @@
             </tr>
             </thead>
             <tbody>
+            <?
+            foreach($model as $m):
+            ?>
             <tr>
-                <td>Megatrío</td>
-                <td>S/. 39.00</td>
-                <td>1</td>
-                <td>S/. 39.00</td>
+                <td><?= $m['nombre'] ?></td>
+                <td>S/. <?= $m['precio_unitario']?></td>
+                <td><?= $m['cantidad'] ?></td>
+                <td>S/. <?= $m['cantidad']*$m['precio_unitario']</td>
             </tr>
+            <?
+            endforeach;
+            ?>
             <tr>
                 <td>Mega Famiiar</td>
                 <td>S/. 49.00</td>

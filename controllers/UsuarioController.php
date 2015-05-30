@@ -29,6 +29,13 @@ class UsuarioController extends \yii\web\Controller
 
     public function actionDetalle($id_pedido)
     {
+        $session = \Yii::$app->session;
+
+        if(!$session->has('usuario-webos'))
+        {
+            return $this->redirect("/");
+        }
+
         echo $id_pedido;die();
     }
 
@@ -40,18 +47,6 @@ class UsuarioController extends \yii\web\Controller
         {
             return $this->redirect("/");
         }
-
-
-    }
-    public function actionDetalle()
-    {
-        $session = \Yii::$app->session;
-
-        if(!$session->has('usuario-webos'))
-        {
-            return $this->redirect("/");
-        }
-
 
     }
 }

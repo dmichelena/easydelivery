@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
+    <script type="text/javascript" src="js/map.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">	
 	<link type="text/css" rel="stylesheet" href="css/jquery.mobile.external-png-1.4.5.min.css">	
 	<link type="text/css" rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css">	
@@ -28,7 +30,8 @@
 				<label for="user">Usuario:</label>
 				<input type="text" name="user" id="user">
 				<label for="pass">Contraseña:</label>
-				<input type="text" name="pass" id="pass">
+				<input type="password" name="pass" id="pass">
+                <h5 id="loginMsg"></h5>
 				<input type="submit" data-role="button" value="Ingresar">
 			</form>
 		</div>
@@ -47,13 +50,7 @@
 		<!--Contenido-->
 		<div data-role="content" data-theme="b">
 			<div id="listaPedidos">
-				
 			</div>
-		
-
-
-
-
 		</div>
 		<!--Footer-->
 		<div data-role="footer" data-theme="b" class="ui-bar" data-position="fixed"	data-id="footer">
@@ -92,7 +89,26 @@
 		<div data-role="footer" data-theme="b" class="ui-bar" data-position="fixed"	data-id="footer">
 			<h1>EasyDelivery</h1>
 		</div>
-	</div>	
+	</div>
+    <!--Pagina-->
+    <div data-role="page" id="mapa" data-theme="b">
+        <!--Header-->
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#pedidos" data-icon="arrow-l" class="ui-btn-left" data-transition="slide" data-direction="reverse">Atrás</a>
+            <h1>Mapa</h1>
+            <button data-icon="user" class="ui-btn-right cerrar">Cerrar Sesión</button>
+        </div>
+        <!--Contenido-->
+        <div data-role="content" data-theme="b">
+            <strong>N Perdido:</strong> <span id="pedido_mapa"></span> <br>
+            <strong>Cliente:</strong> <span id="cliente_mapa"></span> <br>
+            <div id="map_canvas" style="width:100%; height:400px"></div>
+        </div>
+        <!--Footer-->
+        <div data-role="footer" data-theme="b" class="ui-bar" data-position="fixed"	data-id="footer">
+            <h1>EasyDelivery</h1>
+        </div>
+    </div>
 	
 </body>
 </html>

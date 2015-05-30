@@ -4,14 +4,16 @@ namespace app\modules\admin\controllers;
 
 use app\models\LoginForm;
 use app\models\Producto;
+use app\models\Transporte;
 use app\models\ProductoLocal;
+use app\models\Delivery;
 use Yii;
 use app\models\Local;
 use app\models\search\LocalSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\db\Query;
 /**
  * LocalController implements the CRUD actions for Local model.
  */
@@ -36,9 +38,11 @@ class LocalController extends Controller
     public function actionIndex()
     {
         $session = \Yii::$app->session;
-        if(!$session->has('admin'))
-        {
+        if (!$session->has('admin')) {
             $this->redirect("/admin/empresa/superlogin");
+        }
+        if (!$session->has('local')) {
+            $this->redirect("/admin/local/productos");
         }
 
         $searchModel = new LocalSearch();
@@ -70,8 +74,7 @@ class LocalController extends Controller
     public function actionCreate()
     {
         $session = \Yii::$app->session;
-        if(!$session->has('admin'))
-        {
+        if (!$session->has('admin')) {
             $this->redirect("/admin/empresa/superlogin");
         }
 
@@ -140,27 +143,23 @@ class LocalController extends Controller
         $modelLogin = new LoginForm();
 
         $post = Yii::$app->request->post();
-        if(!empty($post))
-        {
+        if (!empty($post)) {
             $model = Local::find()->where('usuario = :username AND password = :password', [
                 ':username' => $post['LoginForm']['username'],
                 ':password' => $post['LoginForm']['password'],
             ])->one();
 
-            if(!empty($model))
-            {
+            if (!empty($model)) {
                 $session = \Yii::$app->session;
                 $session['local'] = $model;
 
                 $this->redirect('/admin/local/productos');
-            }
-            else
-            {
+            } else {
                 $modelLogin->addError("username", 'Usuario y/o password incorrectos');
             }
         }
 
-        return $this->render('login',[
+        return $this->render('login', [
             'modelLogin' => $modelLogin,
         ]);
     }
@@ -168,32 +167,25 @@ class LocalController extends Controller
     public function actionProductos()
     {
         $session = \Yii::$app->session;
-        if(!$session->has('local'))
-        {
+        if (!$session->has('local')) {
             $this->redirect("/admin/local/login");
         }
-        
+
         $post = Yii::$app->request->post();
-        if(!empty($post))
-        {
-        	$insert = [];
-        	foreach($post['Producto'] as $producto)
-        	{
-        		if($producto['id_producto'] != 0)
-        		{
+        if (!empty($post)) {
+            $insert = [];
+            foreach ($post['Producto'] as $producto) {
+                if ($producto['id_producto'] != 0) {
                     $producto_local = ProductoLocal::find()->where([
-                        'id_producto'   => $producto['id_producto'],
-                        'id_local'      => $session['local']->id_local
+                        'id_producto' => $producto['id_producto'],
+                        'id_local' => $session['local']->id_local
                     ])->one();
 
-                    if(!empty($producto_local))
-                    {
+                    if (!empty($producto_local)) {
                         $producto_local->stock = $producto['stock'];
                         $producto_local->precio = $producto['precio'];
                         $producto_local->save();
-                    }
-                    else
-                    {
+                    } else {
                         $insert[] = [
                             $producto['id_producto'],
                             $session['local']->id_local,
@@ -202,41 +194,125 @@ class LocalController extends Controller
                             'activo'
                         ];
                     }
-        		}
-        	}
-        	if(count($insert) > 0)
-        	{ 
-        		\Yii::$app->db->createCommand()->batchInsert('producto_local', ['id_producto', 'id_local', 'stock', 'precio', 'status'], $insert)->execute();
-        		
-        		return $this->redirect("/admin/producto-local");
-        	}
+                }
+            }
+            if (count($insert) > 0) {
+                \Yii::$app->db->createCommand()->batchInsert('producto_local', ['id_producto', 'id_local', 'stock', 'precio', 'status'], $insert)->execute();
+
+                return $this->redirect("/admin/producto-local");
+            }
         }
 
         $model = Producto::find()
             ->join("INNER JOIN", "local", "local.id_empresa = producto.id_empresa")
-            ->where("id_local = :id_local",[
+            ->where("id_local = :id_local", [
                 ':id_local' => $session['local']->id_local,
             ])->all();
 
         $model2 = [];
-        foreach($model as $m)
-        {
+        foreach ($model as $m) {
             $producto_local = ProductoLocal::find()->where([
-                'id_producto'   => $m->id_producto,
-                'id_local'      => $session['local']->id_local
+                'id_producto' => $m->id_producto,
+                'id_local' => $session['local']->id_local
             ])->one();
 
-            if(!empty($producto_local))
-            {
+            if (!empty($producto_local)) {
                 $m['precio'] = $producto_local->precio;
                 $m['stock'] = $producto_local->stock;
             }
 
             $model2[] = $m;
         }
-        
-        return $this->render('productos',[
+
+        return $this->render('productos', [
             "model" => $model2,
         ]);
+    }
+
+    public function actionAsignar()
+    {
+        $session = \Yii::$app->session;
+        if (!$session->has('local')) {
+            $this->redirect("/admin/local/login");
+        }
+        $flag=false;
+        $post = Yii::$app->request->post();
+        if (!empty($post)) {
+            foreach ($post["Delivery"] as $id_delivery => $id_transporte){
+                $deli=$id_delivery;
+                $trans=$id_transporte["id_transporte"];
+                if(!empty($trans)){
+                    $sql = "UPDATE delivery SET paso='en camino', id_transporte=%s where id_delivery=%s";
+                    $sql = sprintf($sql, $trans, $deli);
+                    Yii::$app->db->createCommand($sql)->execute();
+                    $flag=true;
+                }
+            }
+        }
+        $delivery = Delivery::find()
+            ->where("paso=:paso and id_local=:id_local", [":paso" => "en proceso", ':id_local' => $session['local']->id_local])
+            ->all();
+        $transporte = Transporte::find()
+            ->where("id_local=:id_local", [':id_local' =>$session['local']->id_local])
+            ->all();
+        $tmp=array();
+        foreach ($transporte as $t) {
+            array_push($tmp,[$t['id_transporte'] => $t['nombre'].' '.$t['apellido_p'].' '.$t['apellido_m']]);
+        }
+        return $this->render('asignar', [
+            "grabo" => $flag,
+            "delivery" => $delivery,
+            "transporte" => $tmp,
+        ]);
+        //print_r( $delivery);die();
+    }
+
+    public function actionPedidos()
+    {
+        $session = \Yii::$app->session;
+        if (!$session->has('local')) {
+            $this->redirect("/admin/local/login");
+        }
+        $delivery = (new Query())
+            ->select('*')
+            ->from('delivery')
+            ->join("INNER JOIN", "transporte", "delivery.id_transporte = transporte.id_transporte")
+            ->where("paso=:paso and delivery.id_local=:id_local", [":paso" => "en camino", ':id_local' => $session['local']->id_local])
+            ->all();
+        return $this->render('pedidos', [
+            "delivery" => $delivery,
+        ]);
+    }
+    public function actionSeguimiento()
+    {
+        $session = \Yii::$app->session;
+        if (!$session->has('local')) {
+            $this->redirect("/admin/local/login");
+        }
+        $get = \Yii::$app->request->get();
+        if(empty($get)){
+            return $this->redirect("/admin/local/pedidos");
+        }
+        $transporte = (new Query())
+            ->select("id_transporte,nombre, apellido_p, apellido_m, longitud,latitud")
+            ->from("transporte")
+            ->where([
+                'id_transporte' => $get['id_transporte'],
+                'id_local' => $session['local']->id_local
+            ])
+            ->all();
+        if(count($transporte)==0){
+            return $this->redirect("/admin/local/pedidos");
+        }
+        return $this->render("seguimiento", [
+            'transporte' => $transporte[0],
+        ]);
+    }
+    public function actionLogout()
+    {
+        $session = \Yii::$app->session;
+
+        $session->remove('local');
+        $this->redirect("/admin/local/login");
     }
 }

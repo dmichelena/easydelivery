@@ -1,4 +1,4 @@
-<?php 
+ç<?php
 use yii\bootstrap\ActiveForm;
 ?>
 		<section class="row">

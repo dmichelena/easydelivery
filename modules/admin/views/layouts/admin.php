@@ -43,7 +43,6 @@ AppAsset::register($this);
     if($session->has('admin'))
     {
         $menu = [
-            ['label' => 'Home', 'url' => '/site'],
             ['label' => 'Locales', 'url' => '/admin/local'],
             ['label' => 'Productos', 'url' => '/admin/producto'],
             ['label' => 'Transporte', 'url' => '/admin/transporte'],
@@ -52,9 +51,21 @@ AppAsset::register($this);
                 'linkOptions' => ['data-method' => 'post']],
         ];
     }
+    else if($session->has('local'))
+    {
+        $menu = [
+            ['label' => 'Productos', 'url' => '/admin/local/productos'],
+            ['label' => 'Asignar Pedidos', 'url' => '/admin/local/asignar'],
+            ['label' => 'Pedidos En Camino', 'url' => '/admin/local/pedidos'],
+            ['label' => 'Logout',
+              'url' => '/admin/local/logout',
+                'linkOptions' => ['data-method' => 'post']],
+        ];
+    }
     else
     {
-        $menu[] = ['label' => 'Login', 'url' => '/admin/empresa/superlogin'];
+        $menu[] = ['label' => 'Empresa', 'url' => '/admin/empresa/superlogin'];
+        $menu[] = ['label' => 'Local', 'url' => '/admin/local/login'];
     }
 
     echo Nav::widget([
@@ -83,6 +94,7 @@ AppAsset::register($this);
 <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
 <script type="text/javascript" src="/js/map.js"></script>
+<script type="text/javascript" src="/js/mapSeguimientoLocal.js"></script>
 
 <script type="text/javascript">
     $("[name=\"Empresa[ruc]\"]").keyup(function(){

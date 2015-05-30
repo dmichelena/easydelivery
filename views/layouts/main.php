@@ -73,7 +73,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; EasyDelivery <?= date('Y') ?></p>
-            <p class="pull-right">Solo hay 10 tipos de personas en el mundo. Las que saben binario y las que no.</p>
+            <p class="pull-right"><a href="/admin/empresa/superlogin">¿Eres empresa?</a></p>
         </div>
     </footer>
 
@@ -81,6 +81,7 @@ AppAsset::register($this);
 <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDjzEmhSjvEf09A___LMxgDhm-fL0cWacA&sensor=TRUE"></script>
 <script type="text/javascript" src="/js/map.js"></script>
+<script type="text/javascript" src="/js/mapSeguimiento.js"></script>
 
 <script type="text/javascript">
 
@@ -129,6 +130,7 @@ AppAsset::register($this);
     });
 
 document.onload = initializeMap();
+
 </script>
 </body>
 </html>

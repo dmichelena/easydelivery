@@ -18,11 +18,47 @@ class WsController extends ActiveController
         $pedidos = (new Query())
             ->select("delivery.id_delivery,nombre_receptor,sum(cantidad*precio_unitario)+costo_envio as monto, destino_longitud, destino_latitud")
             ->from("delivery")
-            ->join("INNER JOIN", 'pedido', 'delivery.id_delivery=pedido.id_delivery')
+            ->join("LEFT JOIN", 'pedido', 'delivery.id_delivery=pedido.id_delivery')
             ->join("INNER JOIN", "usuario", "delivery.id_usuario=usuario.id_usuario")
             ->where("paso = :paso and id_transporte = :id_transporte", [':paso' => 'en camino', ':id_transporte' => $request['id_transporte']])
+            ->groupBy("delivery.id_delivery")
             ->all();
         return $pedidos;
+    }
+
+    public function actionMotopos()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $request = Yii::$app->request->post();
+        $pos = (new Query())
+            ->select("longitud,latitud")
+            ->from("delivery")
+            ->join("INNER JOIN", 'transporte', 'delivery.id_transporte=transporte.id_transporte')
+            ->where("paso = :paso and id_delivery = :id_delivery", [':paso' => 'en camino', ':id_delivery' => $request['id_delivery']])
+            ->all();
+
+        if(count($pos)==0){
+            return ["respuesta" => false];
+        }
+
+        return ["respuesta" => true ,"pos" => $pos[0] ];
+    }
+
+    public function actionMotoposlocal()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $request = Yii::$app->request->post();
+        $pos = (new Query())
+            ->select("longitud,latitud")
+            ->from("transporte")
+            ->where("id_transporte = :id_transporte", [ ':id_transporte' => $request['id_transporte']])
+            ->all();
+
+        if(count($pos)==0){
+            return ["respuesta" => false];
+        }
+
+        return ["respuesta" => true ,"pos" => $pos[0] ];
     }
 
     public function actionDetalle()
@@ -36,7 +72,7 @@ class WsController extends ActiveController
             INNER JOIN producto ON producto.id_producto=pedido.id_producto
             WHERE delivery.id_delivery=%s";
         $sql = sprintf($sql, $request['id_delivery']);
-        //$detalle = Yii::$app->db->createCommand($sql)->queryAll();
+        $detalle = Yii::$app->db->createCommand($sql)->queryAll();
         $productos = array();
         $total = 0;
         foreach ($detalle as $d) {

@@ -34,7 +34,24 @@ class UsuarioController extends \yii\web\Controller
         {
             return $this->redirect("/");
         }
-
+        $get = \Yii::$app->request->get();
+        if(empty($get)){
+            return $this->redirect("/usuario/pedidos");
+        }
+        $pedido = (new Query())
+            ->select("id_delivery, nombre, apellido_p, apellido_m, longitud,latitud, paso")
+            ->from("delivery")
+            ->join("INNER JOIN", 'transporte', 'delivery.id_transporte=transporte.id_transporte')
+            ->where([
+                'id_delivery' => $get['id_delivery']
+            ])
+            ->all();
+        if(count($pedido)==0||$pedido[0]['paso']!='en camino'){
+            return $this->redirect("/usuario/pedidos");
+        }
+        return $this->render("seguimiento", [
+            'pedido' => $pedido[0],
+        ]);
 
     }
     public function actionDetalle()

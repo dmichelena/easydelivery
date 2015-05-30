@@ -44,6 +44,7 @@
             </thead>
             <tbody>
             <?
+            echo "<pre>";print_r($model);die();
             foreach($model as $m) {
                 ?>
                 <tr>

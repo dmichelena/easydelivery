@@ -44,7 +44,7 @@
             </thead>
             <tbody>
             <?php
-            foreach($model as $m) {
+            foreach($model as $m):
                 ?>
                 <tr>
                     <td><?= $m['nombre'] ?></td>
@@ -52,8 +52,8 @@
                     <td><?= $m['cantidad'] ?></td>
                     <td>S/. <?= $m['cantidad'] * $m['precio_unitario'] ?></td>
                 </tr>
-            <?
-            }
+            <?php
+            endforeach;
             ?>
             </tbody>
         </table>

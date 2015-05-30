@@ -43,9 +43,8 @@
             </tr>
             </thead>
             <tbody>
-            <?
-            echo "<pre>";print_r($model);die();
-            foreach($model as $m) {
+            <
+            foreach($model as $a => $m) {
                 ?>
                 <tr>
                     <td><?= $m['nombre'] ?></td>

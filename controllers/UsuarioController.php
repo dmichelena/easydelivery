@@ -54,15 +54,25 @@ class UsuarioController extends \yii\web\Controller
         ]);
 
     }
-    public function actionDetalle()
+    public function actionDetalle($id_delivery)
     {
         $session = \Yii::$app->session;
-
         if(!$session->has('usuario-webos'))
         {
             return $this->redirect("/");
         }
-
-
+        $model = (new Query())
+            ->select("*")
+            ->from("delivery")
+            ->join("INNER JOIN", "pedido", "pedido.id_delivery = delivery.id_delivery")
+            ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
+            ->join("INNER JOIN", "producto", "producto.id_producto = pedido.id_producto")
+            ->where([
+                'delivery.id_delivery' => $id_delivery
+            ])
+            ->all();
+        return $this->render("detalle",[
+            'model' => $model
+        ]);
     }
 }

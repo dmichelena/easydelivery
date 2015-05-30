@@ -36,7 +36,18 @@ class UsuarioController extends \yii\web\Controller
             return $this->redirect("/");
         }
 
-        echo $id_delivery;die();
+        $model = (new Query())
+            ->select("*")
+            ->from("delivery")
+            ->join("INNER JOIN", "pedido", "pedido.id_delivery = delivery.id_delivery")
+            ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
+            ->join("INNER JOIN", "producto", "producto.id_producto = pedido.id_producto")
+            ->where([
+                'delivery.id_delivery' => $id_delivery
+            ])
+            ->all();
+
+        echo "<pre>";print_r($model);die();
     }
 
     public function actionSeguimiento()

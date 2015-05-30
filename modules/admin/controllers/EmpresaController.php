@@ -156,7 +156,7 @@ class EmpresaController extends Controller
                 $session = \Yii::$app->session;
                 $session['admin'] = $empresita;
 
-                return $this->redirect('/admin/empresa');
+                return $this->redirect('/admin/local/index');
     		}
     		else
     		{

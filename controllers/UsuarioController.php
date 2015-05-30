@@ -27,7 +27,7 @@ class UsuarioController extends \yii\web\Controller
         ]);
     }
 
-    public function actionDetalle($id_pedido)
+    public function actionDetalle($id_delivery)
     {
         $session = \Yii::$app->session;
 
@@ -36,7 +36,7 @@ class UsuarioController extends \yii\web\Controller
             return $this->redirect("/");
         }
 
-        echo $id_pedido;die();
+        echo $id_delivery;die();
     }
 
     public function actionSeguimiento()

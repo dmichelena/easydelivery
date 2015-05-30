@@ -47,7 +47,6 @@ class Local extends \yii\db\ActiveRecord
             [['status'], 'string'],
             [['costo_envio'], 'number'],
             [['nombre', 'direccion'], 'string', 'max' => 100],
-            [['latitud', 'longitud'], 'string', 'max' => 13],
             [['telefono'], 'string', 'max' => 15],
             [['usuario', 'password'], 'string', 'max' => 45]
         ];

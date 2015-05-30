@@ -1,0 +1,23 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 36 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   controllers/UsuarioController.php
+#	modified:   controllers/WsController.php
+#	modified:   modules/admin/controllers/LocalController.php
+#	modified:   modules/admin/views/layouts/admin.php
+#	new file:   modules/admin/views/local/asignar.php
+#	new file:   modules/admin/views/local/pedidos.php
+#	new file:   modules/admin/views/local/seguimiento.php
+#	modified:   views/layouts/main.php
+#	modified:   views/registro/index.php
+#	new file:   views/usuario/seguimiento.php
+#	modified:   web/AppMoto/index.html
+#	modified:   web/AppMoto/js/main.js
+#	new file:   web/AppMoto/js/map.js
+#	new file:   web/js/mapSeguimiento.js
+#	new file:   web/js/mapSeguimientoLocal.js

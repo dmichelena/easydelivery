@@ -2,6 +2,7 @@
 namespace app\modules\admin\controllers;
 
 
+use yii\db\Query;
 use yii\web\Controller;
 
 class ReporteController extends Controller
@@ -9,6 +10,23 @@ class ReporteController extends Controller
 
     public function actionIndex()
     {
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
+        $productosVendidos = (new Query())
+            ->select("producto.*, SUM(pedido.cantidad)")
+            ->from("producto")
+            ->join("INNER JOIN", "pedido", "pedido.id_producto = producto_id_producto")
+            ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
+            ->where(["id_empresa" => $session['admin']->id])
+            ->groupBy(['producto.id_producto'])
+            ->orderBy(['SUM(pedido.cantidad)'])
+            ->all();
+        echo "<pre>";print_r($productosVendidos);die();
+
         return $this->render('index');
     }
 

@@ -43,8 +43,8 @@
             </tr>
             </thead>
             <tbody>
-            <
-            foreach($model as $a => $m) {
+            <?php
+            foreach($model as $m) {
                 ?>
                 <tr>
                     <td><?= $m['nombre'] ?></td>

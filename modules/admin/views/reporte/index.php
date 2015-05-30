@@ -62,18 +62,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>19</td>
-                                <td>Pizza Napolitana (Grande)</td>
-                                <td>10</td>
-                                <td>S/. 399.00</td>
-                            </tr>
-                            <tr>
-                                <td>20</td>
-                                <td>Pizza Napolitana (XL)</td>
-                                <td>10</td>
-                                <td>S/. 519.00</td>
-                            </tr>
+                            <?php foreach($productoVendido as $pv): ?>
+                                ['<?= $pv['nombre'] ?>', <?= $pv['vendido'] ?>],
+                                <tr>
+                                    <td><?= $pv['id_producto'] ?></td>
+                                    <td><?= $pv['nombre'] ?></td>
+                                    <td><?= $pv['vendido'] ?></td>
+                                    <td>S/. <?=$pv['vendido']*$pv['precio_unitario'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
 
                             </tbody>
                         </table>

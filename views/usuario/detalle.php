@@ -1,5 +1,9 @@
+<div class="col-lg-9 col-md-9 col-xs-6">
+    <h2>Mis Pedidos</h2>
+</div>
+
 <div class="row">
-    <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12">
         <table class="table table-condensed table-hover">
             <tbody>
             <tr>
@@ -32,7 +36,7 @@
     <br />
     <br />
 
-    <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12">
         <table class="table table-condensed table-hover">
             <thead>
             <tr class="active">

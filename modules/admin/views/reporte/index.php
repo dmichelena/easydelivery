@@ -58,7 +58,6 @@
                                 <th>idProducto</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
-                                <th>Importe</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -68,7 +67,6 @@
                                     <td><?= $pv['id_producto'] ?></td>
                                     <td><?= $pv['nombre'] ?></td>
                                     <td><?= $pv['vendido'] ?></td>
-                                    <td>S/. <?=$pv['vendido']*$pv['precio_unitario'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
 

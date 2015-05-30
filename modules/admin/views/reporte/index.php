@@ -62,7 +62,6 @@
                             </thead>
                             <tbody>
                             <?php foreach($productoVendido as $pv): ?>
-                                ['<?= $pv['nombre'] ?>', <?= $pv['vendido'] ?>],
                                 <tr>
                                     <td><?= $pv['id_producto'] ?></td>
                                     <td><?= $pv['nombre'] ?></td>

@@ -198,7 +198,7 @@
         data.addRows([
             <?php foreach($productoVendido as $pv): ?>
                 ['<?= $pv['nombre'] ?>', <?= $pv['vendido'] ?>],
-            <? endforeach; ?>;
+            <?php endforeach; ?>;
         ]);
 
         // Set chart options

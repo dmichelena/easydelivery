@@ -26,6 +26,12 @@ class UsuarioController extends \yii\web\Controller
             'model' => $model,
         ]);
     }
+
+    public function actionDetalle($id_pedido)
+    {
+        echo $id_pedido;die();
+    }
+
     public function actionSeguimiento()
     {
         $session = \Yii::$app->session;

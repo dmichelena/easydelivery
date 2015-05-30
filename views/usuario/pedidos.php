@@ -23,7 +23,7 @@
                     <td><?= $m['id_delivery'] ?></td>
                     <td><?= $m['fecha_pedido'] ?></td>
                     <td><?= date("Y-m-d H:i:s", strtotime($m['fecha_pedido']) + 45* 60);  ?></td>
-                    <td><a href="/usuario/detalle/?id_delivery=<?= $m['id_delivery'] ?>" class="btn btn-primary">Ver Detalle</a></td>
+                    <td><a href="/usuario/detalle?id_delivery=<?= $m['id_delivery'] ?>" class="btn btn-primary">Ver Detalle</a></td>
                     <td><?= $m['paso'] ?></td>
                     <?php if ($m['paso']=="en camino"): ?>
                         <td><a href="/usuario/seguimiento/?id_delivery=<?= $m['id_delivery'] ?>" class="btn btn-primary">Ver</a></td>

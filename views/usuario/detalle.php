@@ -50,29 +50,11 @@
                 <td><?= $m['nombre'] ?></td>
                 <td>S/. <?= $m['precio_unitario']?></td>
                 <td><?= $m['cantidad'] ?></td>
-                <td>S/. <?= $m['cantidad']*$m['precio_unitario']</td>
+                <td>S/. <?= $m['cantidad']*$m['precio_unitario']?></td>
             </tr>
             <?
             endforeach;
             ?>
-            <tr>
-                <td>Mega Famiiar</td>
-                <td>S/. 49.00</td>
-                <td>1</td>
-                <td>S/. 49.00</td>
-            </tr>
-            <tr>
-                <td>Costo de envío</td>
-                <td></td>
-                <td></td>
-                <td>S/. 0.00</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td></td>
-                <td></td>
-                <td><strong>S/. 88.00</strong></td>
-            </tr>
             </tbody>
         </table>
         <br />

@@ -10,7 +10,10 @@ class WsController extends ActiveController
 {
     //MODELO AGREGADO SOLO PARA EVITAR ERROR....
     public $modelClass = 'app\models\Turno';
-
+    public function beforeAction()
+    {
+         header('Access-Control-Allow-Origin: *');  
+    }
     public function actionPedidos()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;

@@ -13,6 +13,7 @@ class WsController extends ActiveController
     public function beforeAction()
     {
          header('Access-Control-Allow-Origin: *');  
+         return true;
     }
     public function actionPedidos()
     {

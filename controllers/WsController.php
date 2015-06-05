@@ -102,13 +102,13 @@ class WsController extends ActiveController
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request = Yii::$app->request->post();
-        $sql = "UPDATE delivery SET paso='%s' where id_delivery=%s";
         if ($request['estado'] == 1) {
-            $paso = 'enviado';
+            $sql = "UPDATE delivery SET paso='enviado' where id_delivery=%s";
+            $sql = sprintf($sql, $request['id_delivery']);
         } else {
-            $paso = 'cancelado';
+            $sql = "UPDATE delivery SET paso='cancelado', justificacion_cancelado='%s' where id_delivery=%s";
+            $sql = sprintf($sql, $request['motivo'],$request['id_delivery']);
         }
-        $sql = sprintf($sql, $paso, $request['id_delivery']);
         Yii::$app->db->createCommand($sql)->execute();
         return ["respuesta" => true];
     }

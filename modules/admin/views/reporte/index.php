@@ -47,7 +47,6 @@
                         <h2>Productos mas vendidos</h2><br />
                     </div>
                     <div class="col-lg-4 col-xs-12"></div>
-                    <div id="chart_div"></div>
                     <br />
                     <br />
 
@@ -119,8 +118,6 @@
                     <div style="text-align: center">
                         <h2>Clientes frecuentes</h2><br />
                     </div>
-                    <div class="col-lg-4 col-xs-12"></div>
-                    <img alt="Ubicacion" src="http://girlfromoutofthisworld.com/wp-content/uploads/2013/01/GoogleCharts.png" />
                     <br />
                     <br />
 

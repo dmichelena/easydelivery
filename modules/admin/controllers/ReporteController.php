@@ -27,10 +27,22 @@ class ReporteController extends Controller
             ->orderBy('SUM(pedido.cantidad) DESC')
             ->all();
 
+        $clientesFrecuentes = (new Query())
+            ->select("dni_receptor, nombre_receptor, COUNT(*)")
+            ->from("delivery")
+            ->join("INNER JOIN", "local", "local.id_local = delivery.id_local")
+            ->where("paso = 'enviado")
+            ->andWhere(["local.id_empresa" => $session['admin']->id])
+            ->groupBy(["nombre_receptor"])
+            ->limit(100)
+            ->all()
+
+            echo "<pre>";print_R($clientesFrecuentes);die();
 
         return $this->render('index',
             [
                 'productoVendido' => $productosVendidos,
+                'clientesFrecuentes' => $clientesFrecuentes,
             ]);
     }
 

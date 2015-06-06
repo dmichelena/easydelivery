@@ -101,6 +101,9 @@ class LocalController extends Controller
     {
         $model = $this->findModel($id);
         $session = \Yii::$app->session;
+        if (!$session->has('admin')) {
+            $this->redirect("/admin/empresa/superlogin");
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_local]);
@@ -108,7 +111,6 @@ class LocalController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'session' => $session['admin'],
-                
             ]);
         }
     }

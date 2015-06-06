@@ -91,6 +91,12 @@ class TransporteController extends Controller
      */
     public function actionUpdate($id)
     {
+        $session = \Yii::$app->session;
+        if(!$session->has('admin'))
+        {
+            $this->redirect("/admin/empresa/superlogin");
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -98,6 +104,7 @@ class TransporteController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'session' => $session,
             ]);
         }
     }

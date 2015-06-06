@@ -37,7 +37,6 @@ class ReporteController extends Controller
             ->limit(100)
             ->all();
 
-            echo "<pre>";print_R($clientesFrecuentes);die();
 
         return $this->render('index',
             [

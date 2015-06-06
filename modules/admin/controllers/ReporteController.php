@@ -35,7 +35,7 @@ class ReporteController extends Controller
             ->andWhere(["local.id_empresa" => $session['admin']->id])
             ->groupBy(["nombre_receptor"])
             ->limit(100)
-            ->all()
+            ->all();
 
             echo "<pre>";print_R($clientesFrecuentes);die();
 

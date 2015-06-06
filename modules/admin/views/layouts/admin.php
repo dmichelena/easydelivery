@@ -46,6 +46,7 @@ AppAsset::register($this);
             ['label' => 'Locales', 'url' => '/admin/local'],
             ['label' => 'Productos', 'url' => '/admin/producto'],
             ['label' => 'Transporte', 'url' => '/admin/transporte'],
+            ['label' => 'Reporte', 'url' => '/admin/reporte'],
             ['label' => 'Logout (' . $session['admin']->razon_social . ')',
                 'url' => '/admin/empresa/logout',
                 'linkOptions' => ['data-method' => 'post']],

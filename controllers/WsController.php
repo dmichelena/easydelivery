@@ -1,16 +1,18 @@
 <?php
 namespace app\controllers;
-
 use Yii;
 use yii\db\Query;
 use yii\rest\ActiveController;
 use yii\web\Response;
-
 class WsController extends ActiveController
 {
     //MODELO AGREGADO SOLO PARA EVITAR ERROR....
     public $modelClass = 'app\models\Turno';
-
+    public function beforeAction()
+    {
+         header('Access-Control-Allow-Origin: *');  
+         return true;
+    }
     public function actionPedidos()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -25,7 +27,6 @@ class WsController extends ActiveController
             ->all();
         return $pedidos;
     }
-
     public function actionMotopos()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -36,14 +37,11 @@ class WsController extends ActiveController
             ->join("INNER JOIN", 'transporte', 'delivery.id_transporte=transporte.id_transporte')
             ->where("paso = :paso and id_delivery = :id_delivery", [':paso' => 'en camino', ':id_delivery' => $request['id_delivery']])
             ->all();
-
         if(count($pos)==0){
             return ["respuesta" => false];
         }
-
         return ["respuesta" => true ,"pos" => $pos[0] ];
     }
-
     public function actionMotoposlocal()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -53,14 +51,11 @@ class WsController extends ActiveController
             ->from("transporte")
             ->where("id_transporte = :id_transporte", [ ':id_transporte' => $request['id_transporte']])
             ->all();
-
         if(count($pos)==0){
             return ["respuesta" => false];
         }
-
         return ["respuesta" => true ,"pos" => $pos[0] ];
     }
-
     public function actionDetalle()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -93,22 +88,20 @@ class WsController extends ActiveController
         ];
         return $respuesta;
     }
-
     public function actionActualizar()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request = Yii::$app->request->post();
-        $sql = "UPDATE delivery SET paso='%s' where id_delivery=%s";
         if ($request['estado'] == 1) {
-            $paso = 'enviado';
+            $sql = "UPDATE delivery SET paso='enviado' where id_delivery=%s";
+            $sql = sprintf($sql, $request['id_delivery']);
         } else {
-            $paso = 'cancelado';
+            $sql = "UPDATE delivery SET paso='cancelado', justificacion_cancelado='%s' where id_delivery=%s";
+            $sql = sprintf($sql, $request['motivo'],$request['id_delivery']);
         }
-        $sql = sprintf($sql, $paso, $request['id_delivery']);
         Yii::$app->db->createCommand($sql)->execute();
         return ["respuesta" => true];
     }
-
     public function actionPosicion()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -118,7 +111,6 @@ class WsController extends ActiveController
         Yii::$app->db->createCommand($sql)->execute();
         return $sql;
     }
-
     public function actionAutenticar()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;

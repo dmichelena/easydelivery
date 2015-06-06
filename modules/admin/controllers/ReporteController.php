@@ -31,7 +31,7 @@ class ReporteController extends Controller
             ->select("dni_receptor, nombre_receptor, COUNT(*)")
             ->from("delivery")
             ->join("INNER JOIN", "local", "local.id_local = delivery.id_local")
-            ->where("paso = 'enviado")
+            ->where("paso = 'enviado'")
             ->andWhere(["local.id_empresa" => $session['admin']->id])
             ->groupBy(["nombre_receptor"])
             ->limit(100)

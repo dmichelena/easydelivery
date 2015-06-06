@@ -125,20 +125,23 @@
                         <table class="table table-condensed table-hover">
                             <thead>
                             <tr class="active">
-                                <th>idCliente</th>
+                                <th>DNI</th>
                                 <th>Cliente</th>
                                 <th>Cantidad Compras</th>
-                                <th>Importe</th>
-
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                foreach($clientesFrecuentes as $cf):
+                            ?>
                             <tr>
-                                <td>19</td>
-                                <td>John Manuel Sandonas</td>
-                                <td>10</td>
-                                <td>S/. 219.00</td>
+                                <td><?= $cf['dni_receptor'] ?></td>
+                                <td><?= $cf['nombre_receptor'] =></td>
+                                <td><?= $cf['COUNT(*)'] ?></td>
                             </tr>
+                            <?php
+                                endforeach;
+                            ?>
                             <tr>
                                 <td>19</td>
                                 <td>Jonathan Pinto</td>

@@ -193,6 +193,11 @@ class PedidoController extends Controller
             $id_delivery = \Yii::$app->db->getLastInsertID();
             foreach($session['pedido'] as $p => $cant)
             {
+                $productoLocal = ProductoLocal::find()->where([
+                    'id_producto' => $p,
+                    'id_local'      => $_GET['id'],
+                ])->all();
+                echo "<pre>";print_r($productoLocal);die();
                 \Yii::$app->db->createCommand()->insert('pedido',[
                     'id_producto'   => $p,
                     'id_local'      => $_GET['id'],

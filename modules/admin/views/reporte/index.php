@@ -136,7 +136,7 @@
                             ?>
                             <tr>
                                 <td><?= $cf['dni_receptor'] ?></td>
-                                <td><?= $cf['nombre_receptor'] =></td>
+                                <td><?= $cf['nombre_receptor'] ?></td>
                                 <td><?= $cf['COUNT(*)'] ?></td>
                             </tr>
                             <?php

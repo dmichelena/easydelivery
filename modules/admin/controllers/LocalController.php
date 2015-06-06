@@ -108,6 +108,7 @@ class LocalController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'session' => $session['admin'],
+                
             ]);
         }
     }

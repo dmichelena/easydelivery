@@ -196,14 +196,14 @@ class PedidoController extends Controller
                 $productoLocal = ProductoLocal::find()->where([
                     'id_producto' => $p,
                     'id_local'      => $_GET['id'],
-                ])->all();
-                echo "<pre>";print_r($productoLocal);die();
+                ])->one();
+                
                 \Yii::$app->db->createCommand()->insert('pedido',[
                     'id_producto'   => $p,
                     'id_local'      => $_GET['id'],
                     'id_delivery'   => $id_delivery,
                     'cantidad'      => $cant,
-                    'precio_unitario'        => 0,
+                    'precio_unitario'        => $productoLocal->precio,
                 ])->execute();
             }
 

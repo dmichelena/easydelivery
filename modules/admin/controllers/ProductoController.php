@@ -131,8 +131,10 @@ class ProductoController extends Controller
         }
 
         $model = $this->findModel($id);
+        $post = Yii::$app->request->post();
+        unset($post['Producto']['foto']);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($post) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_producto]);
         } else {
             return $this->render('update', [

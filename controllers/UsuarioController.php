@@ -14,6 +14,8 @@ class UsuarioController extends \yii\web\Controller
             return $this->redirect("/");
         }
 
+        $pedidos = (new Query())->select("id_delivery")->from("pedido")->where('<>', 'cantidad', '0')->groupBy("id_delivery");
+        
         $model = (new Query())
             ->select("*")
             ->from("delivery")
@@ -21,7 +23,7 @@ class UsuarioController extends \yii\web\Controller
                 'id_usuario' => $session['usuario-webos']->id_usuario,
             ])
             ->andWhere([
-				'id_delivery' => (new Query())->select("id_delivery")->from("pedido")->where('<>', 'cantidad', '0')->groupBy("id_delivery")
+				'id_delivery' => $pedidos
     	    ])
             ->orderBy("id_delivery DESC")
             ->all();

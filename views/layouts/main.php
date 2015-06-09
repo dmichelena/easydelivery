@@ -86,7 +86,6 @@ AppAsset::register($this);
 <script type="text/javascript">
 
 $("input[name=\"Comprobante\"]").click(function(){
-	alert("ok");
 	if($(this).val() == 1)
 	{
 		$(".empresa").show();

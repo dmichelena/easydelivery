@@ -14,8 +14,7 @@ class UsuarioController extends \yii\web\Controller
             return $this->redirect("/");
         }
 
-        $pedidos = (new Query())->select("id_delivery")->from("pedido")->where('<>', 'cantidad', '0')->groupBy("id_delivery")->all();
-        echo "<pre>";print_r($pedidos);die();
+        $pedidos = (new Query())->select("id_delivery")->from("pedido")->where(['<>', 'cantidad', '0'])->groupBy("id_delivery");
         
         $model = (new Query())
             ->select("*")

@@ -98,7 +98,7 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
             
-            <div class="form-group empresa">
+            <div class="form-group empresa" style="display:none">
                 <label class="col-sm-3 control-label">RUC:</label>
                 <div class="col-sm-9">
                     <input type="text" name="ruc" class="form-control" placeholder="Ejemplo: 19875487542">
@@ -119,13 +119,3 @@ use yii\widgets\ActiveForm;
 
     </div> <br></br><br></br>
 <?php ActiveForm::end(); ?>
-<script type="text/javascript">
-	$("[name=\"Comprobante\"]").click(function(){
-		if($(this).val() == 1)
-		{
-			$(".empresa").show();
-		}else{
-			$(".empresa").hide();
-		}
-	});
-</script>

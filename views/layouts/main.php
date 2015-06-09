@@ -131,7 +131,18 @@ AppAsset::register($this);
 
 document.onload = initializeMap();
 
+$("[name=\"Comprobante\"]").click(function(){
+	if($(this).val() == 1)
+	{
+		$(".empresa").show();
+	}else{
+		$(".empresa").hide();
+	}
+});
+
 </script>
+
+
 </body>
 </html>
 <?php $this->endPage() ?>

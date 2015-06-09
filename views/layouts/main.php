@@ -131,7 +131,7 @@ AppAsset::register($this);
 
 document.onload = initializeMap();
 
-$(".comprobante").click(function(){
+$("input[name=\"Comprobante\"]").click(function(){
 	alert("ok");
 	if($(this).val() == 1)
 	{

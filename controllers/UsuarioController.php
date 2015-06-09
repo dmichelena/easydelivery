@@ -76,7 +76,7 @@ class UsuarioController extends \yii\web\Controller
             ->where([
                 	'delivery.id_delivery' => $id_delivery,
             ])
-            ->andWhere("<>", "pedido.cantidad", 0)
+            ->andWhere(["<>", "pedido.cantidad", 0])
             ->all();
         return $this->render("detalle",[
             'model' => $model

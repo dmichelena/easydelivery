@@ -69,8 +69,9 @@ class UsuarioController extends \yii\web\Controller
             ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")
             ->join("INNER JOIN", "producto", "producto.id_producto = pedido.id_producto")
             ->where([
-                'delivery.id_delivery' => $id_delivery
+                	'delivery.id_delivery' => $id_delivery,
             ])
+            ->andWhere("<>", "pedido.cantidad", 0)
             ->all();
         return $this->render("detalle",[
             'model' => $model

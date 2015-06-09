@@ -131,7 +131,8 @@ AppAsset::register($this);
 
 document.onload = initializeMap();
 
-$("[name=\"Comprobante\"]").click(function(){
+$("[name=\"Comprobante\"]").change(function(){
+	alert("ok");
 	if($(this).val() == 1)
 	{
 		$(".empresa").show();

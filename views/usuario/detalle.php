@@ -1,5 +1,5 @@
 <div class="col-lg-9 col-md-9 col-xs-6">
-    <h2>Mis Pedidos - <?= $model[0]['local_nombre']?></h2>
+    <h2>Mis Pedidos</h2><h4><?= $model[0]['local_nombre']?></h4>
 </div>
 
 <div class="row">

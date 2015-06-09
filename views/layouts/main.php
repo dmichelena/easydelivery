@@ -85,6 +85,18 @@ AppAsset::register($this);
 
 <script type="text/javascript">
 
+$("input[name=\"Comprobante\"]").click(function(){
+	alert("ok");
+	if($(this).val() == 1)
+	{
+		$(".empresa").show();
+	}
+	else
+	{
+		$(".empresa").hide();
+	}
+});
+
     $("select").change(function(){
 
         subTotal = ($(".sub-total").html()*1);
@@ -130,16 +142,6 @@ AppAsset::register($this);
     });
 
 document.onload = initializeMap();
-
-$("input[name=\"Comprobante\"]").click(function(){
-	alert("ok");
-	if($(this).val() == 1)
-	{
-		$(".empresa").show();
-	}else{
-		$(".empresa").hide();
-	}
-});
 
 </script>
 

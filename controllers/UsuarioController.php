@@ -63,7 +63,7 @@ class UsuarioController extends \yii\web\Controller
             return $this->redirect("/");
         }
         $model = (new Query())
-            ->select("*")
+            ->select("*, local.nombre as local_nombre")
             ->from("delivery")
             ->join("INNER JOIN", "pedido", "pedido.id_delivery = delivery.id_delivery")
             ->join("INNER JOIN", "local", "local.id_local = pedido.id_local")

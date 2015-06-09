@@ -90,10 +90,10 @@ use yii\widgets\ActiveForm;
                 <label class="col-sm-3 control-label">Comprobante:</label>
                 <div class="col-sm-9">
                     <label class="radio-inline">
-                        <input type="radio" name="Comprobante" value="1"> Factura
+                        <input type="radio" name="Comprobante" class="comprobante" value="1"> Factura
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="Comprobante" value="2"> Boleta
+                        <input type="radio" name="Comprobante" class="comprobante" value="2"> Boleta
                     </label>
                 </div>
             </div>

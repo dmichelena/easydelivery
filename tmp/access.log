@@ -707,3 +707,6 @@
 127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /assets/ea7bab79/js/bootstrap.js HTTP/1.1" 304 -
 127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /assets/63a1ee7a/yii.activeForm.js HTTP/1.1" 304 -
 127.0.0.1 - - [08/Apr/2015:16:22:42 -0500] "GET /favicon.ico HTTP/1.1" 304 -
+127.0.0.1 - - [09/Jun/2015:13:54:28 -0500] "GET / HTTP/1.1" 500 109929
+127.0.0.1 - - [09/Jun/2015:13:54:29 -0500] "GET /favicon.ico HTTP/1.1" 200 318
+127.0.0.1 - - [09/Jun/2015:13:54:29 -0500] "GET /debug/default/toolbar?tag=55773664ca19a HTTP/1.1" 404 72

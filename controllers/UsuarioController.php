@@ -20,6 +20,7 @@ class UsuarioController extends \yii\web\Controller
             ->where([
                 'id_usuario' => $session['usuario-webos']->id_usuario,
             ])
+            ->orderBy("id_delivery DESC")
             ->all();
 
         return $this->render("pedidos", [

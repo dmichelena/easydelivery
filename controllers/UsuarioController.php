@@ -20,6 +20,9 @@ class UsuarioController extends \yii\web\Controller
             ->where([
                 'id_usuario' => $session['usuario-webos']->id_usuario,
             ])
+            ->andWhere([
+				'id_delivery' => (new Query())->select("*")->from("pedido")->where('<>', 'cantidad', '0')
+    	    ])
             ->orderBy("id_delivery DESC")
             ->all();
 

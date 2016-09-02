@@ -14,7 +14,7 @@ $config = [
     ],
     'components' => [
         'session' => [
-            'class' => 'yii\web\DbSession',
+            'class' => 'yii\web\CacheSession',
             //'db' => 'easydelivery',  // the application component ID of the DB connection. Defaults to 'db'.
             //'sessionTable' => 'my_session', // session table name. Defaults to 'session'.
         ],
@@ -60,8 +60,8 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 'yii\debug\Module';
+    //$config['bootstrap'][] = 'debug';
+    //$config['modules']['debug'] = 'yii\debug\Module';
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';

@@ -179,7 +179,7 @@ class PedidoController extends Controller
                     'id_local'                      => $_GET['id'],
                     'paso'                          => 'en proceso',
                     'costo_envio'                   => 10,
-                    'id_transporte'                 => 1,
+                    'id_transporte'                 => null,
                     'tipo_comprobante'              => ($post['Comprobante'] == 2)?'boleta':'factura',
                     'nombre_receptor'               => $post['nombres'],
                     'dni_receptor'                  => $post['dni'],
